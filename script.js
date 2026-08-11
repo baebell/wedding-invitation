@@ -308,43 +308,36 @@ setInterval(
     1000
 );
 
-
-
 /* =====================================================
-   PHOTO MODAL
+   PHOTO MODAL + SWIPE
 ===================================================== */
 
 const galleryItems =
-    document.querySelectorAll(
-        ".gallery-item"
-    );
-
+    document.querySelectorAll(".gallery-item");
 
 const photoModal =
-    document.getElementById(
-        "photoModal"
-    );
-
+    document.getElementById("photoModal");
 
 const modalImage =
-    document.getElementById(
-        "modalImage"
-    );
-
+    document.getElementById("modalImage");
 
 const closeModal =
-    document.getElementById(
-        "closeModal"
-    );
+    document.getElementById("closeModal");
 
-
-/*
-   사진을 열기 전
-   현재 스크롤 위치 저장
-*/
 
 let savedScrollPosition = 0;
 
+let currentImageIndex = 0;
+
+let touchStartX = 0;
+let touchEndX = 0;
+
+
+/* 갤러리 이미지 목록 */
+const galleryImages =
+    Array.from(galleryItems).map(
+        item => item.dataset.image
+    );
 
 
 /* =====================================================
@@ -352,7 +345,7 @@ let savedScrollPosition = 0;
 ===================================================== */
 
 galleryItems.forEach(
-    function (item) {
+    function (item, index) {
 
         item.addEventListener(
             "click",
@@ -360,31 +353,19 @@ galleryItems.forEach(
 
                 event.preventDefault();
 
-
-                /*
-                   현재 보고 있는 위치 기억
-                */
-
                 savedScrollPosition =
                     window.scrollY ||
                     document.documentElement.scrollTop;
 
 
-                /*
-                   눌렀던 사진 주소
-                */
-
-                const image =
-                    item.dataset.image;
+                currentImageIndex =
+                    index;
 
 
-                modalImage.src =
-                    image;
+                showImage(
+                    currentImageIndex
+                );
 
-
-                /*
-                   팝업 표시
-                */
 
                 photoModal.classList.add(
                     "active"
@@ -397,29 +378,18 @@ galleryItems.forEach(
                 );
 
 
-                /*
-                   팝업 뒤의 청첩장을
-                   완전히 고정
-
-                   카카오톡 인앱 브라우저에서
-                   특히 중요함
-                */
-
+                /* 뒤쪽 화면 고정 */
                 document.body.style.position =
                     "fixed";
-
 
                 document.body.style.top =
                     `-${savedScrollPosition}px`;
 
-
                 document.body.style.left =
                     "0";
 
-
                 document.body.style.right =
                     "0";
-
 
                 document.body.style.width =
                     "100%";
@@ -431,16 +401,199 @@ galleryItems.forEach(
 );
 
 
+/* =====================================================
+   SHOW IMAGE
+===================================================== */
+
+function showImage(index) {
+
+    /*
+       마지막 사진에서 다음으로 넘기면
+       첫 사진으로
+    */
+    if (index >= galleryImages.length) {
+
+        currentImageIndex = 0;
+
+    }
+
+
+    /*
+       첫 사진에서 이전으로 넘기면
+       마지막 사진으로
+    */
+    if (index < 0) {
+
+        currentImageIndex =
+            galleryImages.length - 1;
+
+    }
+
+
+    modalImage.src =
+        galleryImages[currentImageIndex];
+
+}
+
+
+/* =====================================================
+   NEXT / PREVIOUS
+===================================================== */
+
+function showNextImage() {
+
+    currentImageIndex++;
+
+    showImage(
+        currentImageIndex
+    );
+
+}
+
+
+function showPreviousImage() {
+
+    currentImageIndex--;
+
+    showImage(
+        currentImageIndex
+    );
+
+}
+
+
+/* =====================================================
+   TOUCH START
+===================================================== */
+
+photoModal.addEventListener(
+    "touchstart",
+    function (event) {
+
+        /*
+           한 손가락 터치만 처리
+        */
+        if (
+            event.touches.length !== 1
+        ) {
+            return;
+        }
+
+
+        touchStartX =
+            event.touches[0].clientX;
+
+        touchEndX =
+            touchStartX;
+
+    },
+    {
+        passive: true
+    }
+);
+
+
+/* =====================================================
+   TOUCH MOVE
+===================================================== */
+
+photoModal.addEventListener(
+    "touchmove",
+    function (event) {
+
+        if (
+            event.touches.length !== 1
+        ) {
+            return;
+        }
+
+
+        touchEndX =
+            event.touches[0].clientX;
+
+    },
+    {
+        passive: true
+    }
+);
+
+
+/* =====================================================
+   TOUCH END
+===================================================== */
+
+photoModal.addEventListener(
+    "touchend",
+    function (event) {
+
+        /*
+           X 버튼을 눌렀다면
+           swipe 처리하지 않음
+        */
+        if (
+            event.target.closest(
+                "#closeModal"
+            )
+        ) {
+            return;
+        }
+
+
+        const swipeDistance =
+            touchEndX - touchStartX;
+
+
+        /*
+           너무 조금 움직인 경우
+           일반 터치로 판단
+        */
+        const minimumSwipeDistance =
+            50;
+
+
+        /*
+           왼쪽으로 스와이프
+           → 다음 사진
+        */
+        if (
+            swipeDistance <
+            -minimumSwipeDistance
+        ) {
+
+            showNextImage();
+
+            return;
+
+        }
+
+
+        /*
+           오른쪽으로 스와이프
+           → 이전 사진
+        */
+        if (
+            swipeDistance >
+            minimumSwipeDistance
+        ) {
+
+            showPreviousImage();
+
+            return;
+
+        }
+
+    },
+    {
+        passive: true
+    }
+);
+
 
 /* =====================================================
    CLOSE PHOTO
 ===================================================== */
 
 function closePhotoModal() {
-
-    /*
-       팝업 숨김
-    */
 
     photoModal.classList.remove(
         "active"
@@ -456,34 +609,21 @@ function closePhotoModal() {
     modalImage.src = "";
 
 
-    /*
-       body 고정 해제
-    */
-
     document.body.style.position =
         "";
-
 
     document.body.style.top =
         "";
 
-
     document.body.style.left =
         "";
-
 
     document.body.style.right =
         "";
 
-
     document.body.style.width =
         "";
 
-
-    /*
-       원래 보고 있던
-       스크롤 위치로 돌아감
-    */
 
     window.scrollTo(
         0,
@@ -491,7 +631,6 @@ function closePhotoModal() {
     );
 
 }
-
 
 
 /* =====================================================
@@ -512,39 +651,8 @@ closeModal.addEventListener(
 );
 
 
-
 /* =====================================================
-   MODAL BACKGROUND CLICK
-===================================================== */
-
-/*
-   사진이나 검은 배경을 누르면
-   모두 닫히도록 처리
-
-   사진 컨테이너에
-   pointer-events:none이 있기 때문에
-   카카오톡에서도 동작이 단순하고 안정적임
-*/
-
-photoModal.addEventListener(
-    "click",
-    function (event) {
-
-        if (
-            event.target !== closeModal
-        ) {
-
-            closePhotoModal();
-
-        }
-
-    }
-);
-
-
-
-/* =====================================================
-   ESC
+   PC KEYBOARD
 ===================================================== */
 
 document.addEventListener(
@@ -552,14 +660,37 @@ document.addEventListener(
     function (event) {
 
         if (
-            event.key === "Escape"
-            &&
-            photoModal.classList.contains(
+            !photoModal.classList.contains(
                 "active"
             )
         ) {
+            return;
+        }
+
+
+        if (
+            event.key === "Escape"
+        ) {
 
             closePhotoModal();
+
+        }
+
+
+        if (
+            event.key === "ArrowRight"
+        ) {
+
+            showNextImage();
+
+        }
+
+
+        if (
+            event.key === "ArrowLeft"
+        ) {
+
+            showPreviousImage();
 
         }
 

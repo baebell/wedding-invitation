@@ -1076,3 +1076,25 @@ footer small {
         transparent;
 }
 
+/* =====================================================
+   SWIPE PHOTO
+===================================================== */
+
+.photo-modal {
+    overscroll-behavior: none;
+}
+
+
+.modal-image-container {
+    overflow: hidden;
+}
+
+
+.modal-image-container img {
+    pointer-events: none;
+
+    -webkit-user-drag: none;
+
+    user-select: none;
+    -webkit-user-select: none;
+}
