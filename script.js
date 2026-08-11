@@ -897,8 +897,10 @@ function initWeddingMap() {
         return;
     }
 
+
     const weddingLat = 37.4821;
     const weddingLng = 127.0352;
+
 
     const weddingLocation =
         new naver.maps.LatLng(
@@ -906,6 +908,8 @@ function initWeddingMap() {
             weddingLng
         );
 
+
+    /* 지도 생성 */
     const map =
         new naver.maps.Map(
             "map",
@@ -927,19 +931,58 @@ function initWeddingMap() {
             }
         );
 
+
+    /* =================================================
+       커스텀 마커
+    ================================================= */
+
     const marker =
         new naver.maps.Marker({
+
             position:
                 weddingLocation,
 
             map:
-                map
+                map,
+
+            icon: {
+
+                content: `
+                    <div class="eltower-marker">
+
+                        <div class="eltower-marker-card">
+
+                            <span class="eltower-marker-title">
+                                ELTOWER
+                            </span>
+
+                            <span class="eltower-marker-sub">
+                                그레이스홀 6F
+                            </span>
+
+                        </div>
+
+                        <div class="eltower-marker-pin"></div>
+
+                    </div>
+                `,
+
+                anchor:
+                    new naver.maps.Point(
+                        75,
+                        78
+                    )
+
+            }
+
         });
 
 }
 
 
-/* 지도 실행 */
+/* =====================================================
+   START MAP
+===================================================== */
 
 if (
     typeof naver !== "undefined"
