@@ -935,48 +935,37 @@ function initWeddingMap() {
     /* =================================================
        커스텀 마커
     ================================================= */
+ const marker =
+    new naver.maps.Marker({
 
-    const marker =
-        new naver.maps.Marker({
+        position:
+            weddingLocation,
 
-            position:
-                weddingLocation,
+        map:
+            map,
 
-            map:
-                map,
+        icon: {
 
-            icon: {
+            content: `
+                <div class="simple-wedding-marker">
 
-                content: `
-                    <div class="eltower-marker">
-
-                        <div class="eltower-marker-card">
-
-                            <span class="eltower-marker-title">
-                                ELTOWER
-                            </span>
-
-                            <span class="eltower-marker-sub">
-                                그레이스홀 6F
-                            </span>
-
-                        </div>
-
-                        <div class="eltower-marker-pin"></div>
-
+                    <div class="simple-marker-label">
+                        ELTOWER
                     </div>
-                `,
 
-                anchor:
-                    new naver.maps.Point(
-                        75,
-                        78
-                    )
+                    <div class="simple-marker-dot"></div>
 
-            }
+                </div>
+            `,
 
-        });
-
+            anchor:
+                new naver.maps.Point(
+                    40,
+                    44
+                )
+        }
+    });   
+    
 }
 
 

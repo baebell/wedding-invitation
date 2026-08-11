@@ -1255,14 +1255,13 @@ footer small {
 
 
 /* =====================================================
-   ELTOWER CUSTOM MAP MARKER
+   SIMPLE ELTOWER MARKER
 ===================================================== */
 
-.eltower-marker {
-    width: 150px;
+.simple-wedding-marker {
+    width: 80px;
 
     display: flex;
-
     flex-direction: column;
 
     align-items: center;
@@ -1271,94 +1270,51 @@ footer small {
 }
 
 
-.eltower-marker-card {
-    min-width: 135px;
-
-    padding:
-        10px 14px;
+.simple-marker-label {
+    padding: 5px 9px;
 
     background:
-        rgba(255, 255, 255, 0.96);
+        rgba(255, 255, 255, 0.95);
 
     border:
-        1px solid #e2dbd4;
+        1px solid #ddd5cd;
 
-    border-radius: 8px;
+    border-radius: 4px;
 
     box-shadow:
-        0 5px 18px
-        rgba(0, 0, 0, 0.13);
+        0 2px 8px
+        rgba(0, 0, 0, 0.12);
 
-    text-align: center;
-
-    backdrop-filter:
-        blur(5px);
-
-    -webkit-backdrop-filter:
-        blur(5px);
-}
-
-
-.eltower-marker-title {
-    display: block;
-
-    color: #5f5148;
+    color: #65584f;
 
     font-family:
         "Cormorant Garamond",
         serif;
 
-    font-size: 16px;
+    font-size: 12px;
 
     font-weight: 500;
 
-    letter-spacing: 0.12em;
+    letter-spacing: 0.08em;
+
+    white-space: nowrap;
 }
 
 
-.eltower-marker-sub {
-    display: block;
+.simple-marker-dot {
+    width: 10px;
+    height: 10px;
 
     margin-top: 3px;
-
-    color: #91877f;
-
-    font-size: 10px;
-
-    letter-spacing: 0.03em;
-}
-
-
-.eltower-marker-pin {
-    width: 12px;
-    height: 12px;
-
-    margin-top: -1px;
-
-    background: #a48774;
 
     border:
         2px solid white;
 
     border-radius: 50%;
 
+    background: #a48774;
+
     box-shadow:
-        0 2px 6px
-        rgba(0, 0, 0, 0.2);
-}
-
-
-.eltower-marker-pin::after {
-    content: "";
-
-    display: block;
-
-    width: 4px;
-    height: 4px;
-
-    margin: 2px auto 0;
-
-    background: white;
-
-    border-radius: 50%;
+        0 1px 5px
+        rgba(0, 0, 0, 0.25);
 }
