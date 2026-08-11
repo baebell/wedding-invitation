@@ -16,6 +16,8 @@ html {
 
 
 body {
+    margin: 0;
+
     background: #e9e5df;
     color: #403b36;
 
@@ -35,8 +37,16 @@ img {
 }
 
 
-button {
+button,
+input,
+label {
     font-family: inherit;
+}
+
+
+a {
+    color: inherit;
+    text-decoration: none;
 }
 
 
@@ -46,7 +56,6 @@ button {
 ===================================================== */
 
 .intro-screen {
-
     position: fixed;
 
     inset: 0;
@@ -57,48 +66,37 @@ button {
 
     cursor: pointer;
 
-    touch-action: manipulation;
-
     transition:
-        opacity 1.4s ease,
-        visibility 1.4s ease;
-
+        opacity 1.3s ease,
+        visibility 1.3s ease;
 }
 
 
 .intro-screen.hide {
-
     opacity: 0;
 
     visibility: hidden;
 
     pointer-events: none;
-
 }
 
 
 .intro-image {
-
     position: absolute;
 
     inset: 0;
-
 }
 
 
 .intro-image img {
-
     width: 100%;
-
     height: 100%;
 
     object-fit: cover;
-
 }
 
 
 .intro-overlay {
-
     position: absolute;
 
     inset: 0;
@@ -108,7 +106,6 @@ button {
     flex-direction: column;
 
     align-items: center;
-
     justify-content: center;
 
     text-align: center;
@@ -117,28 +114,24 @@ button {
 
     background:
         linear-gradient(
-            rgba(0,0,0,.15),
-            rgba(0,0,0,.35)
+            rgba(0, 0, 0, 0.12),
+            rgba(0, 0, 0, 0.38)
         );
-
 }
 
 
 .intro-small {
-
     font-family:
         "Cormorant Garamond",
         serif;
 
     font-size: 13px;
 
-    letter-spacing: .3em;
-
+    letter-spacing: 0.3em;
 }
 
 
 .intro-overlay h1 {
-
     margin-top: 20px;
 
     font-family:
@@ -148,21 +141,17 @@ button {
     font-size: 43px;
 
     font-weight: 300;
-
 }
 
 
 .intro-overlay h1 span {
-
     color: #e7cfc0;
 
     font-size: 23px;
-
 }
 
 
 .intro-date {
-
     margin-top: 12px;
 
     font-family:
@@ -171,33 +160,33 @@ button {
 
     font-size: 17px;
 
-    letter-spacing: .15em;
-
+    letter-spacing: 0.15em;
 }
 
 
 .intro-touch {
-
     position: absolute;
 
-    bottom: 55px;
+    bottom:
+        max(
+            55px,
+            env(safe-area-inset-bottom)
+        );
 
     font-size: 11px;
 
-    letter-spacing: .1em;
-
-    opacity: .8;
+    letter-spacing: 0.1em;
 
     animation:
         touchBlink 2s infinite;
-
 }
 
 
 @keyframes touchBlink {
 
-    0%, 100% {
-        opacity: .3;
+    0%,
+    100% {
+        opacity: 0.35;
     }
 
     50% {
@@ -213,7 +202,6 @@ button {
 ===================================================== */
 
 .invitation {
-
     position: relative;
 
     width: 100%;
@@ -229,18 +217,15 @@ button {
     transform: translateY(20px);
 
     transition:
-        opacity 1.4s ease,
-        transform 1.4s ease;
-
+        opacity 1.3s ease,
+        transform 1.3s ease;
 }
 
 
 .invitation.show {
-
     opacity: 1;
 
     transform: translateY(0);
-
 }
 
 
@@ -250,12 +235,11 @@ button {
         padding: 30px 0;
     }
 
-    .invitation {
 
+    .invitation {
         box-shadow:
             0 20px 80px
-            rgba(0,0,0,.08);
-
+            rgba(0, 0, 0, 0.08);
     }
 
 }
@@ -267,51 +251,54 @@ button {
 ===================================================== */
 
 .music-button {
-
     position: fixed;
 
-    top: 20px;
+    top:
+        max(
+            20px,
+            env(safe-area-inset-top)
+        );
 
     right: 20px;
 
     z-index: 500;
 
     width: 42px;
-
     height: 42px;
 
     border-radius: 50%;
 
     border:
-        1px solid rgba(255,255,255,.7);
+        1px solid
+        rgba(255, 255, 255, 0.7);
 
     background:
-        rgba(30,30,30,.25);
+        rgba(30, 30, 30, 0.25);
+
+    color: white;
 
     backdrop-filter:
         blur(8px);
 
-    color: white;
+    -webkit-backdrop-filter:
+        blur(8px);
 
     cursor: pointer;
 
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
     font-size: 19px;
 
-    touch-action: manipulation;
-
-    -webkit-tap-highlight-color: transparent;
-
+    -webkit-tap-highlight-color:
+        transparent;
 }
 
 
 .music-button.off {
-    opacity: .6;
+    opacity: 0.6;
 }
 
 
@@ -326,33 +313,29 @@ button {
 ===================================================== */
 
 .hero {
-
     padding:
-        90px 25px 100px;
+        90px 25px
+        100px;
 
     text-align: center;
-
 }
 
 
 .eyebrow,
 .section-label {
-
     font-family:
         "Cormorant Garamond",
         serif;
 
     font-size: 13px;
 
-    letter-spacing: .25em;
+    letter-spacing: 0.25em;
 
     color: #938a82;
-
 }
 
 
 .hero h1 {
-
     margin: 20px 0;
 
     font-family:
@@ -362,36 +345,30 @@ button {
     font-size: 43px;
 
     font-weight: 400;
-
 }
 
 
 .hero h1 span {
-
     color: #b39480;
 
     font-size: 22px;
 
     margin: 0 6px;
-
 }
 
 
 .hero-date {
-
     font-family:
         "Cormorant Garamond",
         serif;
 
     font-size: 17px;
 
-    letter-spacing: .1em;
-
+    letter-spacing: 0.1em;
 }
 
 
 .hero-place {
-
     margin-top: 12px;
 
     font-size: 13px;
@@ -399,43 +376,35 @@ button {
     line-height: 1.8;
 
     color: #8a837c;
-
 }
 
 
 .hero-photo {
-
     margin-top: 45px;
-
 }
 
 
 .hero-photo img {
-
     aspect-ratio: 3 / 4;
 
     object-fit: cover;
-
 }
 
 
 
 /* =====================================================
-   SECTION
+   SECTIONS
 ===================================================== */
 
 .section {
-
     padding:
         100px 30px;
 
     text-align: center;
-
 }
 
 
 .section h2 {
-
     margin-top: 20px;
 
     font-size: 25px;
@@ -443,12 +412,10 @@ button {
     font-weight: 400;
 
     line-height: 1.7;
-
 }
 
 
 .description {
-
     margin-top: 35px;
 
     color: #79736d;
@@ -456,45 +423,38 @@ button {
     font-size: 14px;
 
     line-height: 2.2;
-
 }
 
 
 
 /* =====================================================
-   INVITATION
+   INVITATION MESSAGE
 ===================================================== */
 
 .invitation-message {
-
     background: #f2eee8;
-
 }
 
 
-.parents {
-
+.couple-name {
     margin-top: 50px;
 
     padding-top: 30px;
 
     border-top:
         1px solid #dfd9d2;
-
 }
 
 
-.parents p {
+.couple-name p {
     font-size: 14px;
 }
 
 
-.parents span {
-
+.couple-name span {
     margin: 0 8px;
 
     color: #b39480;
-
 }
 
 
@@ -509,7 +469,6 @@ button {
 
 
 .wedding-time {
-
     margin-top: 8px;
 
     color: #918980;
@@ -519,7 +478,6 @@ button {
         serif;
 
     font-size: 16px;
-
 }
 
 
@@ -530,28 +488,23 @@ button {
 
 .week,
 .days {
-
     display: grid;
 
     grid-template-columns:
         repeat(7, 1fr);
-
 }
 
 
 .week {
-
     margin-bottom: 15px;
 
     font-size: 11px;
 
     color: #9c948c;
-
 }
 
 
 .days {
-
     row-gap: 13px;
 
     font-family:
@@ -559,42 +512,34 @@ button {
         serif;
 
     font-size: 15px;
-
 }
 
 
 .days span {
-
     height: 30px;
 
     display: flex;
 
     align-items: center;
-
     justify-content: center;
-
 }
 
 
 .wedding-day {
-
     position: relative;
 
     z-index: 1;
 
     color: white;
-
 }
 
 
 .wedding-day::before {
-
     content: "";
 
     position: absolute;
 
     width: 31px;
-
     height: 31px;
 
     border-radius: 50%;
@@ -602,7 +547,6 @@ button {
     background: #a48774;
 
     z-index: -1;
-
 }
 
 
@@ -612,33 +556,27 @@ button {
 ===================================================== */
 
 .countdown {
-
     margin-top: 55px;
 
     display: flex;
 
     justify-content: center;
-
     align-items: center;
 
     gap: 11px;
-
 }
 
 
 .countdown div {
-
     display: flex;
 
     flex-direction: column;
 
     align-items: center;
-
 }
 
 
 .countdown strong {
-
     font-family:
         "Cormorant Garamond",
         serif;
@@ -646,12 +584,10 @@ button {
     font-size: 29px;
 
     font-weight: 400;
-
 }
 
 
 .countdown small {
-
     margin-top: 3px;
 
     font-family:
@@ -662,8 +598,7 @@ button {
 
     color: #aaa29b;
 
-    letter-spacing: .1em;
-
+    letter-spacing: 0.1em;
 }
 
 
@@ -683,18 +618,15 @@ button {
 
 
 .gallery-description {
-
     margin-top: 15px;
 
     color: #8c857e;
 
     font-size: 12px;
-
 }
 
 
 .gallery {
-
     margin-top: 40px;
 
     display: grid;
@@ -703,174 +635,59 @@ button {
         repeat(2, 1fr);
 
     gap: 5px;
-
 }
 
 
 .gallery-item {
-
     padding: 0;
 
     border: none;
 
-    background: none;
+    background: transparent;
 
     cursor: pointer;
 
     overflow: hidden;
 
-    touch-action: manipulation;
-
-    -webkit-tap-highlight-color: transparent;
-
+    -webkit-tap-highlight-color:
+        transparent;
 }
 
 
 .gallery-item img {
-
     width: 100%;
 
     aspect-ratio: 1 / 1;
 
     object-fit: cover;
-
 }
 
 
 .gallery-item:first-child {
-
     grid-column: span 2;
-
 }
 
 
 .gallery-item:first-child img {
-
     aspect-ratio: 4 / 5;
-
 }
 
 
 @media (min-width: 700px) {
 
     .gallery-item img {
-
         transition:
-            transform .5s ease;
-
+            transform 0.4s ease;
     }
 
 
     .gallery-item:hover img {
-
-        transform: scale(1.03);
-
+        transform:
+            scale(1.03);
     }
 
 }
 
-
-/* =====================================================
-   PHOTO MODAL - KAKAO MOBILE SAFE
-===================================================== */
-
-.photo-modal {
-    position: fixed;
-    inset: 0;
-
-    z-index: 99999;
-
-    display: none;
-
-    align-items: center;
-    justify-content: center;
-
-    padding: 60px 20px 30px;
-
-    background: rgba(0, 0, 0, 0.92);
-
-    -webkit-tap-highlight-color: transparent;
-}
-
-.photo-modal.active {
-    display: flex;
-}
-
-
-/* 사진을 가운데 위치시키는 역할만 */
-.modal-image-container {
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    max-width: 100%;
-    max-height: 100%;
-
-    /*
-       중요:
-       이 영역이 터치를 가로채지 않게 함
-    */
-    pointer-events: none;
-}
-
-
-.modal-image-container img {
-    width: auto;
-    height: auto;
-
-    max-width: 100%;
-    max-height: 80vh;
-
-    object-fit: contain;
-
-    user-select: none;
-    -webkit-user-select: none;
-
-    -webkit-touch-callout: none;
-
-    /*
-       touch-action: none 삭제!
-    */
-}
-
-
-/* X 버튼 */
-.close-modal {
-    position: fixed;
-
-    top: 18px;
-    right: 18px;
-
-    z-index: 100000;
-
-    width: 50px;
-    height: 50px;
-
-    padding: 0;
-
-    border: none;
-    border-radius: 50%;
-
-    background: rgba(0, 0, 0, 0.45);
-
-    color: #ffffff;
-
-    font-size: 34px;
-    line-height: 50px;
-
-    text-align: center;
-
-    cursor: pointer;
-
-    -webkit-tap-highlight-color: transparent;
-}
-
-
-/* 팝업 열렸을 때 뒤쪽 스크롤 방지 */
-body.modal-open {
-    overflow: hidden;
-}
 
 
 /* =====================================================
@@ -883,27 +700,22 @@ body.modal-open {
 
 
 .venue-name {
-
     margin-top: 35px;
 
     font-size: 17px;
-
 }
 
 
 .address {
-
     margin-top: 8px;
 
     color: #89827b;
 
     font-size: 12px;
-
 }
 
 
 .map-placeholder {
-
     margin-top: 35px;
 
     height: 220px;
@@ -911,7 +723,6 @@ body.modal-open {
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
     background: #dedbd6;
@@ -919,23 +730,19 @@ body.modal-open {
     color: #99928b;
 
     font-size: 12px;
-
 }
 
 
 .map-buttons {
-
     display: flex;
 
     gap: 5px;
 
     margin-top: 8px;
-
 }
 
 
 .map-buttons a {
-
     flex: 1;
 
     padding: 14px;
@@ -943,24 +750,20 @@ body.modal-open {
     background: white;
 
     font-size: 11px;
-
 }
 
 
 
 /* =====================================================
-   GUEST PHOTO UPLOAD
+   PHOTO UPLOAD
 ===================================================== */
 
 .photo-upload {
-
     background: #f1ede7;
-
 }
 
 
 .upload-button {
-
     display: inline-block;
 
     margin-top: 35px;
@@ -977,13 +780,12 @@ body.modal-open {
 
     cursor: pointer;
 
-    touch-action: manipulation;
-
+    -webkit-tap-highlight-color:
+        transparent;
 }
 
 
 .upload-preview {
-
     margin-top: 25px;
 
     display: grid;
@@ -992,23 +794,19 @@ body.modal-open {
         repeat(3, 1fr);
 
     gap: 5px;
-
 }
 
 
 .upload-preview img {
-
     width: 100%;
 
     aspect-ratio: 1 / 1;
 
     object-fit: cover;
-
 }
 
 
 .upload-notice {
-
     margin-top: 20px;
 
     color: #9a928b;
@@ -1016,7 +814,6 @@ body.modal-open {
     font-size: 10px;
 
     line-height: 1.8;
-
 }
 
 
@@ -1026,7 +823,6 @@ body.modal-open {
 ===================================================== */
 
 .account-box {
-
     margin-top: 40px;
 
     display: flex;
@@ -1034,12 +830,10 @@ body.modal-open {
     flex-direction: column;
 
     gap: 10px;
-
 }
 
 
 .account-box button {
-
     padding: 20px;
 
     border:
@@ -1050,12 +844,10 @@ body.modal-open {
     text-align: left;
 
     cursor: pointer;
-
 }
 
 
 .account-box span {
-
     display: block;
 
     margin-bottom: 8px;
@@ -1063,23 +855,19 @@ body.modal-open {
     color: #99928b;
 
     font-size: 11px;
-
 }
 
 
 .account-box strong {
-
     display: block;
 
     font-size: 13px;
 
     font-weight: 400;
-
 }
 
 
 .account-box small {
-
     display: block;
 
     margin-top: 10px;
@@ -1087,7 +875,6 @@ body.modal-open {
     color: #aaa29b;
 
     font-size: 10px;
-
 }
 
 
@@ -1097,42 +884,36 @@ body.modal-open {
 ===================================================== */
 
 footer {
-
-    padding: 55px 20px;
+    padding:
+        55px 20px;
 
     text-align: center;
 
     background: #302d2a;
 
     color: #dcd4cc;
-
 }
 
 
 footer p:first-child {
-
     font-family:
         "Cormorant Garamond",
         serif;
 
-    letter-spacing: .2em;
+    letter-spacing: 0.2em;
 
     font-size: 13px;
-
 }
 
 
 footer p:nth-child(2) {
-
     margin-top: 10px;
 
     font-size: 13px;
-
 }
 
 
 footer small {
-
     display: block;
 
     margin-top: 25px;
@@ -1140,6 +921,158 @@ footer small {
     color: #817a75;
 
     font-size: 9px;
+}
 
+
+
+/* =====================================================
+   PHOTO MODAL
+
+   카카오톡 / 모바일 브라우저 대응
+===================================================== */
+
+.photo-modal {
+    /*
+       반드시 화면 자체를 기준으로 고정
+    */
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+
+    /*
+       일반 브라우저 대비
+    */
+    height: 100vh;
+
+    /*
+       모바일 브라우저의 실제 화면 높이
+    */
+    height: 100dvh;
+
+    z-index: 999999;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding:
+        max(
+            65px,
+            env(safe-area-inset-top)
+        )
+        20px
+        max(
+            30px,
+            env(safe-area-inset-bottom)
+        );
+
+    background:
+        rgba(0, 0, 0, 0.94);
+
+    overflow: hidden;
+
+    -webkit-tap-highlight-color:
+        transparent;
+}
+
+
+.photo-modal.active {
+    display: flex;
+}
+
+
+
+/* =====================================================
+   MODAL IMAGE
+===================================================== */
+
+.modal-image-container {
+    width: 100%;
+
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    /*
+       이 영역이 클릭을 가로채지 않음
+    */
+
+    pointer-events: none;
+}
+
+
+.modal-image-container img {
+    /*
+       강제 확대하지 않음
+    */
+
+    width: auto;
+    height: auto;
+
+    max-width: 100%;
+
+    max-height: 80vh;
+    max-height: 80dvh;
+
+    object-fit: contain;
+
+    user-select: none;
+
+    -webkit-user-select: none;
+
+    -webkit-touch-callout: none;
+}
+
+
+
+/* =====================================================
+   MODAL CLOSE BUTTON
+===================================================== */
+
+.close-modal {
+    position: absolute;
+
+    top:
+        max(
+            15px,
+            env(safe-area-inset-top)
+        );
+
+    right: 15px;
+
+    z-index: 1000000;
+
+    width: 50px;
+    height: 50px;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background:
+        rgba(0, 0, 0, 0.4);
+
+    color: white;
+
+    font-size: 34px;
+
+    line-height: 50px;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    -webkit-tap-highlight-color:
+        transparent;
 }
 

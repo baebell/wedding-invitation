@@ -1,6 +1,6 @@
 
 /* =====================================================
-   ELEMENTS
+   BASIC ELEMENTS
 ===================================================== */
 
 const bgm =
@@ -19,11 +19,6 @@ const invitation =
     document.getElementById("invitation");
 
 
-
-/* =====================================================
-   MUSIC STATE
-===================================================== */
-
 let isPlaying = false;
 
 let invitationStarted = false;
@@ -34,24 +29,16 @@ let invitationStarted = false;
    OPENING SCREEN
 ===================================================== */
 
-/*
-   PC / Android / iPhone 모두
-   pointer 이벤트 하나로 처리
-*/
-
 introScreen.addEventListener(
-    "pointerup",
+    "click",
     startInvitation
 );
 
 
-function startInvitation(event) {
-
-    event.preventDefault();
-
+function startInvitation() {
 
     /*
-       여러 번 눌러도 한 번만 실행
+       여러 번 터치하는 것 방지
     */
 
     if (invitationStarted) {
@@ -63,16 +50,17 @@ function startInvitation(event) {
 
 
 
-    /* -------------------------------------
+    /* =================================================
        BGM 시작
-    ------------------------------------- */
+    ================================================= */
 
     bgm.play()
         .then(() => {
 
             isPlaying = true;
 
-            musicIcon.textContent = "♪";
+            musicIcon.textContent =
+                "♪";
 
             musicButton.classList.remove(
                 "off"
@@ -82,13 +70,14 @@ function startInvitation(event) {
         .catch(() => {
 
             /*
-               브라우저가 음악을 차단해도
-               청첩장은 정상적으로 열림
+               모바일 브라우저에서
+               음악을 막더라도 청첩장은 열림
             */
 
             isPlaying = false;
 
-            musicIcon.textContent = "🔇";
+            musicIcon.textContent =
+                "🔇";
 
             musicButton.classList.add(
                 "off"
@@ -98,9 +87,9 @@ function startInvitation(event) {
 
 
 
-    /* -------------------------------------
+    /* =================================================
        Opening 페이드 아웃
-    ------------------------------------- */
+    ================================================= */
 
     introScreen.classList.add(
         "hide"
@@ -108,9 +97,9 @@ function startInvitation(event) {
 
 
 
-    /* -------------------------------------
-       청첩장 등장
-    ------------------------------------- */
+    /* =================================================
+       청첩장 페이드 인
+    ================================================= */
 
     setTimeout(() => {
 
@@ -118,16 +107,13 @@ function startInvitation(event) {
             "show"
         );
 
-    }, 300);
+    }, 250);
 
 
 
     /*
-       페이드가 완전히 끝나면
-       opening 자체를 제거
-
-       이렇게 해야 모바일에서
-       opening이 터치를 가로채지 않음
+       opening이 완전히 사라진 후
+       DOM 화면에서 숨김
     */
 
     setTimeout(() => {
@@ -135,7 +121,7 @@ function startInvitation(event) {
         introScreen.style.display =
             "none";
 
-    }, 1500);
+    }, 1400);
 
 }
 
@@ -147,57 +133,53 @@ function startInvitation(event) {
 
 musicButton.addEventListener(
     "click",
-    toggleMusic
-);
+    function (event) {
+
+        event.preventDefault();
+
+        event.stopPropagation();
 
 
-function toggleMusic(event) {
+        if (isPlaying) {
 
-    event.preventDefault();
+            bgm.pause();
 
-    event.stopPropagation();
+            isPlaying = false;
 
+            musicIcon.textContent =
+                "🔇";
 
-    if (isPlaying) {
+            musicButton.classList.add(
+                "off"
+            );
 
-        bgm.pause();
+        } else {
 
-        isPlaying = false;
+            bgm.play()
+                .then(() => {
 
-        musicButton.classList.add(
-            "off"
-        );
+                    isPlaying = true;
 
-        musicIcon.textContent =
-            "🔇";
+                    musicIcon.textContent =
+                        "♪";
 
+                    musicButton.classList.remove(
+                        "off"
+                    );
 
-    } else {
+                })
+                .catch(() => {
 
-        bgm.play()
-            .then(() => {
+                    alert(
+                        "음악을 재생할 수 없습니다."
+                    );
 
-                isPlaying = true;
+                });
 
-                musicButton.classList.remove(
-                    "off"
-                );
-
-                musicIcon.textContent =
-                    "♪";
-
-            })
-            .catch(() => {
-
-                alert(
-                    "음악을 재생할 수 없습니다."
-                );
-
-            });
+        }
 
     }
-
-}
+);
 
 
 
@@ -218,12 +200,10 @@ function updateCountdown() {
 
 
     const difference =
-        weddingDate - now;
+        weddingDate.getTime()
+        - now.getTime();
 
 
-    /*
-       결혼식이 지나면 00
-    */
 
     if (difference <= 0) {
 
@@ -264,24 +244,21 @@ function updateCountdown() {
         Math.floor(
             difference /
             (1000 * 60 * 60)
-            % 24
-        );
+        ) % 24;
 
 
     const minutes =
         Math.floor(
             difference /
             (1000 * 60)
-            % 60
-        );
+        ) % 60;
 
 
     const seconds =
         Math.floor(
             difference /
             1000
-            % 60
-        );
+        ) % 60;
 
 
 
@@ -332,109 +309,262 @@ setInterval(
 );
 
 
+
 /* =====================================================
    PHOTO MODAL
 ===================================================== */
 
 const galleryItems =
-    document.querySelectorAll(".gallery-item");
+    document.querySelectorAll(
+        ".gallery-item"
+    );
+
 
 const photoModal =
-    document.getElementById("photoModal");
+    document.getElementById(
+        "photoModal"
+    );
+
 
 const modalImage =
-    document.getElementById("modalImage");
+    document.getElementById(
+        "modalImage"
+    );
+
 
 const closeModal =
-    document.getElementById("closeModal");
+    document.getElementById(
+        "closeModal"
+    );
+
+
+/*
+   사진을 열기 전
+   현재 스크롤 위치 저장
+*/
+
+let savedScrollPosition = 0;
+
 
 
 /* =====================================================
-   사진 열기
+   OPEN PHOTO
 ===================================================== */
 
-galleryItems.forEach((item) => {
+galleryItems.forEach(
+    function (item) {
 
-    item.addEventListener("click", function (event) {
+        item.addEventListener(
+            "click",
+            function (event) {
 
-        event.preventDefault();
+                event.preventDefault();
 
-        const image = item.dataset.image;
 
-        modalImage.src = image;
+                /*
+                   현재 보고 있는 위치 기억
+                */
 
-        photoModal.classList.add("active");
+                savedScrollPosition =
+                    window.scrollY ||
+                    document.documentElement.scrollTop;
 
-        document.body.classList.add("modal-open");
 
-    });
+                /*
+                   눌렀던 사진 주소
+                */
 
-});
+                const image =
+                    item.dataset.image;
+
+
+                modalImage.src =
+                    image;
+
+
+                /*
+                   팝업 표시
+                */
+
+                photoModal.classList.add(
+                    "active"
+                );
+
+
+                photoModal.setAttribute(
+                    "aria-hidden",
+                    "false"
+                );
+
+
+                /*
+                   팝업 뒤의 청첩장을
+                   완전히 고정
+
+                   카카오톡 인앱 브라우저에서
+                   특히 중요함
+                */
+
+                document.body.style.position =
+                    "fixed";
+
+
+                document.body.style.top =
+                    `-${savedScrollPosition}px`;
+
+
+                document.body.style.left =
+                    "0";
+
+
+                document.body.style.right =
+                    "0";
+
+
+                document.body.style.width =
+                    "100%";
+
+            }
+        );
+
+    }
+);
+
 
 
 /* =====================================================
-   사진 닫기
+   CLOSE PHOTO
 ===================================================== */
 
 function closePhotoModal() {
 
-    photoModal.classList.remove("active");
+    /*
+       팝업 숨김
+    */
 
-    document.body.classList.remove("modal-open");
+    photoModal.classList.remove(
+        "active"
+    );
+
+
+    photoModal.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
 
     modalImage.src = "";
+
+
+    /*
+       body 고정 해제
+    */
+
+    document.body.style.position =
+        "";
+
+
+    document.body.style.top =
+        "";
+
+
+    document.body.style.left =
+        "";
+
+
+    document.body.style.right =
+        "";
+
+
+    document.body.style.width =
+        "";
+
+
+    /*
+       원래 보고 있던
+       스크롤 위치로 돌아감
+    */
+
+    window.scrollTo(
+        0,
+        savedScrollPosition
+    );
 
 }
 
 
-/* =====================================================
-   X 버튼
-===================================================== */
-
-closeModal.addEventListener("click", function (event) {
-
-    event.preventDefault();
-
-    event.stopPropagation();
-
-    closePhotoModal();
-
-});
-
 
 /* =====================================================
-   검은 배경 아무 곳이나 누르면 닫기
+   X BUTTON
 ===================================================== */
 
-photoModal.addEventListener("click", function (event) {
+closeModal.addEventListener(
+    "click",
+    function (event) {
 
-    /*
-       사진 영역에는 pointer-events: none을 적용했기 때문에
-       사진을 눌러도 이 이벤트가 photoModal까지 전달됨.
-    */
+        event.preventDefault();
 
-    if (event.target !== closeModal) {
+        event.stopPropagation();
 
         closePhotoModal();
 
     }
+);
 
-});
+
+
+/* =====================================================
+   MODAL BACKGROUND CLICK
+===================================================== */
+
+/*
+   사진이나 검은 배경을 누르면
+   모두 닫히도록 처리
+
+   사진 컨테이너에
+   pointer-events:none이 있기 때문에
+   카카오톡에서도 동작이 단순하고 안정적임
+*/
+
+photoModal.addEventListener(
+    "click",
+    function (event) {
+
+        if (
+            event.target !== closeModal
+        ) {
+
+            closePhotoModal();
+
+        }
+
+    }
+);
+
 
 
 /* =====================================================
    ESC
 ===================================================== */
 
-document.addEventListener("keydown", function (event) {
+document.addEventListener(
+    "keydown",
+    function (event) {
 
-    if (event.key === "Escape") {
+        if (
+            event.key === "Escape"
+            &&
+            photoModal.classList.contains(
+                "active"
+            )
+        ) {
 
-        closePhotoModal();
+            closePhotoModal();
+
+        }
 
     }
-
-});
+);
 
 
 
@@ -456,7 +586,7 @@ const uploadPreview =
 
 photoUpload.addEventListener(
     "change",
-    (event) => {
+    function (event) {
 
         uploadPreview.innerHTML =
             "";
@@ -469,10 +599,10 @@ photoUpload.addEventListener(
 
 
         files.forEach(
-            (file) => {
+            function (file) {
 
                 /*
-                   이미지 파일만 처리
+                   사진이 아닌 파일 제외
                 */
 
                 if (
@@ -491,7 +621,7 @@ photoUpload.addEventListener(
 
 
                 reader.onload =
-                    (e) => {
+                    function (e) {
 
                         const img =
                             document.createElement(
@@ -504,7 +634,7 @@ photoUpload.addEventListener(
 
 
                         img.alt =
-                            "업로드 미리보기";
+                            "선택한 사진 미리보기";
 
 
                         uploadPreview.appendChild(
@@ -530,26 +660,95 @@ photoUpload.addEventListener(
    ACCOUNT COPY
 ===================================================== */
 
-function copyAccount(
-    account
-) {
+function copyAccount(account) {
 
-    navigator.clipboard
-        .writeText(account)
-        .then(() => {
+    if (
+        navigator.clipboard
+        &&
+        window.isSecureContext
+    ) {
 
-            alert(
-                "계좌번호가 복사되었습니다."
-            );
+        navigator.clipboard
+            .writeText(account)
+            .then(function () {
 
-        })
-        .catch(() => {
+                alert(
+                    "계좌번호가 복사되었습니다."
+                );
 
-            alert(
-                "계좌번호 복사에 실패했습니다."
-            );
+            })
+            .catch(function () {
 
-        });
+                fallbackCopy(account);
+
+            });
+
+    } else {
+
+        fallbackCopy(account);
+
+    }
 
 }
 
+
+
+/* =====================================================
+   ACCOUNT FALLBACK COPY
+===================================================== */
+
+function fallbackCopy(text) {
+
+    const textarea =
+        document.createElement(
+            "textarea"
+        );
+
+
+    textarea.value =
+        text;
+
+
+    textarea.style.position =
+        "fixed";
+
+
+    textarea.style.opacity =
+        "0";
+
+
+    document.body.appendChild(
+        textarea
+    );
+
+
+    textarea.focus();
+
+    textarea.select();
+
+
+    try {
+
+        document.execCommand(
+            "copy"
+        );
+
+
+        alert(
+            "계좌번호가 복사되었습니다."
+        );
+
+    } catch (error) {
+
+        alert(
+            "계좌번호 복사에 실패했습니다."
+        );
+
+    }
+
+
+    document.body.removeChild(
+        textarea
+    );
+
+}
