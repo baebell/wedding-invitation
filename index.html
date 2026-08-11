@@ -1,0 +1,749 @@
+```html
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    >
+
+    <title>배윤종 ♥ 방예진</title>
+
+
+    <!-- Google Fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Noto+Serif+KR:wght@300;400;500&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     BGM
+===================================================== -->
+
+<audio
+    id="bgm"
+    src="music/wedding-bgm.mp3"
+    loop
+    preload="auto"
+></audio>
+
+
+
+<!-- =====================================================
+     OPENING SCREEN
+===================================================== -->
+
+<section
+    id="introScreen"
+    class="intro-screen"
+>
+
+    <div class="intro-image">
+
+        <img
+            src="images/opening.jpg"
+            alt="배윤종 방예진"
+        >
+
+    </div>
+
+
+    <div class="intro-overlay">
+
+        <p class="intro-small">
+            WEDDING INVITATION
+        </p>
+
+
+        <h1>
+            윤종
+            <span>♥</span>
+            예진
+        </h1>
+
+
+        <p class="intro-date">
+            2026. 12. 05
+        </p>
+
+
+        <p class="intro-touch">
+            화면을 터치해주세요
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     MAIN INVITATION
+===================================================== -->
+
+<main
+    id="invitation"
+    class="invitation"
+>
+
+
+<!-- =====================================================
+     MUSIC BUTTON
+===================================================== -->
+
+<button
+    id="musicButton"
+    class="music-button"
+    type="button"
+    aria-label="배경음악 끄기"
+>
+
+    <span id="musicIcon">
+        ♪
+    </span>
+
+</button>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+    <p class="eyebrow">
+        WEDDING INVITATION
+    </p>
+
+
+    <h1>
+        배윤종
+        <span>♥</span>
+        방예진
+    </h1>
+
+
+    <p class="hero-date">
+        2026. 12. 05 SATURDAY
+    </p>
+
+
+    <p class="hero-place">
+
+        오후 3시<br>
+
+        양재 엘타워 그레이스홀
+
+    </p>
+
+
+    <div class="hero-photo">
+
+        <img
+            src="images/main.jpg"
+            alt="배윤종 방예진"
+        >
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     INVITATION
+===================================================== -->
+
+<section class="section invitation-message">
+
+    <p class="section-label">
+        INVITATION
+    </p>
+
+
+    <h2>
+
+        우리의 새로운 시작에<br>
+        초대합니다.
+
+    </h2>
+
+
+    <p class="description">
+
+        서로 다른 두 사람이 만나<br>
+        이제 같은 길을 함께 걸어가려 합니다.
+
+        <br><br>
+
+        저희의 소중한 날에 오셔서<br>
+        따뜻한 축복으로 함께해 주세요.
+
+    </p>
+
+
+    <div class="parents">
+
+        <p>
+
+            배윤종
+
+            <span>♥</span>
+
+            방예진
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     WEDDING DAY
+===================================================== -->
+
+<section class="section calendar-section">
+
+    <p class="section-label">
+        WEDDING DAY
+    </p>
+
+
+    <h2>
+        2026. 12. 05
+    </h2>
+
+
+    <p class="wedding-time">
+        SATURDAY · PM 3:00
+    </p>
+
+
+    <!-- CALENDAR -->
+
+    <div class="calendar">
+
+        <div class="week">
+
+            <span>일</span>
+            <span>월</span>
+            <span>화</span>
+            <span>수</span>
+            <span>목</span>
+            <span>금</span>
+            <span>토</span>
+
+        </div>
+
+
+        <div class="days">
+
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span>1</span>
+
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+
+            <span class="wedding-day">
+                5
+            </span>
+
+            <span>6</span>
+            <span>7</span>
+            <span>8</span>
+
+            <span>9</span>
+            <span>10</span>
+            <span>11</span>
+            <span>12</span>
+            <span>13</span>
+            <span>14</span>
+            <span>15</span>
+
+            <span>16</span>
+            <span>17</span>
+            <span>18</span>
+            <span>19</span>
+            <span>20</span>
+            <span>21</span>
+            <span>22</span>
+
+            <span>23</span>
+            <span>24</span>
+            <span>25</span>
+            <span>26</span>
+            <span>27</span>
+            <span>28</span>
+            <span>29</span>
+
+            <span>30</span>
+            <span>31</span>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- COUNTDOWN -->
+
+    <div class="countdown">
+
+        <div>
+
+            <strong id="days">
+                00
+            </strong>
+
+            <small>DAYS</small>
+
+        </div>
+
+
+        <span>:</span>
+
+
+        <div>
+
+            <strong id="hours">
+                00
+            </strong>
+
+            <small>HOUR</small>
+
+        </div>
+
+
+        <span>:</span>
+
+
+        <div>
+
+            <strong id="minutes">
+                00
+            </strong>
+
+            <small>MIN</small>
+
+        </div>
+
+
+        <span>:</span>
+
+
+        <div>
+
+            <strong id="seconds">
+                00
+            </strong>
+
+            <small>SEC</small>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     GALLERY
+===================================================== -->
+
+<section class="section gallery-section">
+
+    <p class="section-label">
+        GALLERY
+    </p>
+
+
+    <h2>
+        Our Moments
+    </h2>
+
+
+    <p class="gallery-description">
+        저희의 소중한 순간들을 담았습니다.
+    </p>
+
+
+    <div class="gallery">
+
+
+        <button
+            class="gallery-item"
+            type="button"
+            data-image="images/photo1.jpg"
+        >
+
+            <img
+                src="images/photo1.jpg"
+                alt="웨딩 사진"
+            >
+
+        </button>
+
+
+
+        <button
+            class="gallery-item"
+            type="button"
+            data-image="images/photo2.jpg"
+        >
+
+            <img
+                src="images/photo2.jpg"
+                alt="웨딩 사진"
+            >
+
+        </button>
+
+
+
+        <button
+            class="gallery-item"
+            type="button"
+            data-image="images/photo3.jpg"
+        >
+
+            <img
+                src="images/photo3.jpg"
+                alt="웨딩 사진"
+            >
+
+        </button>
+
+
+
+        <button
+            class="gallery-item"
+            type="button"
+            data-image="images/photo4.jpg"
+        >
+
+            <img
+                src="images/photo4.jpg"
+                alt="웨딩 사진"
+            >
+
+        </button>
+
+
+
+        <button
+            class="gallery-item"
+            type="button"
+            data-image="images/photo5.jpg"
+        >
+
+            <img
+                src="images/photo5.jpg"
+                alt="웨딩 사진"
+            >
+
+        </button>
+
+
+
+        <button
+            class="gallery-item"
+            type="button"
+            data-image="images/main.jpg"
+        >
+
+            <img
+                src="images/main.jpg"
+                alt="웨딩 사진"
+            >
+
+        </button>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PHOTO MODAL
+===================================================== -->
+
+<div
+    id="photoModal"
+    class="photo-modal"
+>
+
+    <button
+        id="closeModal"
+        class="close-modal"
+        type="button"
+        aria-label="사진 닫기"
+    >
+        ×
+    </button>
+
+
+    <div class="modal-image-container">
+
+        <img
+            id="modalImage"
+            src=""
+            alt="웨딩 사진"
+        >
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     LOCATION
+===================================================== -->
+
+<section class="section location">
+
+    <p class="section-label">
+        LOCATION
+    </p>
+
+
+    <h2>
+        Wedding Hall
+    </h2>
+
+
+    <p class="venue-name">
+        양재 엘타워 그레이스홀
+    </p>
+
+
+    <p class="address">
+        서울특별시 서초구 강남대로 213
+    </p>
+
+
+    <div class="map-placeholder">
+        MAP
+    </div>
+
+
+    <div class="map-buttons">
+
+        <a href="#" target="_blank">
+            카카오맵
+        </a>
+
+
+        <a href="#" target="_blank">
+            네이버지도
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     GUEST PHOTO UPLOAD
+===================================================== -->
+
+<section class="section photo-upload">
+
+    <p class="section-label">
+        OUR GUESTS
+    </p>
+
+
+    <h2>
+
+        우리의 결혼식 사진을<br>
+        남겨주세요.
+
+    </h2>
+
+
+    <p class="description">
+
+        결혼식에서 찍은 소중한 사진을<br>
+        저희에게 공유해주세요.
+
+    </p>
+
+
+    <label
+        for="photoUpload"
+        class="upload-button"
+    >
+
+        사진 선택하기
+
+    </label>
+
+
+    <input
+        id="photoUpload"
+        type="file"
+        accept="image/*"
+        multiple
+        hidden
+    >
+
+
+    <div
+        id="uploadPreview"
+        class="upload-preview"
+    ></div>
+
+
+    <p class="upload-notice">
+
+        ※ 현재는 사진 미리보기 기능입니다.<br>
+        실제 업로드 기능은 서버 연결 후 사용할 수 있습니다.
+
+    </p>
+
+</section>
+
+
+
+<!-- =====================================================
+     ACCOUNT
+===================================================== -->
+
+<section class="section account">
+
+    <p class="section-label">
+        ACCOUNT
+    </p>
+
+
+    <h2>
+        마음 전하실 곳
+    </h2>
+
+
+    <div class="account-box">
+
+
+        <button
+            type="button"
+            onclick="copyAccount('계좌번호를 입력해주세요')"
+        >
+
+            <span>
+                신랑측
+            </span>
+
+
+            <strong>
+                계좌번호를 입력해주세요
+            </strong>
+
+
+            <small>
+                계좌번호 복사
+            </small>
+
+        </button>
+
+
+
+        <button
+            type="button"
+            onclick="copyAccount('계좌번호를 입력해주세요')"
+        >
+
+            <span>
+                신부측
+            </span>
+
+
+            <strong>
+                계좌번호를 입력해주세요
+            </strong>
+
+
+            <small>
+                계좌번호 복사
+            </small>
+
+        </button>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <p>
+        OUR WEDDING DAY
+    </p>
+
+
+    <p>
+        배윤종 ♥ 방예진
+    </p>
+
+
+    <small>
+        2026. 12. 05
+    </small>
+
+</footer>
+
+
+</main>
+
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
+```
