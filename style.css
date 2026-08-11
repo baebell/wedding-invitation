@@ -702,7 +702,18 @@ a {
 .venue-name {
     margin-top: 35px;
 
-    font-size: 17px;
+    font-size: 18px;
+
+    font-weight: 400;
+}
+
+
+.venue-floor {
+    margin-top: 8px;
+
+    color: #8f877f;
+
+    font-size: 12px;
 }
 
 
@@ -715,42 +726,178 @@ a {
 }
 
 
-.map-placeholder {
+
+/* =====================================================
+   NAVER WEDDING MAP
+===================================================== */
+
+.wedding-map {
+    width: 100%;
+
+    height: 290px;
+
     margin-top: 35px;
 
-    height: 220px;
+    background: #e8e4df;
+
+    overflow: hidden;
+}
+
+
+
+/* =====================================================
+   MAP BUTTONS
+===================================================== */
+
+.map-app-buttons {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 7px;
+
+    margin-top: 12px;
+}
+
+
+.map-app-button {
+    min-width: 0;
+
+    padding:
+        13px 4px;
+
+    border-radius: 4px;
 
     display: flex;
 
     align-items: center;
     justify-content: center;
 
-    background: #dedbd6;
-
-    color: #99928b;
-
-    font-size: 12px;
-}
-
-
-.map-buttons {
-    display: flex;
-
     gap: 5px;
 
-    margin-top: 8px;
+    font-size: 11px;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    -webkit-tap-highlight-color:
+        transparent;
 }
 
 
-.map-buttons a {
-    flex: 1;
+.map-app-button:active {
+    opacity: 0.7;
+}
 
-    padding: 14px;
 
-    background: white;
+/* 카카오맵 */
+
+.map-app-button.kakao {
+    background: #fee500;
+
+    color: #191919;
+}
+
+
+/* 네이버지도 */
+
+.map-app-button.naver {
+    background: #03c75a;
+
+    color: white;
+}
+
+
+/* 티맵 */
+
+.map-app-button.tmap {
+    background: #ef3340;
+
+    color: white;
+}
+
+
+.map-icon {
+    width: 21px;
+    height: 21px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        rgba(255, 255, 255, 0.75);
+
+    color: #333;
+
+    font-family:
+        Arial,
+        sans-serif;
 
     font-size: 11px;
+
+    font-weight: bold;
+
+    flex-shrink: 0;
 }
+
+
+
+/* =====================================================
+   TRANSPORT INFO
+===================================================== */
+
+.transport-info {
+    margin-top: 35px;
+
+    padding-top: 15px;
+
+    border-top:
+        1px solid #e3ddd7;
+
+    text-align: left;
+}
+
+
+.transport-row {
+    display: grid;
+
+    grid-template-columns:
+        65px 1fr;
+
+    gap: 15px;
+
+    padding:
+        18px 0;
+
+    border-bottom:
+        1px solid #eee9e4;
+}
+
+
+.transport-title {
+    color: #8c8178;
+
+    font-size: 12px;
+
+    font-weight: 400;
+}
+
+
+.transport-row p {
+    color: #66605b;
+
+    font-size: 12px;
+
+    line-height: 1.9;
+}
+
+
 
 
 
@@ -1097,4 +1244,11 @@ footer small {
 
     user-select: none;
     -webkit-user-select: none;
+}
+
+.wedding-map {
+    width: 100%;
+    height: 290px;
+    margin-top: 35px;
+    background: #e8e4df;
 }

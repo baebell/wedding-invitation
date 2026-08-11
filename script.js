@@ -883,3 +883,70 @@ function fallbackCopy(text) {
     );
 
 }
+
+/* =====================================================
+   NAVER WEDDING MAP
+===================================================== */
+
+function initWeddingMap() {
+
+    const mapContainer =
+        document.getElementById("map");
+
+    if (!mapContainer) {
+        return;
+    }
+
+    const weddingLat = 37.4821;
+    const weddingLng = 127.0352;
+
+    const weddingLocation =
+        new naver.maps.LatLng(
+            weddingLat,
+            weddingLng
+        );
+
+    const map =
+        new naver.maps.Map(
+            "map",
+            {
+                center:
+                    weddingLocation,
+
+                zoom:
+                    17,
+
+                zoomControl:
+                    false,
+
+                mapDataControl:
+                    false,
+
+                scaleControl:
+                    false
+            }
+        );
+
+    const marker =
+        new naver.maps.Marker({
+            position:
+                weddingLocation,
+
+            map:
+                map
+        });
+
+}
+
+
+/* 지도 실행 */
+
+if (
+    typeof naver !== "undefined"
+    &&
+    naver.maps
+) {
+
+    initWeddingMap();
+
+}

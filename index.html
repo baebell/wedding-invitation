@@ -475,49 +475,124 @@
         LOCATION
     </p>
 
-
     <h2>
-        Wedding Hall
+        오시는 길
     </h2>
-
 
     <p class="venue-name">
         양재 엘타워 그레이스홀
     </p>
 
+    <p class="venue-floor">
+        엘타워 6F · 그레이스홀
+    </p>
 
     <p class="address">
         서울특별시 서초구 강남대로 213
     </p>
 
 
-    <div class="map-placeholder">
-        MAP
+    <!-- 네이버 지도 -->
+
+    <div
+        id="map"
+        class="wedding-map"
+    ></div>
+
+
+    <!-- 지도 앱 버튼 -->
+
+    <div class="map-app-buttons">
+
+        <a
+            id="kakaoMapButton"
+            class="map-app-button kakao"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            <span class="map-icon">
+                K
+            </span>
+
+            <span>
+                카카오맵
+            </span>
+        </a>
+
+
+        <a
+            id="naverMapButton"
+            class="map-app-button naver"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            <span class="map-icon">
+                N
+            </span>
+
+            <span>
+                네이버지도
+            </span>
+        </a>
+
+
+        <a
+            id="tmapButton"
+            class="map-app-button tmap"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            <span class="map-icon">
+                T
+            </span>
+
+            <span>
+                티맵
+            </span>
+        </a>
+
     </div>
 
 
-    <div class="map-buttons">
+    <!-- 교통 안내 -->
 
-        <a
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            카카오맵
-        </a>
+    <div class="transport-info">
+
+        <div class="transport-row">
+
+            <span class="transport-title">
+                지하철
+            </span>
+
+            <p>
+                3호선 · 신분당선 양재역<br>
+                9번 출구에서 도보 이동
+            </p>
+
+        </div>
 
 
-        <a
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            네이버지도
-        </a>
+        <div class="transport-row">
+
+            <span class="transport-title">
+                주소
+            </span>
+
+            <p>
+                서울특별시 서초구 강남대로 213<br>
+                엘타워 6층 그레이스홀
+            </p>
+
+        </div>
 
     </div>
 
 </section>
+
+
 
 
 <!-- =====================================================
@@ -702,6 +777,23 @@
     </div>
 
 </div>
+
+
+
+<!-- NAVER MAP SDK -->
+
+<script
+    src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=g0i9c55uaf"
+></script>
+
+
+<!-- 우리 JavaScript -->
+
+<script src="script.js"></script>
+
+</body>
+</html>
+
 
 
 <script src="script.js"></script>
