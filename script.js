@@ -1119,3 +1119,80 @@ tmapButton.addEventListener(
 
     }
 );
+
+
+/* =====================================================
+   ACCOUNT ACCORDION
+===================================================== */
+
+const accountToggles =
+    document.querySelectorAll(
+        ".account-toggle"
+    );
+
+
+accountToggles.forEach(
+    function (toggle) {
+
+        toggle.addEventListener(
+            "click",
+            function () {
+
+                const accountId =
+                    toggle.dataset.account;
+
+
+                const accountList =
+                    document.getElementById(
+                        accountId
+                    );
+
+
+                const arrow =
+                    toggle.querySelector(
+                        ".account-arrow"
+                    );
+
+
+                const isOpen =
+                    accountList.classList.contains(
+                        "open"
+                    );
+
+
+                /*
+                   현재 항목 닫기
+                */
+
+                if (isOpen) {
+
+                    accountList.classList.remove(
+                        "open"
+                    );
+
+                    arrow.textContent =
+                        "+";
+
+                }
+
+
+                /*
+                   현재 항목 열기
+                */
+
+                else {
+
+                    accountList.classList.add(
+                        "open"
+                    );
+
+                    arrow.textContent =
+                        "−";
+
+                }
+
+            }
+        );
+
+    }
+);

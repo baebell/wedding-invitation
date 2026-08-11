@@ -964,64 +964,202 @@ a {
 }
 
 
-
 /* =====================================================
    ACCOUNT
 ===================================================== */
 
-.account-box {
+.account {
+    background: #faf8f5;
+}
+
+
+.account-description {
+    margin-top: 20px;
+
+    color: #918981;
+
+    font-size: 12px;
+
+    line-height: 1.9;
+}
+
+
+
+/* =====================================================
+   ACCOUNT GROUP
+===================================================== */
+
+.account-group {
+    margin-top: 15px;
+
+    border:
+        1px solid #e4ded8;
+
+    background: #ffffff;
+
+    overflow: hidden;
+}
+
+
+.account-group:first-of-type {
     margin-top: 40px;
+}
+
+
+
+/* =====================================================
+   ACCOUNT TOGGLE
+===================================================== */
+
+.account-toggle {
+    width: 100%;
+
+    padding:
+        18px 20px;
+
+    border: none;
+
+    background: #ffffff;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    color: #554e48;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    -webkit-tap-highlight-color:
+        transparent;
+}
+
+
+.account-arrow {
+    color: #a58d7d;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 20px;
+
+    font-weight: 300;
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+
+/* =====================================================
+   ACCOUNT LIST
+===================================================== */
+
+.account-list {
+    max-height: 0;
+
+    overflow: hidden;
+
+    background: #f9f7f4;
+
+    transition:
+        max-height 0.5s ease;
+}
+
+
+.account-list.open {
+    max-height: 500px;
+}
+
+
+
+/* =====================================================
+   ACCOUNT CARD
+===================================================== */
+
+.account-card {
+    min-height: 75px;
+
+    padding:
+        17px 18px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+
+    border-top:
+        1px solid #ece7e2;
+
+    text-align: left;
+}
+
+
+.account-info {
+    min-width: 0;
 
     display: flex;
 
     flex-direction: column;
 
-    gap: 10px;
+    gap: 7px;
 }
 
 
-.account-box button {
-    padding: 20px;
-
-    border:
-        1px solid #e3ddd7;
-
-    background: white;
-
-    text-align: left;
-
-    cursor: pointer;
-}
-
-
-.account-box span {
-    display: block;
-
-    margin-bottom: 8px;
-
-    color: #99928b;
+.account-owner {
+    color: #857b72;
 
     font-size: 11px;
 }
 
 
-.account-box strong {
-    display: block;
+.account-number {
+    color: #49433e;
 
-    font-size: 13px;
+    font-size: 12px;
 
-    font-weight: 400;
+    line-height: 1.5;
+
+    word-break: keep-all;
 }
 
 
-.account-box small {
-    display: block;
 
-    margin-top: 10px;
+/* =====================================================
+   COPY BUTTON
+===================================================== */
 
-    color: #aaa29b;
+.copy-button {
+    flex-shrink: 0;
+
+    padding:
+        7px 11px;
+
+    border:
+        1px solid #d7cec6;
+
+    border-radius: 3px;
+
+    background: #ffffff;
+
+    color: #75685e;
 
     font-size: 10px;
+
+    cursor: pointer;
+
+    -webkit-tap-highlight-color:
+        transparent;
+}
+
+
+.copy-button:active {
+    background: #eee8e2;
 }
 
 
