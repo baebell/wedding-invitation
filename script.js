@@ -982,3 +982,140 @@ if (
     initWeddingMap();
 
 }
+
+
+/* =====================================================
+   MAP APP BUTTONS
+===================================================== */
+
+const kakaoMapButton =
+    document.getElementById("kakaoMapButton");
+
+const naverMapButton =
+    document.getElementById("naverMapButton");
+
+const tmapButton =
+    document.getElementById("tmapButton");
+
+
+/*
+   엘타워 위치
+*/
+
+const eltowerLat = 37.4821;
+const eltowerLng = 127.0352;
+
+const eltowerName =
+    "양재 엘타워";
+
+const eltowerAddress =
+    "서울특별시 서초구 강남대로 213";
+
+
+/* =====================================================
+   KAKAO MAP
+===================================================== */
+
+kakaoMapButton.addEventListener(
+    "click",
+    function () {
+
+        /*
+           카카오맵 모바일웹 스킴
+
+           앱이 설치돼 있으면
+           카카오맵 실행을 시도함
+        */
+
+        const url =
+            "https://m.map.kakao.com/scheme/look"
+            + "?p="
+            + eltowerLat
+            + ","
+            + eltowerLng;
+
+        window.location.href = url;
+
+    }
+);
+
+
+/* =====================================================
+   NAVER MAP
+===================================================== */
+
+naverMapButton.addEventListener(
+    "click",
+    function () {
+
+        const appURL =
+            "nmap://search"
+            + "?query="
+            + encodeURIComponent(
+                eltowerName
+            )
+            + "&appname="
+            + encodeURIComponent(
+                window.location.hostname
+            );
+
+
+        const webURL =
+            "https://map.naver.com/p/search/"
+            + encodeURIComponent(
+                eltowerName
+            );
+
+
+        window.location.href =
+            appURL;
+
+
+        /*
+           앱 실행이 안 되는 경우
+           웹 네이버지도로 이동
+        */
+
+        setTimeout(
+            function () {
+
+                if (
+                    !document.hidden
+                ) {
+
+                    window.location.href =
+                        webURL;
+
+                }
+
+            },
+            1200
+        );
+
+    }
+);
+
+
+/* =====================================================
+   TMAP
+===================================================== */
+
+tmapButton.addEventListener(
+    "click",
+    function () {
+
+        /*
+           TMAP 목적지 검색
+        */
+
+        const url =
+            "tmap://search"
+            + "?name="
+            + encodeURIComponent(
+                eltowerName
+            );
+
+        window.location.href = url;
+
+    }
+);
