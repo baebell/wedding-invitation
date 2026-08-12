@@ -1803,3 +1803,44 @@ footer small {
 
     cursor: pointer;
 }
+
+
+/* =====================================================
+   RSVP SECTION
+===================================================== */
+
+.rsvp-section {
+    background: #f2eee8;
+}
+
+
+.open-rsvp-button {
+    margin-top: 35px;
+
+    width: 100%;
+
+    max-width: 280px;
+
+    padding: 15px 20px;
+
+    border:
+        1px solid #a78e7e;
+
+    border-radius: 4px;
+
+    background: #a78e7e;
+
+    color: white;
+
+    font-size: 12px;
+
+    cursor: pointer;
+
+    -webkit-tap-highlight-color:
+        transparent;
+}
+
+
+.open-rsvp-button:active {
+    opacity: 0.75;
+}

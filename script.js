@@ -1,3 +1,21 @@
+/* =====================================================
+   SUPABASE
+===================================================== */
+
+const SUPABASE_URL =
+    "https://supabase.com/dashboard/project/fejuvkmoyznpultwrdlb";
+
+
+const SUPABASE_KEY =
+    "sb_publishable_IGBvWC9uJxGez53cR6H9Hg_T4DzqY0J";
+
+
+const supabaseClient =
+    supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_KEY
+    );
+
 
 /* =====================================================
    BASIC ELEMENTS
@@ -130,7 +148,24 @@ function startInvitation() {
 
 setTimeout(() => {
 
-    openRsvpModal();
+    const alreadySubmitted =
+        localStorage.getItem(
+            "weddingRsvpSubmitted"
+        );
+
+
+    /*
+       아직 제출하지 않은 경우에만
+       자동 팝업 표시
+    */
+
+    if (
+        alreadySubmitted !== "true"
+    ) {
+
+        openRsvpModal();
+
+    }
 
 }, 1800);
 
@@ -190,6 +225,29 @@ function openRsvpModal() {
 
 }
 
+
+/* =====================================================
+   RSVP REOPEN BUTTON
+===================================================== */
+
+const openRsvpButton =
+    document.getElementById(
+        "openRsvpButton"
+    );
+
+
+if (openRsvpButton) {
+
+    openRsvpButton.addEventListener(
+        "click",
+        function () {
+
+            openRsvpModal();
+
+        }
+    );
+
+}
 
 /* =====================================================
    RSVP CLOSE
@@ -322,14 +380,13 @@ attendanceRadios.forEach(
     }
 );
 
-
 /* =====================================================
-   RSVP SUBMIT
+   RSVP SUBMIT → SUPABASE
 ===================================================== */
 
 rsvpForm.addEventListener(
     "submit",
-    function (event) {
+    async function (event) {
 
         event.preventDefault();
 
@@ -338,50 +395,155 @@ rsvpForm.addEventListener(
             new FormData(rsvpForm);
 
 
-        const data = {
+        const attendance =
+            formData.get("attendance");
 
-            name:
-                formData.get("guestName"),
 
-            side:
-                formData.get("guestSide"),
+        const submitButton =
+            rsvpForm.querySelector(
+                ".rsvp-submit"
+            );
+
+
+        /*
+           중복 터치 방지
+        */
+
+        submitButton.disabled =
+            true;
+
+        submitButton.textContent =
+            "전달 중...";
+
+
+        const rsvpData = {
+
+            guest_name:
+                formData.get(
+                    "guestName"
+                ),
+
+            guest_side:
+                formData.get(
+                    "guestSide"
+                ),
 
             attendance:
-                formData.get("attendance"),
+                attendance,
 
-            count:
-                formData.get("attendance") === "참석"
+            guest_count:
+                attendance === "참석"
                     ? Number(
-                        formData.get("guestCount")
+                        formData.get(
+                            "guestCount"
+                        )
                     )
                     : 0,
 
             message:
-                formData.get("guestMessage")
+                formData.get(
+                    "guestMessage"
+                ) || null
 
         };
 
 
-        console.log(
-            "RSVP:",
-            data
+        /*
+           Supabase에 저장
+        */
+
+        const {
+            error
+        } =
+            await supabaseClient
+
+                .from(
+                    "wedding_rsvp"
+                )
+
+                .insert(
+                    rsvpData
+                );
+
+
+        /*
+           실패
+        */
+
+        if (error) {
+
+            console.error(
+                "RSVP 저장 오류:",
+                error
+            );
+
+
+            alert(
+                "참석 여부 저장에 실패했습니다.\n잠시 후 다시 시도해주세요."
+            );
+
+
+            submitButton.disabled =
+                false;
+
+            submitButton.textContent =
+                "참석 여부 전달하기";
+
+
+            return;
+
+        }
+
+
+        /*
+           성공
+        */
+
+        alert(
+            "참석 여부가 전달되었습니다.\n감사합니다."
         );
 
 
         /*
-           현재는 테스트용
-
-           다음 단계에서 여기에서
-           Supabase로 전송
+           이 브라우저에서 응답 완료 표시
         */
 
-
-        alert(
-            "참석 여부가 확인되었습니다.\n감사합니다."
+        localStorage.setItem(
+            "weddingRsvpSubmitted",
+            "true"
         );
 
 
+        /*
+           폼 초기화
+        */
+
+        rsvpForm.reset();
+
+
+        currentGuestCount =
+            1;
+
+
+        updateGuestCount();
+
+
+        guestCountField.style.display =
+            "block";
+
+
+        /*
+           팝업 닫기
+        */
+
         closeRsvpModal();
+
+
+        submitButton.disabled =
+            false;
+
+        submitButton.textContent =
+            "참석 여부 전달하기";
 
     }
 );
