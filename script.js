@@ -472,27 +472,26 @@ rsvpForm.addEventListener(
 
         if (error) {
 
-            console.error(
-                "RSVP 저장 오류:",
-                error
-            );
+    console.error(
+        "RSVP 저장 오류:",
+        error
+    );
 
+    alert(
+        "저장 실패\n\n"
+        + "message: "
+        + error.message
+        + "\n\ncode: "
+        + error.code
+    );
 
-            alert(
-                "참석 여부 저장에 실패했습니다.\n잠시 후 다시 시도해주세요."
-            );
+    submitButton.disabled = false;
 
+    submitButton.textContent =
+        "참석 여부 전달하기";
 
-            submitButton.disabled =
-                false;
-
-            submitButton.textContent =
-                "참석 여부 전달하기";
-
-
-            return;
-
-        }
+    return;
+}
 
 
         /*
