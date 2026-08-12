@@ -904,6 +904,252 @@
 
 </main>
 
+<!-- =====================================================
+     RSVP MODAL
+===================================================== -->
+
+<div
+    id="rsvpModal"
+    class="rsvp-modal"
+    aria-hidden="true"
+>
+
+    <div class="rsvp-card">
+
+        <!-- 닫기 -->
+        <button
+            id="rsvpCloseButton"
+            class="rsvp-close"
+            type="button"
+            aria-label="닫기"
+        >
+            ×
+        </button>
+
+
+        <p class="rsvp-label">
+            RSVP
+        </p>
+
+
+        <h2>
+            참석 여부를 알려주세요
+        </h2>
+
+
+        <p class="rsvp-description">
+            소중한 걸음에 감사드립니다.<br>
+            원활한 예식 준비를 위해 참석 여부를 알려주세요.
+        </p>
+
+
+        <form id="rsvpForm">
+
+
+            <!-- 이름 -->
+
+            <div class="rsvp-field">
+
+                <label for="guestName">
+                    성함
+                </label>
+
+                <input
+                    id="guestName"
+                    name="guestName"
+                    type="text"
+                    placeholder="성함을 입력해주세요"
+                    required
+                >
+
+            </div>
+
+
+            <!-- 신랑 / 신부측 -->
+
+            <div class="rsvp-field">
+
+                <span class="rsvp-field-title">
+                    어느 쪽 하객이신가요?
+                </span>
+
+
+                <div class="rsvp-options">
+
+                    <label>
+
+                        <input
+                            type="radio"
+                            name="guestSide"
+                            value="신랑측"
+                            required
+                        >
+
+                        <span>
+                            신랑측
+                        </span>
+
+                    </label>
+
+
+                    <label>
+
+                        <input
+                            type="radio"
+                            name="guestSide"
+                            value="신부측"
+                        >
+
+                        <span>
+                            신부측
+                        </span>
+
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <!-- 참석 여부 -->
+
+            <div class="rsvp-field">
+
+                <span class="rsvp-field-title">
+                    참석 여부
+                </span>
+
+
+                <div class="rsvp-options">
+
+                    <label>
+
+                        <input
+                            type="radio"
+                            name="attendance"
+                            value="참석"
+                            required
+                        >
+
+                        <span>
+                            참석할게요
+                        </span>
+
+                    </label>
+
+
+                    <label>
+
+                        <input
+                            type="radio"
+                            name="attendance"
+                            value="불참"
+                        >
+
+                        <span>
+                            참석이 어려워요
+                        </span>
+
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <!-- 참석 인원 -->
+
+            <div
+                id="guestCountField"
+                class="rsvp-field"
+            >
+
+                <label for="guestCount">
+                    총 참석 인원
+                </label>
+
+
+                <div class="guest-counter">
+
+                    <button
+                        id="guestMinus"
+                        type="button"
+                    >
+                        −
+                    </button>
+
+
+                    <span id="guestCountDisplay">
+                        1
+                    </span>
+
+
+                    <button
+                        id="guestPlus"
+                        type="button"
+                    >
+                        +
+                    </button>
+
+                </div>
+
+
+                <input
+                    id="guestCount"
+                    name="guestCount"
+                    type="hidden"
+                    value="1"
+                >
+
+            </div>
+
+
+            <!-- 메시지 -->
+
+            <div class="rsvp-field">
+
+                <label for="guestMessage">
+                    신랑 신부에게 한마디
+                    <small>(선택)</small>
+                </label>
+
+                <textarea
+                    id="guestMessage"
+                    name="guestMessage"
+                    rows="3"
+                    placeholder="축하 메시지를 남겨주세요"
+                ></textarea>
+
+            </div>
+
+
+            <!-- 제출 -->
+
+            <button
+                class="rsvp-submit"
+                type="submit"
+            >
+                참석 여부 전달하기
+            </button>
+
+
+            <!-- 나중에 -->
+
+            <button
+                id="rsvpLaterButton"
+                class="rsvp-later"
+                type="button"
+            >
+                나중에 작성할게요
+            </button>
+
+
+        </form>
+
+    </div>
+
+</div>
+
 
 <!-- =====================================================
      PHOTO MODAL

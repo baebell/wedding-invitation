@@ -123,9 +123,268 @@ function startInvitation() {
 
     }, 1400);
 
+    /*
+   오프닝이 사라진 뒤
+   참석 여부 팝업 표시
+*/
+
+setTimeout(() => {
+
+    openRsvpModal();
+
+}, 1800);
+
 }
 
 
+/* =====================================================
+   RSVP
+===================================================== */
+
+const rsvpModal =
+    document.getElementById("rsvpModal");
+
+const rsvpForm =
+    document.getElementById("rsvpForm");
+
+const rsvpCloseButton =
+    document.getElementById("rsvpCloseButton");
+
+const rsvpLaterButton =
+    document.getElementById("rsvpLaterButton");
+
+const guestCount =
+    document.getElementById("guestCount");
+
+const guestCountDisplay =
+    document.getElementById("guestCountDisplay");
+
+const guestMinus =
+    document.getElementById("guestMinus");
+
+const guestPlus =
+    document.getElementById("guestPlus");
+
+const guestCountField =
+    document.getElementById("guestCountField");
+
+
+let currentGuestCount = 1;
+
+
+/* =====================================================
+   RSVP OPEN
+===================================================== */
+
+function openRsvpModal() {
+
+    rsvpModal.classList.add(
+        "active"
+    );
+
+
+    rsvpModal.setAttribute(
+        "aria-hidden",
+        "false"
+    );
+
+}
+
+
+/* =====================================================
+   RSVP CLOSE
+===================================================== */
+
+function closeRsvpModal() {
+
+    rsvpModal.classList.remove(
+        "active"
+    );
+
+
+    rsvpModal.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+}
+
+
+/* X */
+
+rsvpCloseButton.addEventListener(
+    "click",
+    closeRsvpModal
+);
+
+
+/* 나중에 작성 */
+
+rsvpLaterButton.addEventListener(
+    "click",
+    closeRsvpModal
+);
+
+
+/* =====================================================
+   GUEST COUNT
+===================================================== */
+
+guestMinus.addEventListener(
+    "click",
+    function () {
+
+        if (currentGuestCount > 1) {
+
+            currentGuestCount--;
+
+            updateGuestCount();
+
+        }
+
+    }
+);
+
+
+guestPlus.addEventListener(
+    "click",
+    function () {
+
+        /*
+           최대 10명
+        */
+
+        if (currentGuestCount < 10) {
+
+            currentGuestCount++;
+
+            updateGuestCount();
+
+        }
+
+    }
+);
+
+
+function updateGuestCount() {
+
+    guestCountDisplay.textContent =
+        currentGuestCount;
+
+    guestCount.value =
+        currentGuestCount;
+
+}
+
+
+/* =====================================================
+   ATTENDANCE
+===================================================== */
+
+const attendanceRadios =
+    document.querySelectorAll(
+        'input[name="attendance"]'
+    );
+
+
+attendanceRadios.forEach(
+    function (radio) {
+
+        radio.addEventListener(
+            "change",
+            function () {
+
+                if (
+                    radio.value === "불참"
+                    &&
+                    radio.checked
+                ) {
+
+                    guestCountField.style.display =
+                        "none";
+
+                }
+
+                if (
+                    radio.value === "참석"
+                    &&
+                    radio.checked
+                ) {
+
+                    guestCountField.style.display =
+                        "block";
+
+                }
+
+            }
+        );
+
+    }
+);
+
+
+/* =====================================================
+   RSVP SUBMIT
+===================================================== */
+
+rsvpForm.addEventListener(
+    "submit",
+    function (event) {
+
+        event.preventDefault();
+
+
+        const formData =
+            new FormData(rsvpForm);
+
+
+        const data = {
+
+            name:
+                formData.get("guestName"),
+
+            side:
+                formData.get("guestSide"),
+
+            attendance:
+                formData.get("attendance"),
+
+            count:
+                formData.get("attendance") === "참석"
+                    ? Number(
+                        formData.get("guestCount")
+                    )
+                    : 0,
+
+            message:
+                formData.get("guestMessage")
+
+        };
+
+
+        console.log(
+            "RSVP:",
+            data
+        );
+
+
+        /*
+           현재는 테스트용
+
+           다음 단계에서 여기에서
+           Supabase로 전송
+        */
+
+
+        alert(
+            "참석 여부가 확인되었습니다.\n감사합니다."
+        );
+
+
+        closeRsvpModal();
+
+    }
+);
 
 /* =====================================================
    MUSIC ON / OFF

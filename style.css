@@ -1456,3 +1456,350 @@ footer small {
         0 1px 5px
         rgba(0, 0, 0, 0.25);
 }
+
+
+/* =====================================================
+   RSVP MODAL
+===================================================== */
+
+.rsvp-modal {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 999990;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding:
+        max(25px, env(safe-area-inset-top))
+        20px
+        max(25px, env(safe-area-inset-bottom));
+
+    background:
+        rgba(41, 37, 33, 0.68);
+
+    backdrop-filter:
+        blur(5px);
+
+    -webkit-backdrop-filter:
+        blur(5px);
+
+    overflow-y: auto;
+}
+
+
+.rsvp-modal.active {
+    display: flex;
+}
+
+
+/* =====================================================
+   RSVP CARD
+===================================================== */
+
+.rsvp-card {
+    position: relative;
+
+    width: 100%;
+    max-width: 410px;
+
+    max-height: 88dvh;
+
+    padding:
+        38px 25px 28px;
+
+    background: #faf8f5;
+
+    border-radius: 10px;
+
+    overflow-y: auto;
+
+    box-shadow:
+        0 15px 50px
+        rgba(0, 0, 0, 0.2);
+
+    text-align: center;
+}
+
+
+/* 닫기 */
+
+.rsvp-close {
+    position: absolute;
+
+    top: 10px;
+    right: 12px;
+
+    width: 40px;
+    height: 40px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #8b8179;
+
+    font-size: 28px;
+
+    cursor: pointer;
+}
+
+
+/* RSVP */
+
+.rsvp-label {
+    color: #a58c7c;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 13px;
+
+    letter-spacing: 0.25em;
+}
+
+
+.rsvp-card h2 {
+    margin-top: 12px;
+
+    color: #463f39;
+
+    font-size: 21px;
+
+    font-weight: 400;
+}
+
+
+.rsvp-description {
+    margin-top: 15px;
+
+    color: #8c847d;
+
+    font-size: 11px;
+
+    line-height: 1.9;
+}
+
+
+/* =====================================================
+   FORM
+===================================================== */
+
+#rsvpForm {
+    margin-top: 30px;
+
+    text-align: left;
+}
+
+
+.rsvp-field {
+    margin-top: 22px;
+}
+
+
+.rsvp-field label,
+.rsvp-field-title {
+    display: block;
+
+    margin-bottom: 9px;
+
+    color: #746b64;
+
+    font-size: 11px;
+}
+
+
+.rsvp-field small {
+    color: #aaa29b;
+}
+
+
+/* =====================================================
+   INPUT
+===================================================== */
+
+.rsvp-field input[type="text"],
+.rsvp-field textarea {
+    width: 100%;
+
+    padding: 13px 14px;
+
+    border:
+        1px solid #ded7d0;
+
+    border-radius: 4px;
+
+    outline: none;
+
+    background: white;
+
+    color: #49423d;
+
+    font-family: inherit;
+
+    font-size: 12px;
+}
+
+
+.rsvp-field textarea {
+    resize: none;
+}
+
+
+.rsvp-field input:focus,
+.rsvp-field textarea:focus {
+    border-color: #aa9383;
+}
+
+
+/* =====================================================
+   RADIO BUTTON
+===================================================== */
+
+.rsvp-options {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 8px;
+}
+
+
+.rsvp-options label {
+    margin: 0;
+
+    cursor: pointer;
+}
+
+
+.rsvp-options input {
+    display: none;
+}
+
+
+.rsvp-options span {
+    height: 43px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid #ddd5ce;
+
+    border-radius: 4px;
+
+    background: white;
+
+    color: #756c65;
+
+    font-size: 11px;
+}
+
+
+.rsvp-options input:checked + span {
+    border-color: #a78e7e;
+
+    background: #a78e7e;
+
+    color: white;
+}
+
+
+/* =====================================================
+   GUEST COUNTER
+===================================================== */
+
+.guest-counter {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 28px;
+
+    height: 50px;
+
+    border:
+        1px solid #ded7d0;
+
+    background: white;
+}
+
+
+.guest-counter button {
+    width: 35px;
+    height: 35px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #8b7769;
+
+    font-size: 20px;
+
+    cursor: pointer;
+}
+
+
+#guestCountDisplay {
+    min-width: 25px;
+
+    text-align: center;
+
+    color: #4c443e;
+
+    font-size: 16px;
+}
+
+
+/* =====================================================
+   RSVP BUTTONS
+===================================================== */
+
+.rsvp-submit {
+    width: 100%;
+
+    margin-top: 30px;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 4px;
+
+    background: #8f7666;
+
+    color: white;
+
+    font-size: 12px;
+
+    cursor: pointer;
+}
+
+
+.rsvp-later {
+    width: 100%;
+
+    margin-top: 8px;
+
+    padding: 12px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #aaa19a;
+
+    font-size: 10px;
+
+    cursor: pointer;
+}
