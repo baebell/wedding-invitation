@@ -3,7 +3,7 @@
 ===================================================== */
 
 const SUPABASE_URL =
-    "https://supabase.com/dashboard/project/fejuvkmoyznpultwrdlb";
+    "https://fejuvkmoyznpultwrdlb.supabase.co";
 
 
 const SUPABASE_KEY =
