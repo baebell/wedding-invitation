@@ -135,14 +135,13 @@ a {
     margin-top: 20px;
 
     font-family:
-        "Cormorant Garamond",
-        serif;
+        "Nanum Pen Script",
+        cursive;
 
-    font-size: 43px;
+    font-size: 50px;
 
-    font-weight: 300;
+    font-weight: 400;
 }
-
 
 .intro-overlay h1 span {
     color: #e7cfc0;
@@ -339,10 +338,10 @@ a {
     margin: 20px 0;
 
     font-family:
-        "Cormorant Garamond",
-        serif;
+        "Nanum Pen Script",
+        cursive;
 
-    font-size: 43px;
+    font-size: 46px;
 
     font-weight: 400;
 }
@@ -407,11 +406,15 @@ a {
 .section h2 {
     margin-top: 20px;
 
-    font-size: 25px;
+    font-family:
+        "Nanum Pen Script",
+        cursive;
+
+    font-size: 32px;
 
     font-weight: 400;
 
-    line-height: 1.7;
+    line-height: 1.5;
 }
 
 
