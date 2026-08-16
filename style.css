@@ -60,8 +60,7 @@ a {
     min-height: 100dvh;
 
     padding:
-        25px 20px
-        45px;
+        0 0 45px;
 
     background: #faf8f5;
 
