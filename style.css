@@ -2975,3 +2975,18 @@ footer small {
     pointer-events: none;
 }
 
+/* =====================================================
+   BLOCK IMAGE SAVE MENU - INCLUDING KAKAO IN-APP BROWSER
+===================================================== */
+
+.opening-image,
+.gallery-item img,
+.hero-photo img,
+.modal-image-container img {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+
+    -webkit-tap-highlight-color: transparent;
+}

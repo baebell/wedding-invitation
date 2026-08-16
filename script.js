@@ -1616,3 +1616,91 @@ document.addEventListener(
 
     }
 );
+
+/* =====================================================
+   BLOCK LONG PRESS / CONTEXT MENU ON IMAGES
+===================================================== */
+
+document.addEventListener(
+    "contextmenu",
+    function (event) {
+
+        if (
+            event.target.tagName === "IMG"
+        ) {
+
+            event.preventDefault();
+            return false;
+
+        }
+
+    }
+);
+
+
+/* 모바일 길게 누르기 대응 */
+
+let longPressTimer = null;
+
+
+document.addEventListener(
+    "touchstart",
+    function (event) {
+
+        if (
+            event.target.tagName !== "IMG"
+        ) {
+            return;
+        }
+
+
+        longPressTimer = setTimeout(
+            function () {
+
+                /*
+                   길게 눌러도
+                   브라우저 기본 이미지 메뉴가
+                   뜨지 않도록 시도
+                */
+
+                event.preventDefault();
+
+            },
+            500
+        );
+
+    },
+    {
+        passive: false
+    }
+);
+
+
+document.addEventListener(
+    "touchend",
+    function () {
+
+        clearTimeout(
+            longPressTimer
+        );
+
+    },
+    {
+        passive: true
+    }
+);
+
+
+document.addEventListener(
+    "touchmove",
+    function () {
+
+        clearTimeout(
+            longPressTimer
+        );
+
+    },
+    {
+        passive: true
+    }
+);
