@@ -750,66 +750,75 @@ a {
 }
 
 
+/* =====================================================
+   GALLERY - 3 COLUMNS / SAME SIZE
+===================================================== */
+
 .gallery {
     margin-top: 40px;
 
     display: grid;
 
     grid-template-columns:
-        repeat(2, 1fr);
+        repeat(3, 1fr);
 
-    gap: 5px;
+    gap: 4px;
 }
 
 
 .gallery-item {
+    width: 100%;
+
     padding: 0;
 
     border: none;
 
     background: transparent;
 
-    cursor: pointer;
-
     overflow: hidden;
 
-    -webkit-tap-highlight-color:
-        transparent;
+    cursor: pointer;
+
+    aspect-ratio: 1 / 1;
 }
 
 
 .gallery-item img {
     width: 100%;
-    aspect-ratio: 1 / 1;
+    height: 100%;
 
     object-fit: cover;
 
     display: block;
 }
 
+
+/* =====================================================
+   중요!
+   예전에 첫 번째 사진 크게 만들던 설정 무효화
+===================================================== */
+
 .gallery-item:first-child {
-    grid-column: span 2;
+    grid-column: auto;
 }
 
 
 .gallery-item:first-child img {
-    aspect-ratio: 4 / 5;
+    aspect-ratio: auto;
 }
 
 
-@media (min-width: 700px) {
+/* 처음 숨겨지는 사진 */
 
-    .gallery-item img {
-        transition:
-            transform 0.4s ease;
-    }
+.gallery-hidden {
+    display: none;
+}
 
 
-    .gallery-item:hover img {
-        transform:
-            scale(1.03);
-    }
+/* 더보기 후 표시 */
 
+.gallery-hidden.show {
+    display: block;
 }
 
 
