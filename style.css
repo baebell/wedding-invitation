@@ -56,11 +56,8 @@ a {
 ===================================================== */
 
 .opening-hero {
-    min-height: 100vh;
-    min-height: 100dvh;
 
-    padding:
-        0 0 45px;
+    padding: 0;
 
     background: #faf8f5;
 
@@ -988,46 +985,6 @@ a {
         1px solid #e3ddd7;
 
     text-align: left;
-}
-
-
-.transport-row {
-    display: grid;
-
-    grid-template-columns:
-        65px 1fr;
-
-    gap: 15px;
-
-    padding:
-        18px 0;
-
-    border-bottom:
-        1px solid #eee9e4;
-}
-
-
-.transport-title {
-    color: #8c8178;
-
-    font-size: 12px;
-
-    font-weight: 400;
-}
-
-
-.transport-row p {
-     font-family:
-        "Noto Sans KR",
-        sans-serif;
-
-    font-size: 11px;
-
-    font-weight: 300;
-
-    line-height: 1.9;
-
-    color: #706963;
 }
 
 
@@ -2003,4 +1960,606 @@ body {
 .couple-profile,
 .story-section {
     background: #ffffff;
+}
+
+
+/* =====================================================
+   WEDDING FONT THEME
+===================================================== */
+
+
+/* =====================================================
+   1. 전체 기본 본문
+===================================================== */
+
+body {
+    font-family:
+        "Noto Serif KR",
+        serif;
+
+    font-weight: 300;
+
+    color: #4f4842;
+}
+
+
+
+/* =====================================================
+   2. OPENING - Happy wedding day
+===================================================== */
+
+.opening-script {
+    font-family:
+        "Allura",
+        cursive;
+
+    font-weight: 400;
+
+    letter-spacing: 0;
+
+    color: #e94c6f;
+}
+
+
+
+/* =====================================================
+   3. OPENING 날짜
+===================================================== */
+
+.opening-date-on-photo,
+.opening-date-only {
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-weight: 500;
+
+    letter-spacing: 0.16em;
+}
+
+
+
+/* =====================================================
+   4. SCROLL 문구
+===================================================== */
+
+.scroll-guide p {
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-weight: 400;
+
+    letter-spacing: 0.25em;
+}
+
+
+
+/* =====================================================
+   5. 영문 SECTION LABEL
+
+   INVITATION
+   WEDDING DAY
+   GALLERY
+   LOCATION
+   RSVP
+   ACCOUNT
+===================================================== */
+
+.section-label,
+.eyebrow {
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+    letter-spacing: 0.24em;
+
+    color: #a18f83;
+}
+
+
+
+/* =====================================================
+   6. 한글 큰 제목
+
+   우리의 새로운 시작에
+   초대합니다
+
+   오시는 길
+
+   참석 여부를 알려주세요
+
+   마음 전하실 곳
+===================================================== */
+
+.section h2,
+.rsvp-card h2 {
+    font-family:
+        "Gowun Batang",
+        serif;
+
+    font-weight: 400;
+
+    letter-spacing: -0.025em;
+
+    color: #514943;
+}
+
+
+
+/* =====================================================
+   7. 일반 설명 / 초대 문구
+===================================================== */
+
+.description,
+.rsvp-description,
+.gallery-description,
+.account-description {
+    font-family:
+        "Noto Serif KR",
+        serif;
+
+    font-weight: 300;
+
+    letter-spacing: -0.01em;
+
+    line-height: 2.1;
+
+    font-size: 13px;
+
+    color: #746d67;
+}
+
+
+
+/* =====================================================
+   8. 신랑 신부 이름
+
+   배윤종 ♥ 방예진
+===================================================== */
+
+.couple-name p,
+.opening-names {
+    font-family:
+        "Nanum Pen Script",
+        cursive;
+
+    font-size: 25px;
+
+    font-weight: 400;
+
+    letter-spacing: 0.02em;
+
+    color: #66584f;
+}
+
+
+.couple-name span,
+.opening-names span {
+    font-family:
+        "Noto Serif KR",
+        serif;
+
+    font-size: 11px;
+
+    color: #c59b91;
+}
+
+
+
+/* =====================================================
+   9. 날짜 / 시간
+===================================================== */
+
+.hero-date,
+.wedding-time,
+.opening-date-text,
+.opening-date-on-photo {
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-weight: 500;
+
+    letter-spacing: 0.12em;
+}
+
+
+
+/* =====================================================
+   10. 예식장 이름
+===================================================== */
+
+.venue-name {
+    font-family:
+        "Gowun Batang",
+        serif;
+
+    font-weight: 400;
+
+    letter-spacing: -0.02em;
+
+    color: #514943;
+}
+
+
+
+/* =====================================================
+   11. 주소 / 층 / 교통안내
+
+   정보성 내용은 고딕
+===================================================== */
+
+.address,
+.venue-floor,
+.hero-place {
+    font-family:
+        "Noto Sans KR",
+        sans-serif;
+}
+
+
+.address,
+.venue-floor {
+    font-weight: 300;
+    font-size: 15px;
+
+    letter-spacing: -0.02em;
+}
+
+
+
+
+/* =====================================================
+   12. 교통 안내 제목
+===================================================== */
+
+
+
+
+/* =====================================================
+   13. 지도 버튼
+===================================================== */
+
+.map-app-button {
+    font-family:
+        "Noto Sans KR",
+        sans-serif;
+
+    font-weight: 400;
+
+    letter-spacing: -0.02em;
+}
+
+
+
+/* =====================================================
+   14. RSVP INPUT LABEL
+
+   성함
+   참석 여부
+   참석 인원
+===================================================== */
+
+.rsvp-field label,
+.rsvp-field-title {
+    font-family:
+        "Noto Sans KR",
+        sans-serif;
+
+    font-weight: 400;
+
+    letter-spacing: -0.02em;
+
+    color: #70675f;
+}
+
+
+
+/* =====================================================
+   15. RSVP INPUT
+===================================================== */
+
+.rsvp-field input,
+.rsvp-field textarea {
+    font-family:
+        "Noto Sans KR",
+        sans-serif;
+
+    font-weight: 300;
+}
+
+
+
+/* =====================================================
+   16. RSVP 선택 버튼
+
+   신랑측 / 신부측
+   참석 / 불참
+===================================================== */
+
+.rsvp-options span {
+    font-family:
+        "Noto Sans KR",
+        sans-serif;
+
+    font-weight: 400;
+}
+
+
+
+/* =====================================================
+   17. RSVP 제출 버튼
+===================================================== */
+
+.rsvp-submit,
+.rsvp-later,
+.open-rsvp-button {
+    font-family:
+        "Noto Sans KR",
+        sans-serif;
+
+    font-weight: 400;
+
+    letter-spacing: -0.02em;
+}
+
+
+
+/* =====================================================
+   18. 계좌측 제목
+
+   신랑측 계좌번호
+   신부측 계좌번호
+===================================================== */
+
+.account-toggle {
+    font-family:
+        "Gowun Batang",
+        serif;
+
+    font-weight: 400;
+
+    color: #554d47;
+}
+
+
+
+/* =====================================================
+   19. 계좌 예금주
+===================================================== */
+
+.account-owner {
+    font-family:
+        "Noto Serif KR",
+        serif;
+
+    font-weight: 400;
+
+    color: #81766d;
+}
+
+
+
+/* =====================================================
+   20. 계좌번호
+===================================================== */
+
+.account-number {
+    font-family:
+        "Noto Sans KR",
+        sans-serif;
+
+    font-weight: 400;
+
+    letter-spacing: 0.01em;
+
+    color: #49433e;
+}
+
+
+
+/* =====================================================
+   21. 계좌 복사 버튼
+===================================================== */
+
+.copy-button {
+    font-family:
+        "Noto Sans KR",
+        sans-serif;
+
+    font-weight: 400;
+}
+
+
+
+/* =====================================================
+   22. 달력
+===================================================== */
+
+.week {
+    font-family:
+        "Noto Sans KR",
+        sans-serif;
+
+    font-weight: 300;
+}
+
+
+.days,
+.countdown strong,
+.countdown small {
+    font-family:
+        "Cormorant Garamond",
+        serif;
+}
+
+
+
+/* =====================================================
+   23. GALLERY 제목
+
+   Our Moments 같은 영어
+===================================================== */
+
+.gallery-section h2 {
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 30px;
+
+    font-weight: 400;
+
+    letter-spacing: 0.02em;
+}
+
+
+
+/* =====================================================
+   24. RSVP 팝업의 RSVP 영문
+===================================================== */
+
+.rsvp-label {
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-weight: 500;
+
+    letter-spacing: 0.25em;
+}
+
+
+
+/* =====================================================
+   25. Footer
+===================================================== */
+
+footer p:first-child {
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-weight: 400;
+
+    letter-spacing: 0.2em;
+}
+
+
+footer p:nth-child(2) {
+    font-family:
+        "Nanum Pen Script",
+        cursive;
+
+    font-size: 21px;
+
+    font-weight: 400;
+}
+
+
+footer small {
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    letter-spacing: 0.12em;
+}
+
+
+.invitation-message {
+    padding-top: 55px;
+}
+
+
+/* =====================================================
+   TRANSPORT INFO
+===================================================== */
+
+.transport-info {
+    margin-top: 45px;
+
+    padding:
+        0 8px;
+
+    text-align: left;
+}
+
+
+/* 각 교통수단 블록 */
+
+.transport-block {
+    margin-bottom: 52px;
+}
+
+
+.transport-block:last-child {
+    margin-bottom: 0;
+}
+
+
+/* 버스 / 지하철 / 자차 제목 */
+
+.transport-heading {
+    margin: 0 0 24px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    font-family:
+        "Gowun Batang",
+        serif;
+
+    font-size: 22px;
+
+    font-weight: 700;
+
+    color: #df8e66;
+}
+
+
+/* 이모지 */
+
+.transport-emoji {
+    font-size: 20px;
+
+    line-height: 1;
+}
+
+
+/* 상세 안내 */
+
+.transport-text {
+    margin:
+        0 0 12px;
+
+    font-family:
+        "Noto Sans KR",
+        sans-serif;
+
+    font-size: 15px;
+
+    font-weight: 300;
+
+    line-height: 1.9;
+
+    letter-spacing: -0.03em;
+
+    color: #46413d;
+}
+
+
+/* 강조 */
+
+.transport-text strong {
+    font-weight: 500;
+
+    color: #4c433e;
 }
