@@ -2101,7 +2101,6 @@ body {
 ===================================================== */
 
 .description,
-.rsvp-description,
 .account-description {
     font-family:
         "Noto Serif KR",
@@ -2114,6 +2113,22 @@ body {
     line-height: 2.1;
 
     font-size: 13px;
+
+    color: #746d67;
+}
+
+.rsvp-description {
+    font-family:
+        "Noto Serif KR",
+        serif;
+
+    font-weight: 300;
+
+    letter-spacing: -0.01em;
+
+    line-height: 2.1;
+
+    font-size: 12px;
 
     color: #746d67;
 }
@@ -2785,4 +2800,21 @@ footer small {
 
     /* 모바일 터치 강조 제거 */
     -webkit-tap-highlight-color: transparent;
+}
+
+/* 얼굴이 사진 위쪽에 있는 경우 */
+.face-top {
+    object-position: center 25%;
+}
+
+
+/* 일반 중앙 */
+.face-center {
+    object-position: center center;
+}
+
+
+/* 얼굴이 조금 아래쪽에 있는 경우 */
+.face-low {
+    object-position: center 65%;
 }
