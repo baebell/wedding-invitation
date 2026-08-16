@@ -1592,3 +1592,27 @@ if (galleryMoreButton) {
     );
 
 }
+
+
+/* =====================================================
+   IMAGE CONTEXT MENU BLOCK
+===================================================== */
+
+document.addEventListener(
+    "contextmenu",
+    function (event) {
+
+        /*
+           이미지에서만 우클릭 / 길게누르기 메뉴 차단
+        */
+
+        if (
+            event.target.tagName === "IMG"
+        ) {
+
+            event.preventDefault();
+
+        }
+
+    }
+);

@@ -780,12 +780,12 @@ a {
 
 .gallery-item img {
     width: 100%;
-
     aspect-ratio: 1 / 1;
 
     object-fit: cover;
-}
 
+    display: block;
+}
 
 .gallery-item:first-child {
     grid-column: span 2;
@@ -1385,27 +1385,25 @@ footer small {
 
 
 .modal-image-container img {
-    /*
-       강제 확대하지 않음
-    */
-
     width: auto;
     height: auto;
 
     max-width: 100%;
-
-    max-height: 80vh;
     max-height: 80dvh;
 
     object-fit: contain;
 
-    user-select: none;
+    /* 확대 방지 */
+    touch-action: pan-y;
 
+    user-select: none;
     -webkit-user-select: none;
 
+    -webkit-user-drag: none;
     -webkit-touch-callout: none;
-}
 
+    pointer-events: none;
+}
 
 
 /* =====================================================
@@ -1456,14 +1454,12 @@ footer small {
 ===================================================== */
 
 .photo-modal {
-    overscroll-behavior: none;
+    touch-action: none;
 }
 
-
-.modal-image-container {
-    overflow: hidden;
+.modal-image-container img {
+    touch-action: none;
 }
-
 
 .modal-image-container img {
     pointer-events: none;
@@ -2615,7 +2611,7 @@ footer small {
 .gallery-item img {
     width: 100%;
 
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 3 / 4;
 
     object-fit: cover;
 }
@@ -2757,4 +2753,27 @@ footer small {
     letter-spacing: 0.12em;
 
     pointer-events: none;
+}
+
+
+/* =====================================================
+   IMAGE LONG PRESS / SAVE MENU BLOCK
+===================================================== */
+
+.gallery-item img,
+.opening-image,
+.hero-photo img,
+.modal-image-container img {
+    /* iPhone / Safari 길게 누르기 메뉴 방지 */
+    -webkit-touch-callout: none;
+
+    /* 텍스트/이미지 선택 방지 */
+    -webkit-user-select: none;
+    user-select: none;
+
+    /* 이미지 드래그 방지 */
+    -webkit-user-drag: none;
+
+    /* 모바일 터치 강조 제거 */
+    -webkit-tap-highlight-color: transparent;
 }
