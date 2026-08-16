@@ -52,154 +52,29 @@ a {
 
 
 /* =====================================================
-   OPENING SCREEN
+   OPENING HERO
 ===================================================== */
 
-.intro-screen {
-    position: fixed;
-    inset: 0;
+.opening-hero {
+    min-height: 100vh;
+    min-height: 100dvh;
 
-    width: 100%;
-    height: 100vh;
-    height: 100dvh;
+    padding:
+        70px 22px
+        45px;
 
-    z-index: 9999;
-
-    overflow: hidden;
-
-    background: #111;
-
-    cursor: pointer;
-
-    transition:
-        opacity 1.5s ease,
-        visibility 1.5s ease;
-
-    -webkit-tap-highlight-color: transparent;
-}
-
-
-.intro-screen.hide {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-}
-
-
-/* =====================================================
-   PHOTO
-===================================================== */
-
-.opening-photo-wrap {
-    position: absolute;
-    inset: 0;
-
-    overflow: hidden;
-}
-
-
-.opening-photo {
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-
-    /*
-       얼굴 위치에 따라 조절 가능
-    */
-    object-position: center 45%;
-
-    transform: scale(1.04);
-
-    animation:
-        openingZoom 7s ease-out forwards;
-
-    user-select: none;
-    -webkit-user-select: none;
-    -webkit-user-drag: none;
-}
-
-
-@keyframes openingZoom {
-
-    from {
-        transform: scale(1.08);
-    }
-
-    to {
-        transform: scale(1.02);
-    }
-
-}
-
-
-/* 사진 위 은은한 그라데이션 */
-
-.opening-shade {
-    position: absolute;
-    inset: 0;
-
-    background:
-        linear-gradient(
-            to bottom,
-            rgba(0, 0, 0, 0.05) 0%,
-            rgba(0, 0, 0, 0.02) 42%,
-            rgba(0, 0, 0, 0.28) 100%
-        );
-}
-
-
-/* =====================================================
-   TEXT
-===================================================== */
-
-.opening-content {
-    position: absolute;
-
-    left: 24px;
-    right: 24px;
-
-    bottom: 16%;
-
-    z-index: 2;
+    background: #faf8f5;
 
     text-align: center;
-
-    color: white;
-
-    pointer-events: none;
 }
 
 
-/* 작은 영문 이름 */
-
-.opening-small {
-    margin-bottom: 13px;
-
-    font-family:
-        "Cormorant Garamond",
-        serif;
-
-    font-size: 11px;
-
-    font-weight: 400;
-
-    letter-spacing: 0.22em;
-
-    text-transform: uppercase;
-
-    opacity: 0;
-
-    animation:
-        openingFadeUp 1.2s ease forwards;
-
-    animation-delay: 0.25s;
+.opening-heading {
+    margin-bottom: 32px;
 }
 
 
-/* 필기체 메인 */
-
-.opening-title {
+.opening-script {
     margin: 0;
 
     font-family:
@@ -208,19 +83,16 @@ a {
 
     font-size:
         clamp(
-            46px,
-            13vw,
-            66px
+            50px,
+            14vw,
+            72px
         );
 
     font-weight: 400;
 
-    line-height: 0.95;
+    line-height: 1;
 
-    color: #ff3d69;
-
-    text-shadow:
-        0 2px 10px rgba(0, 0, 0, 0.12);
+    color: #e94c6f;
 
     opacity: 0;
 
@@ -228,73 +100,102 @@ a {
         translateY(15px);
 
     animation:
-        openingFadeUp 1.3s ease forwards;
-
-    animation-delay: 0.45s;
+        openingFadeUp
+        1.2s ease forwards;
 }
 
 
-/* 날짜 */
+/* =====================================================
+   PHOTO
+===================================================== */
 
-.opening-date {
-    margin-top: 22px;
+.opening-image-wrap {
+    width: 100%;
 
-    font-family:
-        "Helvetica Neue",
-        Arial,
-        sans-serif;
+    overflow: hidden;
 
-    font-size: 13px;
-
-    font-weight: 600;
-
-    letter-spacing: 0.09em;
-
-    color: #ff3d69;
+    background: #eee9e4;
 
     opacity: 0;
 
-    animation:
-        openingFadeUp 1.2s ease forwards;
+    transform:
+        translateY(15px);
 
-    animation-delay: 0.7s;
+    animation:
+        openingFadeUp
+        1.2s ease forwards;
+
+    animation-delay:
+        0.35s;
 }
 
 
-@keyframes openingFadeUp {
+.opening-image {
+    width: 100%;
+
+    aspect-ratio: 3 / 4;
+
+    object-fit: cover;
+
+    object-position:
+        center 45%;
+
+    animation:
+        openingPhotoMove
+        8s ease-out forwards;
+}
+
+
+@keyframes openingPhotoMove {
 
     from {
-        opacity: 0;
         transform:
-            translateY(14px);
+            scale(1.04);
     }
 
     to {
-        opacity: 1;
         transform:
-            translateY(0);
+            scale(1);
     }
 
 }
 
 
 /* =====================================================
-   BOTTOM TAP
+   DATE
 ===================================================== */
 
-.opening-bottom {
-    position: absolute;
+.opening-date-only {
+    margin-top: 26px;
 
-    left: 0;
-    right: 0;
+    font-family:
+        "Cormorant Garamond",
+        serif;
 
-    bottom:
-        max(
-            24px,
-            env(safe-area-inset-bottom)
-        );
+    font-size: 15px;
 
-    z-index: 2;
+    letter-spacing:
+        0.18em;
+
+    color: #746a63;
+
+    opacity: 0;
+
+    animation:
+        openingFadeUp
+        1.2s ease forwards;
+
+    animation-delay:
+        0.65s;
+}
+
+
+/* =====================================================
+   SCROLL
+===================================================== */
+
+.scroll-guide {
+    margin-top: 30px;
 
     display: flex;
 
@@ -304,28 +205,26 @@ a {
 
     gap: 8px;
 
-    color:
-        rgba(255, 255, 255, 0.78);
-
-    pointer-events: none;
+    color: #a79d95;
 
     animation:
-        tapBlink 2.2s ease-in-out infinite;
+        scrollBlink
+        2.2s ease-in-out
+        infinite;
 }
 
 
-.opening-line {
-    display: block;
-
+.scroll-line {
     width: 1px;
-    height: 22px;
+
+    height: 28px;
 
     background:
-        rgba(255, 255, 255, 0.6);
+        #c6bbb3;
 }
 
 
-.opening-bottom p {
+.scroll-guide p {
     margin: 0;
 
     font-family:
@@ -334,23 +233,65 @@ a {
 
     font-size: 8px;
 
-    letter-spacing: 0.24em;
+    letter-spacing:
+        0.25em;
 }
 
 
-@keyframes tapBlink {
+@keyframes openingFadeUp {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+@keyframes scrollBlink {
 
     0%,
     100% {
-        opacity: 0.35;
+        opacity: 0.3;
     }
 
     50% {
-        opacity: 1;
+        opacity: 0.9;
     }
 
 }
 
+
+/* =====================================================
+   APPEAR
+===================================================== */
+
+@keyframes openingFadeUp {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
 
 
 
@@ -362,28 +303,18 @@ a {
     position: relative;
 
     width: 100%;
-
     max-width: 520px;
 
     margin: 0 auto;
 
     background: #faf8f5;
 
-    opacity: 0;
-
-    transform: translateY(20px);
-
-    transition:
-        opacity 1.3s ease,
-        transform 1.3s ease;
-}
-
-
-.invitation.show {
     opacity: 1;
 
-    transform: translateY(0);
+    transform: none;
 }
+
+
 
 
 @media (min-width: 700px) {

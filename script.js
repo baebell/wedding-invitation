@@ -30,8 +30,6 @@ const musicButton =
 const musicIcon =
     document.getElementById("musicIcon");
 
-const introScreen =
-    document.getElementById("introScreen");
 
 const invitation =
     document.getElementById("invitation");
@@ -39,137 +37,10 @@ const invitation =
 
 let isPlaying = false;
 
-let invitationStarted = false;
 
 
 
-/* =====================================================
-   OPENING SCREEN
-===================================================== */
 
-introScreen.addEventListener(
-    "click",
-    startInvitation
-);
-
-
-function startInvitation() {
-
-    /*
-       여러 번 터치하는 것 방지
-    */
-
-    if (invitationStarted) {
-        return;
-    }
-
-
-    invitationStarted = true;
-
-
-
-    /* =================================================
-       BGM 시작
-    ================================================= */
-
-    bgm.play()
-        .then(() => {
-
-            isPlaying = true;
-
-            musicIcon.textContent =
-                "♪";
-
-            musicButton.classList.remove(
-                "off"
-            );
-
-        })
-        .catch(() => {
-
-            /*
-               모바일 브라우저에서
-               음악을 막더라도 청첩장은 열림
-            */
-
-            isPlaying = false;
-
-            musicIcon.textContent =
-                "🔇";
-
-            musicButton.classList.add(
-                "off"
-            );
-
-        });
-
-
-
-    /* =================================================
-       Opening 페이드 아웃
-    ================================================= */
-
-    introScreen.classList.add(
-        "hide"
-    );
-
-
-
-    /* =================================================
-       청첩장 페이드 인
-    ================================================= */
-
-    setTimeout(() => {
-
-        invitation.classList.add(
-            "show"
-        );
-
-    }, 250);
-
-
-
-    /*
-       opening이 완전히 사라진 후
-       DOM 화면에서 숨김
-    */
-
-    setTimeout(() => {
-
-        introScreen.style.display =
-            "none";
-
-    }, 1400);
-
-    /*
-   오프닝이 사라진 뒤
-   참석 여부 팝업 표시
-*/
-
-setTimeout(() => {
-
-    const alreadySubmitted =
-        localStorage.getItem(
-            "weddingRsvpSubmitted"
-        );
-
-
-    /*
-       아직 제출하지 않은 경우에만
-       자동 팝업 표시
-    */
-
-    if (
-        alreadySubmitted !== "true"
-    ) {
-
-        openRsvpModal();
-
-    }
-
-}, 1800);
-
-}
 
 
 /* =====================================================
@@ -282,6 +153,64 @@ rsvpLaterButton.addEventListener(
     "click",
     closeRsvpModal
 );
+
+/* =====================================================
+   RSVP AUTO OPEN ON SCROLL
+===================================================== */
+
+let rsvpAutoOpened = false;
+
+
+window.addEventListener(
+    "scroll",
+    function () {
+
+        /*
+           이번 방문에서 이미 한 번
+           자동으로 띄웠으면 다시 안 띄움
+        */
+
+        if (rsvpAutoOpened) {
+            return;
+        }
+
+
+        /*
+           이미 참석 여부를 제출한 사람은
+           자동 팝업을 다시 띄우지 않음
+        */
+
+        const alreadySubmitted =
+            localStorage.getItem(
+                "weddingRsvpSubmitted"
+            );
+
+
+        if (
+            alreadySubmitted === "true"
+        ) {
+            return;
+        }
+
+
+        /*
+           페이지를 250px 이상 스크롤하면
+           RSVP 팝업 표시
+        */
+
+        if (
+            window.scrollY > 250
+        ) {
+
+            rsvpAutoOpened = true;
+
+            openRsvpModal();
+
+        }
+
+    }
+);
+
 
 
 /* =====================================================
