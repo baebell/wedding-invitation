@@ -80,6 +80,8 @@ a {
     overflow: hidden;
 
     background: #ffffff;
+
+    touch-action: pan-y;
 }
 
 
@@ -88,7 +90,6 @@ a {
     height: 100%;
 
     object-fit: contain;
-
     object-position: center center;
 
     transform: none;
@@ -99,7 +100,8 @@ a {
     -webkit-user-drag: none;
     -webkit-touch-callout: none;
 
-    touch-action: none;
+    /* 세로 스크롤 허용 */
+    touch-action: pan-y;
 }
 
 
