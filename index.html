@@ -73,32 +73,30 @@
 
     <div class="opening-image-wrap">
 
-        <img
-            src="images/opening.jpg"
-            class="opening-image"
-            alt="배윤종 방예진 웨딩 사진"
-        >
+    <img
+        src="images/opening.jpg"
+        class="opening-image"
+        alt="배윤종 방예진 웨딩 사진"
+    >
+
+    <div class="opening-image-shade"></div>
 
 
-        <!-- 사진 안쪽 문구 -->
+    <!-- 메인 문구 -->
+    <div class="opening-overlay-text">
 
-        <div class="opening-overlay-text">
+        <h1 class="opening-script">
+            Happy wedding day
+        </h1>
 
-            <h1 class="opening-script">
-                Happy wedding day
-            </h1>
-
-            <p class="opening-date-on-photo">
-                2026.12.05
-            </p>
-
-        </div>
+        <p class="opening-date-on-photo">
+            2026.12.05
+        </p>
 
     </div>
 
 
-    <!-- 스크롤 안내 -->
-
+    <!-- SCROLL도 사진 안으로 이동 -->
     <div class="scroll-guide">
 
         <span class="scroll-line"></span>
@@ -108,6 +106,8 @@
         </p>
 
     </div>
+
+</div>
 
 
 </section>
@@ -583,64 +583,41 @@
 </section>
 
 
-
-
 <!-- =====================================================
-     GUEST PHOTO UPLOAD
+     RSVP REOPEN
 ===================================================== -->
 
-<section class="section photo-upload">
+<section class="section rsvp-section">
 
     <p class="section-label">
-        OUR GUESTS
+        RSVP
     </p>
 
 
     <h2>
-        우리의 결혼식 사진을<br>
-        남겨주세요.
+        참석 여부를 알려주세요
     </h2>
 
 
     <p class="description">
 
-        결혼식에서 찍은 소중한 사진을<br>
-        저희에게 공유해주세요.
+        원활한 예식 준비를 위해<br>
+        참석 여부와 참석 인원을 알려주시면<br>
+        감사하겠습니다.
 
     </p>
 
 
-    <label
-        for="photoUpload"
-        class="upload-button"
+    <button
+        id="openRsvpButton"
+        class="open-rsvp-button"
+        type="button"
     >
-        사진 선택하기
-    </label>
-
-
-    <input
-        id="photoUpload"
-        type="file"
-        accept="image/*"
-        multiple
-        hidden
-    >
-
-
-    <div
-        id="uploadPreview"
-        class="upload-preview"
-    ></div>
-
-
-    <p class="upload-notice">
-
-        ※ 현재는 사진 미리보기 기능입니다.<br>
-        실제 업로드 기능은 서버 연결 후 사용할 수 있습니다.
-
-    </p>
+        참석 여부 전달하기
+    </button>
 
 </section>
+
 
 
 <!-- =====================================================

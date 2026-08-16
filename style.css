@@ -215,11 +215,18 @@ a {
 
 
 /* =====================================================
-   SCROLL
+   SCROLL GUIDE ON PHOTO
 ===================================================== */
 
 .scroll-guide {
-    margin-top: 30px;
+    position: absolute;
+
+    left: 0;
+    right: 0;
+/*여길 위아래로 조정하면 위치 조정가능*/
+    bottom: 18px;
+
+    z-index: 3;
 
     display: flex;
 
@@ -227,9 +234,11 @@ a {
 
     align-items: center;
 
-    gap: 8px;
+    gap: 6px;
 
-    color: #a79d95;
+    color: rgba(255, 255, 255, 0.85);
+
+    pointer-events: none;
 
     animation:
         scrollBlink
@@ -240,11 +249,10 @@ a {
 
 .scroll-line {
     width: 1px;
-
-    height: 28px;
+    height: 24px;
 
     background:
-        #c6bbb3;
+        rgba(255, 255, 255, 0.7);
 }
 
 
@@ -257,27 +265,7 @@ a {
 
     font-size: 8px;
 
-    letter-spacing:
-        0.25em;
-}
-
-
-@keyframes openingFadeUp {
-
-    from {
-        opacity: 0;
-
-        transform:
-            translateY(15px);
-    }
-
-    to {
-        opacity: 1;
-
-        transform:
-            translateY(0);
-    }
-
+    letter-spacing: 0.25em;
 }
 
 
@@ -289,7 +277,7 @@ a {
     }
 
     50% {
-        opacity: 0.9;
+        opacity: 1;
     }
 
 }
@@ -1959,4 +1947,31 @@ footer small {
 
 .open-rsvp-button:active {
     opacity: 0.75;
+}
+
+
+/* =====================================================
+   WHITE BACKGROUND
+===================================================== */
+
+body {
+    background: #ffffff;
+}
+
+.invitation {
+    background: #ffffff;
+}
+
+.opening-hero,
+.invitation-message,
+.calendar-section,
+.gallery-section,
+.location,
+.photo-upload,
+.account,
+.rsvp-section,
+.quote-section,
+.couple-profile,
+.story-section {
+    background: #ffffff;
 }

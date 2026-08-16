@@ -42,40 +42,34 @@ let isPlaying = false;
 
 
 
-
 /* =====================================================
    RSVP
 ===================================================== */
 
 const rsvpModal =
-    document.getElementById("rsvpModal");
+    document.getElementById(
+        "rsvpModal"
+    );
 
 const rsvpForm =
-    document.getElementById("rsvpForm");
+    document.getElementById(
+        "rsvpForm"
+    );
 
 const rsvpCloseButton =
-    document.getElementById("rsvpCloseButton");
+    document.getElementById(
+        "rsvpCloseButton"
+    );
 
 const rsvpLaterButton =
-    document.getElementById("rsvpLaterButton");
+    document.getElementById(
+        "rsvpLaterButton"
+    );
 
-const guestCount =
-    document.getElementById("guestCount");
-
-const guestCountDisplay =
-    document.getElementById("guestCountDisplay");
-
-const guestMinus =
-    document.getElementById("guestMinus");
-
-const guestPlus =
-    document.getElementById("guestPlus");
-
-const guestCountField =
-    document.getElementById("guestCountField");
-
-
-let currentGuestCount = 1;
+const openRsvpButton =
+    document.getElementById(
+        "openRsvpButton"
+    );
 
 
 /* =====================================================
@@ -83,6 +77,15 @@ let currentGuestCount = 1;
 ===================================================== */
 
 function openRsvpModal() {
+
+    if (!rsvpModal) {
+        console.error(
+            "rsvpModal을 찾을 수 없습니다."
+        );
+
+        return;
+    }
+
 
     rsvpModal.classList.add(
         "active"
@@ -98,33 +101,15 @@ function openRsvpModal() {
 
 
 /* =====================================================
-   RSVP REOPEN BUTTON
-===================================================== */
-
-const openRsvpButton =
-    document.getElementById(
-        "openRsvpButton"
-    );
-
-
-if (openRsvpButton) {
-
-    openRsvpButton.addEventListener(
-        "click",
-        function () {
-
-            openRsvpModal();
-
-        }
-    );
-
-}
-
-/* =====================================================
    RSVP CLOSE
 ===================================================== */
 
 function closeRsvpModal() {
+
+    if (!rsvpModal) {
+        return;
+    }
+
 
     rsvpModal.classList.remove(
         "active"
@@ -139,21 +124,50 @@ function closeRsvpModal() {
 }
 
 
-/* X */
+/* =====================================================
+   RSVP OPEN BUTTON
+===================================================== */
 
-rsvpCloseButton.addEventListener(
-    "click",
-    closeRsvpModal
-);
+if (openRsvpButton) {
+
+    openRsvpButton.addEventListener(
+        "click",
+        function () {
+
+            openRsvpModal();
+
+        }
+    );
+
+}
 
 
-/* 나중에 작성 */
+/* =====================================================
+   X BUTTON
+===================================================== */
 
-rsvpLaterButton.addEventListener(
-    "click",
-    closeRsvpModal
-);
+if (rsvpCloseButton) {
 
+    rsvpCloseButton.addEventListener(
+        "click",
+        closeRsvpModal
+    );
+
+}
+
+
+/* =====================================================
+   LATER BUTTON
+===================================================== */
+
+if (rsvpLaterButton) {
+
+    rsvpLaterButton.addEventListener(
+        "click",
+        closeRsvpModal
+    );
+
+}
 /* =====================================================
    RSVP AUTO OPEN ON SCROLL
 ===================================================== */
@@ -1046,93 +1060,6 @@ document.addEventListener(
     }
 );
 
-
-
-/* =====================================================
-   GUEST PHOTO PREVIEW
-===================================================== */
-
-const photoUpload =
-    document.getElementById(
-        "photoUpload"
-    );
-
-
-const uploadPreview =
-    document.getElementById(
-        "uploadPreview"
-    );
-
-
-photoUpload.addEventListener(
-    "change",
-    function (event) {
-
-        uploadPreview.innerHTML =
-            "";
-
-
-        const files =
-            Array.from(
-                event.target.files
-            );
-
-
-        files.forEach(
-            function (file) {
-
-                /*
-                   사진이 아닌 파일 제외
-                */
-
-                if (
-                    !file.type.startsWith(
-                        "image/"
-                    )
-                ) {
-
-                    return;
-
-                }
-
-
-                const reader =
-                    new FileReader();
-
-
-                reader.onload =
-                    function (e) {
-
-                        const img =
-                            document.createElement(
-                                "img"
-                            );
-
-
-                        img.src =
-                            e.target.result;
-
-
-                        img.alt =
-                            "선택한 사진 미리보기";
-
-
-                        uploadPreview.appendChild(
-                            img
-                        );
-
-                    };
-
-
-                reader.readAsDataURL(
-                    file
-                );
-
-            }
-        );
-
-    }
-);
 
 
 
