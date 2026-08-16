@@ -2990,3 +2990,68 @@ footer small {
 
     -webkit-tap-highlight-color: transparent;
 }
+
+/* =====================================================
+   OPENING BACKGROUND IMAGE
+===================================================== */
+
+.opening-image-wrap {
+    position: relative;
+
+    width: 100vw;
+
+    height: 100vh;
+    height: 100dvh;
+
+    margin: 0;
+    padding: 0;
+
+    overflow: hidden;
+
+    background: #ffffff;
+
+    touch-action: pan-y;
+}
+
+
+/* 실제 오프닝 사진 */
+
+.opening-background {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-image:
+        url("images/opening.jpg");
+
+    /*
+       여백 없이 화면 꽉 채우기
+    */
+    background-size: cover;
+
+    /*
+       사진 중심 위치
+    */
+    background-position: center center;
+
+    background-repeat: no-repeat;
+
+    /*
+       이미지 선택 관련 동작 방지
+    */
+    user-select: none;
+
+    -webkit-user-select: none;
+
+    -webkit-touch-callout: none;
+
+    /*
+       세로 스크롤은 허용
+    */
+    touch-action: pan-y;
+
+    pointer-events: none;
+}
