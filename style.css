@@ -420,7 +420,7 @@ a {
     text-align: center;
 }
 
-
+/*invitation, wedding day 와 같은 소제목*/
 .eyebrow,
 .section-label {
     font-family:
@@ -428,6 +428,8 @@ a {
         serif;
 
     font-size: 13px;
+
+    font-weight: 500;
 
     letter-spacing: 0.25em;
 
@@ -503,32 +505,45 @@ a {
     text-align: center;
 }
 
+/*참석 여부 전달과 같은 부분 수정*/
 
 .section h2 {
-    margin-top: 20px;
+    margin-top: 18px;
 
     font-family:
-        "Nanum Pen Script",
-        cursive;
+        "Gowun Batang",
+        serif;
 
-    font-size: 32px;
+    font-size: 25px;
 
     font-weight: 400;
 
-    line-height: 1.5;
+    line-height: 1.7;
+
+    letter-spacing: -0.02em;
+
+    color: #514943;
 }
 
+/*초대글과 같은 본문*/
 
 .description {
-    margin-top: 35px;
+    margin-top: 32px;
 
-    color: #79736d;
+    font-family:
+        "Noto Serif KR",
+        serif;
 
-    font-size: 14px;
+    font-size: 13px;
 
-    line-height: 2.2;
+    font-weight: 300;
+
+    line-height: 2.15;
+
+    letter-spacing: -0.01em;
+
+    color: #726b65;
 }
-
 
 
 /* =====================================================
@@ -539,7 +554,7 @@ a {
     background: #f2eee8;
 }
 
-
+/*신랑 신부 이름*/
 .couple-name {
     margin-top: 50px;
 
@@ -550,10 +565,18 @@ a {
 }
 
 
+.opening-names,
 .couple-name p {
-    font-size: 14px;
-}
+    font-family:
+        "Nanum Pen Script",
+        cursive;
 
+    font-size: 25px;
+
+    font-weight: 400;
+
+    color: #5d5149;
+}
 
 .couple-name span {
     margin: 0 8px;
@@ -994,11 +1017,17 @@ a {
 
 
 .transport-row p {
-    color: #66605b;
+     font-family:
+        "Noto Sans KR",
+        sans-serif;
 
-    font-size: 12px;
+    font-size: 11px;
+
+    font-weight: 300;
 
     line-height: 1.9;
+
+    color: #706963;
 }
 
 

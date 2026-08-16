@@ -213,7 +213,7 @@ window.addEventListener(
         */
 
         if (
-            window.scrollY > 250
+            window.scrollY > 350
         ) {
 
             rsvpAutoOpened = true;
