@@ -333,105 +333,115 @@
         GALLERY
     </p>
 
-
     <h2>
         Our Moments
     </h2>
-
 
     <p class="gallery-description">
         저희의 소중한 순간들을 담았습니다.
     </p>
 
 
-    <div class="gallery">
+    <div
+        id="gallery"
+        class="gallery"
+    >
 
+        <button class="gallery-item" type="button" data-image="images/photo1.jpg">
+            <img src="images/photo1.jpg" alt="웨딩 사진 1">
+        </button>
 
-        <button
-            class="gallery-item"
-            type="button"
-            data-image="images/photo1.jpg"
-        >
+        <button class="gallery-item" type="button" data-image="images/photo2.jpg">
+            <img src="images/photo2.jpg" alt="웨딩 사진 2">
+        </button>
 
-            <img
-                src="images/photo1.jpg"
-                alt="웨딩 사진 1"
-            >
+        <button class="gallery-item" type="button" data-image="images/photo3.jpg">
+            <img src="images/photo3.jpg" alt="웨딩 사진 3">
+        </button>
 
+        <button class="gallery-item" type="button" data-image="images/photo4.jpg">
+            <img src="images/photo4.jpg" alt="웨딩 사진 4">
+        </button>
+
+        <button class="gallery-item" type="button" data-image="images/photo5.jpg">
+            <img src="images/photo5.jpg" alt="웨딩 사진 5">
+        </button>
+
+        <button class="gallery-item" type="button" data-image="images/photo6.jpg">
+            <img src="images/photo6.jpg" alt="웨딩 사진 6">
+        </button>
+
+        <button class="gallery-item" type="button" data-image="images/photo7.jpg">
+            <img src="images/photo7.jpg" alt="웨딩 사진 7">
+        </button>
+
+        <button class="gallery-item" type="button" data-image="images/photo8.jpg">
+            <img src="images/photo8.jpg" alt="웨딩 사진 8">
+        </button>
+
+        <button class="gallery-item" type="button" data-image="images/photo9.jpg">
+            <img src="images/photo9.jpg" alt="웨딩 사진 9">
         </button>
 
 
-        <button
-            class="gallery-item"
-            type="button"
-            data-image="images/photo2.jpg"
-        >
+        <!-- 10번부터는 처음에 숨김 -->
 
-            <img
-                src="images/photo2.jpg"
-                alt="웨딩 사진 2"
-            >
-
+        <button class="gallery-item gallery-hidden" type="button" data-image="images/photo10.jpg">
+            <img src="images/photo10.jpg" alt="웨딩 사진 10">
         </button>
 
-
-        <button
-            class="gallery-item"
-            type="button"
-            data-image="images/photo3.jpg"
-        >
-
-            <img
-                src="images/photo3.jpg"
-                alt="웨딩 사진 3"
-            >
-
+        <button class="gallery-item gallery-hidden" type="button" data-image="images/photo11.jpg">
+            <img src="images/photo11.jpg" alt="웨딩 사진 11">
         </button>
 
-
-        <button
-            class="gallery-item"
-            type="button"
-            data-image="images/photo4.jpg"
-        >
-
-            <img
-                src="images/photo4.jpg"
-                alt="웨딩 사진 4"
-            >
-
+        <button class="gallery-item gallery-hidden" type="button" data-image="images/photo12.jpg">
+            <img src="images/photo12.jpg" alt="웨딩 사진 12">
         </button>
 
-
-        <button
-            class="gallery-item"
-            type="button"
-            data-image="images/photo5.jpg"
-        >
-
-            <img
-                src="images/photo5.jpg"
-                alt="웨딩 사진 5"
-            >
-
+        <button class="gallery-item gallery-hidden" type="button" data-image="images/photo13.jpg">
+            <img src="images/photo13.jpg" alt="웨딩 사진 13">
         </button>
 
-
-        <button
-            class="gallery-item"
-            type="button"
-            data-image="images/main.jpg"
-        >
-
-            <img
-                src="images/main.jpg"
-                alt="웨딩 사진 6"
-            >
-
+        <button class="gallery-item gallery-hidden" type="button" data-image="images/photo14.jpg">
+            <img src="images/photo14.jpg" alt="웨딩 사진 14">
         </button>
 
+        <button class="gallery-item gallery-hidden" type="button" data-image="images/photo15.jpg">
+            <img src="images/photo15.jpg" alt="웨딩 사진 15">
+        </button>
+
+        <button class="gallery-item gallery-hidden" type="button" data-image="images/photo16.jpg">
+            <img src="images/photo16.jpg" alt="웨딩 사진 16">
+        </button>
+
+        <button class="gallery-item gallery-hidden" type="button" data-image="images/photo17.jpg">
+            <img src="images/photo17.jpg" alt="웨딩 사진 17">
+        </button>
+
+        <button class="gallery-item gallery-hidden" type="button" data-image="images/photo18.jpg">
+            <img src="images/photo18.jpg" alt="웨딩 사진 18">
+        </button>
+
+        <button class="gallery-item gallery-hidden" type="button" data-image="images/photo19.jpg">
+            <img src="images/photo19.jpg" alt="웨딩 사진 19">
+        </button>
+
+        <button class="gallery-item gallery-hidden" type="button" data-image="images/photo20.jpg">
+            <img src="images/photo20.jpg" alt="웨딩 사진 20">
+        </button>
 
     </div>
+
+
+    <!-- 더보기 -->
+
+    <button
+        id="galleryMoreButton"
+        class="gallery-more-button"
+        type="button"
+    >
+        사진 더보기
+    </button>
 
 </section>
 
@@ -1169,9 +1179,6 @@
 
 <!-- =====================================================
      PHOTO MODAL
-
-     ★ 중요 ★
-     이 부분은 main 바깥에 있어야 함
 ===================================================== -->
 
 <div
@@ -1190,14 +1197,50 @@
     </button>
 
 
+    <!-- 이전 사진 -->
+
+    <button
+        id="prevPhotoButton"
+        class="photo-nav photo-nav-prev"
+        type="button"
+        aria-label="이전 사진"
+    >
+        ‹
+    </button>
+
+
+    <!-- 사진 -->
+
     <div class="modal-image-container">
 
         <img
             id="modalImage"
             src=""
-            alt="선택한 웨딩 사진"
+            alt="웨딩 사진"
         >
 
+    </div>
+
+
+    <!-- 다음 사진 -->
+
+    <button
+        id="nextPhotoButton"
+        class="photo-nav photo-nav-next"
+        type="button"
+        aria-label="다음 사진"
+    >
+        ›
+    </button>
+
+
+    <!-- 현재 사진 번호 -->
+
+    <div
+        id="photoCounter"
+        class="photo-counter"
+    >
+        1 / 20
     </div>
 
 </div>

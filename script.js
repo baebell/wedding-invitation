@@ -670,22 +670,44 @@ setInterval(
     updateCountdown,
     1000
 );
-
 /* =====================================================
-   PHOTO MODAL + SWIPE
+   PHOTO MODAL + SWIPE + COUNTER
 ===================================================== */
 
 const galleryItems =
-    document.querySelectorAll(".gallery-item");
+    document.querySelectorAll(
+        ".gallery-item"
+    );
 
 const photoModal =
-    document.getElementById("photoModal");
+    document.getElementById(
+        "photoModal"
+    );
 
 const modalImage =
-    document.getElementById("modalImage");
+    document.getElementById(
+        "modalImage"
+    );
 
 const closeModal =
-    document.getElementById("closeModal");
+    document.getElementById(
+        "closeModal"
+    );
+
+const prevPhotoButton =
+    document.getElementById(
+        "prevPhotoButton"
+    );
+
+const nextPhotoButton =
+    document.getElementById(
+        "nextPhotoButton"
+    );
+
+const photoCounter =
+    document.getElementById(
+        "photoCounter"
+    );
 
 
 let savedScrollPosition = 0;
@@ -696,10 +718,17 @@ let touchStartX = 0;
 let touchEndX = 0;
 
 
-/* 갤러리 이미지 목록 */
+/* 사진 전체 목록 */
+
 const galleryImages =
-    Array.from(galleryItems).map(
-        item => item.dataset.image
+    Array.from(
+        galleryItems
+    ).map(
+        function (item) {
+
+            return item.dataset.image;
+
+        }
     );
 
 
@@ -715,6 +744,7 @@ galleryItems.forEach(
             function (event) {
 
                 event.preventDefault();
+
 
                 savedScrollPosition =
                     window.scrollY ||
@@ -741,7 +771,6 @@ galleryItems.forEach(
                 );
 
 
-                /* 뒤쪽 화면 고정 */
                 document.body.style.position =
                     "fixed";
 
@@ -771,21 +800,27 @@ galleryItems.forEach(
 function showImage(index) {
 
     /*
-       마지막 사진에서 다음으로 넘기면
-       첫 사진으로
+       마지막 사진 다음 → 첫 사진
     */
-    if (index >= galleryImages.length) {
 
-        currentImageIndex = 0;
+    if (
+        index >=
+        galleryImages.length
+    ) {
+
+        currentImageIndex =
+            0;
 
     }
 
 
     /*
-       첫 사진에서 이전으로 넘기면
-       마지막 사진으로
+       첫 사진 이전 → 마지막 사진
     */
-    if (index < 0) {
+
+    if (
+        index < 0
+    ) {
 
         currentImageIndex =
             galleryImages.length - 1;
@@ -794,13 +829,23 @@ function showImage(index) {
 
 
     modalImage.src =
-        galleryImages[currentImageIndex];
+        galleryImages[
+            currentImageIndex
+        ];
+
+
+    /*
+       사진 번호 업데이트
+    */
+
+    photoCounter.textContent =
+        `${currentImageIndex + 1} / ${galleryImages.length}`;
 
 }
 
 
 /* =====================================================
-   NEXT / PREVIOUS
+   NEXT PHOTO
 ===================================================== */
 
 function showNextImage() {
@@ -814,6 +859,10 @@ function showNextImage() {
 }
 
 
+/* =====================================================
+   PREVIOUS PHOTO
+===================================================== */
+
 function showPreviousImage() {
 
     currentImageIndex--;
@@ -826,16 +875,45 @@ function showPreviousImage() {
 
 
 /* =====================================================
-   TOUCH START
+   ARROW BUTTON
+===================================================== */
+
+nextPhotoButton.addEventListener(
+    "click",
+    function (event) {
+
+        event.preventDefault();
+
+        event.stopPropagation();
+
+        showNextImage();
+
+    }
+);
+
+
+prevPhotoButton.addEventListener(
+    "click",
+    function (event) {
+
+        event.preventDefault();
+
+        event.stopPropagation();
+
+        showPreviousImage();
+
+    }
+);
+
+
+/* =====================================================
+   SWIPE START
 ===================================================== */
 
 photoModal.addEventListener(
     "touchstart",
     function (event) {
 
-        /*
-           한 손가락 터치만 처리
-        */
         if (
             event.touches.length !== 1
         ) {
@@ -857,7 +935,7 @@ photoModal.addEventListener(
 
 
 /* =====================================================
-   TOUCH MOVE
+   SWIPE MOVE
 ===================================================== */
 
 photoModal.addEventListener(
@@ -882,17 +960,13 @@ photoModal.addEventListener(
 
 
 /* =====================================================
-   TOUCH END
+   SWIPE END
 ===================================================== */
 
 photoModal.addEventListener(
     "touchend",
     function (event) {
 
-        /*
-           X 버튼을 눌렀다면
-           swipe 처리하지 않음
-        */
         if (
             event.target.closest(
                 "#closeModal"
@@ -903,13 +977,10 @@ photoModal.addEventListener(
 
 
         const swipeDistance =
-            touchEndX - touchStartX;
+            touchEndX -
+            touchStartX;
 
 
-        /*
-           너무 조금 움직인 경우
-           일반 터치로 판단
-        */
         const minimumSwipeDistance =
             50;
 
@@ -918,6 +989,7 @@ photoModal.addEventListener(
            왼쪽으로 스와이프
            → 다음 사진
         */
+
         if (
             swipeDistance <
             -minimumSwipeDistance
@@ -934,6 +1006,7 @@ photoModal.addEventListener(
            오른쪽으로 스와이프
            → 이전 사진
         */
+
         if (
             swipeDistance >
             minimumSwipeDistance
@@ -969,7 +1042,8 @@ function closePhotoModal() {
     );
 
 
-    modalImage.src = "";
+    modalImage.src =
+        "";
 
 
     document.body.style.position =
@@ -996,9 +1070,7 @@ function closePhotoModal() {
 }
 
 
-/* =====================================================
-   X BUTTON
-===================================================== */
+/* X */
 
 closeModal.addEventListener(
     "click",
@@ -1032,7 +1104,8 @@ document.addEventListener(
 
 
         if (
-            event.key === "Escape"
+            event.key ===
+            "Escape"
         ) {
 
             closePhotoModal();
@@ -1041,7 +1114,8 @@ document.addEventListener(
 
 
         if (
-            event.key === "ArrowRight"
+            event.key ===
+            "ArrowRight"
         ) {
 
             showNextImage();
@@ -1050,7 +1124,8 @@ document.addEventListener(
 
 
         if (
-            event.key === "ArrowLeft"
+            event.key ===
+            "ArrowLeft"
         ) {
 
             showPreviousImage();
@@ -1059,7 +1134,6 @@ document.addEventListener(
 
     }
 );
-
 
 
 
@@ -1472,3 +1546,49 @@ accountToggles.forEach(
 
     }
 );
+
+
+/* =====================================================
+   GALLERY MORE
+===================================================== */
+
+const galleryMoreButton =
+    document.getElementById(
+        "galleryMoreButton"
+    );
+
+const hiddenGalleryItems =
+    document.querySelectorAll(
+        ".gallery-hidden"
+    );
+
+
+if (galleryMoreButton) {
+
+    galleryMoreButton.addEventListener(
+        "click",
+        function () {
+
+            hiddenGalleryItems.forEach(
+                function (item) {
+
+                    item.classList.add(
+                        "show"
+                    );
+
+                }
+            );
+
+
+            /*
+               한 번 펼친 후
+               더보기 버튼 숨기기
+            */
+
+            galleryMoreButton.style.display =
+                "none";
+
+        }
+    );
+
+}
