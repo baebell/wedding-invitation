@@ -771,20 +771,17 @@ galleryItems.forEach(
                 );
 
 
-                document.body.style.position =
-                    "fixed";
+                /*
+                   배경 스크롤만 막기
+                   body position: fixed는 사용하지 않음
+                */
+                document.documentElement.classList.add(
+                    "photo-modal-open"
+                );
 
-                document.body.style.top =
-                    `-${savedScrollPosition}px`;
-
-                document.body.style.left =
-                    "0";
-
-                document.body.style.right =
-                    "0";
-
-                document.body.style.width =
-                    "100%";
+                document.body.classList.add(
+                    "photo-modal-open"
+                );
 
             }
         );
@@ -1046,26 +1043,13 @@ function closePhotoModal() {
         "";
 
 
-    document.body.style.position =
-        "";
+    document.documentElement.classList.remove(
+    "photo-modal-open"
+);
 
-    document.body.style.top =
-        "";
-
-    document.body.style.left =
-        "";
-
-    document.body.style.right =
-        "";
-
-    document.body.style.width =
-        "";
-
-
-    window.scrollTo(
-        0,
-        savedScrollPosition
-    );
+document.body.classList.remove(
+    "photo-modal-open"
+);
 
 }
 
