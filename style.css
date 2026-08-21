@@ -2578,7 +2578,7 @@ footer small {
         "Gowun Batang",
         serif;
 
-    font-size: 22px;
+    font-size: 18px;
 
     font-weight: 700;
 
@@ -2605,7 +2605,7 @@ footer small {
         "Noto Sans KR",
         sans-serif;
 
-    font-size: 13px;
+    font-size: 14px;
 
     font-weight: 300;
 
@@ -3056,3 +3056,4 @@ body.photo-modal-open {
     overflow: hidden;
     overscroll-behavior: none;
 }
+
