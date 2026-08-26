@@ -3539,3 +3539,31 @@ body.photo-modal-open {
     padding-top: 50px;
 }
 
+/* =====================================================
+   INVITATION ↔ WEDDING DAY 간격 강제 축소
+===================================================== */
+
+.invitation-message {
+    padding-bottom: 20px !important;
+    margin-bottom: 0 !important;
+}
+
+.calendar-section {
+    padding-top: 20px !important;
+    margin-top: 0 !important;
+}
+
+/* 가족 소개 아래쪽 여백도 줄이기 */
+.family-intro {
+    margin-bottom: 10px !important;
+}
+
+.family-intro {
+    min-height: 0 !important;
+    height: auto !important;
+    padding-bottom: 0 !important;
+}
+
+.calendar-section {
+    min-height: 0 !important;
+}
