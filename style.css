@@ -3474,25 +3474,20 @@ body.photo-modal-open {
 
 /* 날짜 */
 
-.wedding-date-main {
-    margin: 22px 0 0;
+.wedding-date-time {
+    margin-top: 24px;
 
     font-family:
-        "Cormorant Garamond",
+        "Gowun Batang",
         serif;
 
-    font-size:
-        clamp(
-            40px,
-            11vw,
-            56px
-        );
+    font-size: 22px;
 
     font-weight: 400;
 
-    line-height: 1;
+    line-height: 1.6;
 
-    letter-spacing: 0.05em;
+    letter-spacing: 0.01em;
 
     color: #403832;
 }
@@ -3509,7 +3504,7 @@ body.photo-modal-open {
         "Gowun Batang",
         serif;
 
-    font-size: 17px;
+    font-size: 20px;
 
     font-weight: 400;
 
