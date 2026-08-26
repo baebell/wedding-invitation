@@ -30,8 +30,6 @@ const musicButton =
 const musicIcon =
     document.getElementById("musicIcon");
 
-const introScreen =
-    document.getElementById("introScreen");
 
 const invitation =
     document.getElementById("invitation");
@@ -39,137 +37,9 @@ const invitation =
 
 let isPlaying = false;
 
-let invitationStarted = false;
 
 
 
-/* =====================================================
-   OPENING SCREEN
-===================================================== */
-
-introScreen.addEventListener(
-    "click",
-    startInvitation
-);
-
-
-function startInvitation() {
-
-    /*
-       여러 번 터치하는 것 방지
-    */
-
-    if (invitationStarted) {
-        return;
-    }
-
-
-    invitationStarted = true;
-
-
-
-    /* =================================================
-       BGM 시작
-    ================================================= */
-
-    bgm.play()
-        .then(() => {
-
-            isPlaying = true;
-
-            musicIcon.textContent =
-                "♪";
-
-            musicButton.classList.remove(
-                "off"
-            );
-
-        })
-        .catch(() => {
-
-            /*
-               모바일 브라우저에서
-               음악을 막더라도 청첩장은 열림
-            */
-
-            isPlaying = false;
-
-            musicIcon.textContent =
-                "🔇";
-
-            musicButton.classList.add(
-                "off"
-            );
-
-        });
-
-
-
-    /* =================================================
-       Opening 페이드 아웃
-    ================================================= */
-
-    introScreen.classList.add(
-        "hide"
-    );
-
-
-
-    /* =================================================
-       청첩장 페이드 인
-    ================================================= */
-
-    setTimeout(() => {
-
-        invitation.classList.add(
-            "show"
-        );
-
-    }, 250);
-
-
-
-    /*
-       opening이 완전히 사라진 후
-       DOM 화면에서 숨김
-    */
-
-    setTimeout(() => {
-
-        introScreen.style.display =
-            "none";
-
-    }, 1400);
-
-    /*
-   오프닝이 사라진 뒤
-   참석 여부 팝업 표시
-*/
-
-setTimeout(() => {
-
-    const alreadySubmitted =
-        localStorage.getItem(
-            "weddingRsvpSubmitted"
-        );
-
-
-    /*
-       아직 제출하지 않은 경우에만
-       자동 팝업 표시
-    */
-
-    if (
-        alreadySubmitted !== "true"
-    ) {
-
-        openRsvpModal();
-
-    }
-
-}, 1800);
-
-}
 
 
 /* =====================================================
@@ -177,34 +47,29 @@ setTimeout(() => {
 ===================================================== */
 
 const rsvpModal =
-    document.getElementById("rsvpModal");
+    document.getElementById(
+        "rsvpModal"
+    );
 
 const rsvpForm =
-    document.getElementById("rsvpForm");
+    document.getElementById(
+        "rsvpForm"
+    );
 
 const rsvpCloseButton =
-    document.getElementById("rsvpCloseButton");
+    document.getElementById(
+        "rsvpCloseButton"
+    );
 
 const rsvpLaterButton =
-    document.getElementById("rsvpLaterButton");
+    document.getElementById(
+        "rsvpLaterButton"
+    );
 
-const guestCount =
-    document.getElementById("guestCount");
-
-const guestCountDisplay =
-    document.getElementById("guestCountDisplay");
-
-const guestMinus =
-    document.getElementById("guestMinus");
-
-const guestPlus =
-    document.getElementById("guestPlus");
-
-const guestCountField =
-    document.getElementById("guestCountField");
-
-
-let currentGuestCount = 1;
+const openRsvpButton =
+    document.getElementById(
+        "openRsvpButton"
+    );
 
 
 /* =====================================================
@@ -212,6 +77,15 @@ let currentGuestCount = 1;
 ===================================================== */
 
 function openRsvpModal() {
+
+    if (!rsvpModal) {
+        console.error(
+            "rsvpModal을 찾을 수 없습니다."
+        );
+
+        return;
+    }
+
 
     rsvpModal.classList.add(
         "active"
@@ -227,33 +101,15 @@ function openRsvpModal() {
 
 
 /* =====================================================
-   RSVP REOPEN BUTTON
-===================================================== */
-
-const openRsvpButton =
-    document.getElementById(
-        "openRsvpButton"
-    );
-
-
-if (openRsvpButton) {
-
-    openRsvpButton.addEventListener(
-        "click",
-        function () {
-
-            openRsvpModal();
-
-        }
-    );
-
-}
-
-/* =====================================================
    RSVP CLOSE
 ===================================================== */
 
 function closeRsvpModal() {
+
+    if (!rsvpModal) {
+        return;
+    }
+
 
     rsvpModal.classList.remove(
         "active"
@@ -268,20 +124,107 @@ function closeRsvpModal() {
 }
 
 
-/* X */
+/* =====================================================
+   RSVP OPEN BUTTON
+===================================================== */
 
-rsvpCloseButton.addEventListener(
-    "click",
-    closeRsvpModal
+if (openRsvpButton) {
+
+    openRsvpButton.addEventListener(
+        "click",
+        function () {
+
+            openRsvpModal();
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   X BUTTON
+===================================================== */
+
+if (rsvpCloseButton) {
+
+    rsvpCloseButton.addEventListener(
+        "click",
+        closeRsvpModal
+    );
+
+}
+
+
+/* =====================================================
+   LATER BUTTON
+===================================================== */
+
+if (rsvpLaterButton) {
+
+    rsvpLaterButton.addEventListener(
+        "click",
+        closeRsvpModal
+    );
+
+}
+/* =====================================================
+   RSVP AUTO OPEN ON SCROLL
+===================================================== */
+
+let rsvpAutoOpened = false;
+
+
+window.addEventListener(
+    "scroll",
+    function () {
+
+        /*
+           이번 방문에서 이미 한 번
+           자동으로 띄웠으면 다시 안 띄움
+        */
+
+        if (rsvpAutoOpened) {
+            return;
+        }
+
+
+        /*
+           이미 참석 여부를 제출한 사람은
+           자동 팝업을 다시 띄우지 않음
+        */
+
+        const alreadySubmitted =
+            localStorage.getItem(
+                "weddingRsvpSubmitted"
+            );
+
+
+        if (
+            alreadySubmitted === "true"
+        ) {
+            return;
+        }
+
+
+        /*
+           페이지를 250px 이상 스크롤하면
+           RSVP 팝업 표시
+        */
+
+        if (
+            window.scrollY > 350
+        ) {
+
+            rsvpAutoOpened = true;
+
+            openRsvpModal();
+
+        }
+
+    }
 );
 
-
-/* 나중에 작성 */
-
-rsvpLaterButton.addEventListener(
-    "click",
-    closeRsvpModal
-);
 
 
 /* =====================================================
@@ -727,22 +670,44 @@ setInterval(
     updateCountdown,
     1000
 );
-
 /* =====================================================
-   PHOTO MODAL + SWIPE
+   PHOTO MODAL + SWIPE + COUNTER
 ===================================================== */
 
 const galleryItems =
-    document.querySelectorAll(".gallery-item");
+    document.querySelectorAll(
+        ".gallery-item"
+    );
 
 const photoModal =
-    document.getElementById("photoModal");
+    document.getElementById(
+        "photoModal"
+    );
 
 const modalImage =
-    document.getElementById("modalImage");
+    document.getElementById(
+        "modalImage"
+    );
 
 const closeModal =
-    document.getElementById("closeModal");
+    document.getElementById(
+        "closeModal"
+    );
+
+const prevPhotoButton =
+    document.getElementById(
+        "prevPhotoButton"
+    );
+
+const nextPhotoButton =
+    document.getElementById(
+        "nextPhotoButton"
+    );
+
+const photoCounter =
+    document.getElementById(
+        "photoCounter"
+    );
 
 
 let savedScrollPosition = 0;
@@ -753,10 +718,17 @@ let touchStartX = 0;
 let touchEndX = 0;
 
 
-/* 갤러리 이미지 목록 */
+/* 사진 전체 목록 */
+
 const galleryImages =
-    Array.from(galleryItems).map(
-        item => item.dataset.image
+    Array.from(
+        galleryItems
+    ).map(
+        function (item) {
+
+            return item.dataset.image;
+
+        }
     );
 
 
@@ -772,6 +744,7 @@ galleryItems.forEach(
             function (event) {
 
                 event.preventDefault();
+
 
                 savedScrollPosition =
                     window.scrollY ||
@@ -798,21 +771,17 @@ galleryItems.forEach(
                 );
 
 
-                /* 뒤쪽 화면 고정 */
-                document.body.style.position =
-                    "fixed";
+                /*
+                   배경 스크롤만 막기
+                   body position: fixed는 사용하지 않음
+                */
+                document.documentElement.classList.add(
+                    "photo-modal-open"
+                );
 
-                document.body.style.top =
-                    `-${savedScrollPosition}px`;
-
-                document.body.style.left =
-                    "0";
-
-                document.body.style.right =
-                    "0";
-
-                document.body.style.width =
-                    "100%";
+                document.body.classList.add(
+                    "photo-modal-open"
+                );
 
             }
         );
@@ -828,21 +797,27 @@ galleryItems.forEach(
 function showImage(index) {
 
     /*
-       마지막 사진에서 다음으로 넘기면
-       첫 사진으로
+       마지막 사진 다음 → 첫 사진
     */
-    if (index >= galleryImages.length) {
 
-        currentImageIndex = 0;
+    if (
+        index >=
+        galleryImages.length
+    ) {
+
+        currentImageIndex =
+            0;
 
     }
 
 
     /*
-       첫 사진에서 이전으로 넘기면
-       마지막 사진으로
+       첫 사진 이전 → 마지막 사진
     */
-    if (index < 0) {
+
+    if (
+        index < 0
+    ) {
 
         currentImageIndex =
             galleryImages.length - 1;
@@ -851,13 +826,23 @@ function showImage(index) {
 
 
     modalImage.src =
-        galleryImages[currentImageIndex];
+        galleryImages[
+            currentImageIndex
+        ];
+
+
+    /*
+       사진 번호 업데이트
+    */
+
+    photoCounter.textContent =
+        `${currentImageIndex + 1} / ${galleryImages.length}`;
 
 }
 
 
 /* =====================================================
-   NEXT / PREVIOUS
+   NEXT PHOTO
 ===================================================== */
 
 function showNextImage() {
@@ -871,6 +856,10 @@ function showNextImage() {
 }
 
 
+/* =====================================================
+   PREVIOUS PHOTO
+===================================================== */
+
 function showPreviousImage() {
 
     currentImageIndex--;
@@ -883,16 +872,45 @@ function showPreviousImage() {
 
 
 /* =====================================================
-   TOUCH START
+   ARROW BUTTON
+===================================================== */
+
+nextPhotoButton.addEventListener(
+    "click",
+    function (event) {
+
+        event.preventDefault();
+
+        event.stopPropagation();
+
+        showNextImage();
+
+    }
+);
+
+
+prevPhotoButton.addEventListener(
+    "click",
+    function (event) {
+
+        event.preventDefault();
+
+        event.stopPropagation();
+
+        showPreviousImage();
+
+    }
+);
+
+
+/* =====================================================
+   SWIPE START
 ===================================================== */
 
 photoModal.addEventListener(
     "touchstart",
     function (event) {
 
-        /*
-           한 손가락 터치만 처리
-        */
         if (
             event.touches.length !== 1
         ) {
@@ -914,7 +932,7 @@ photoModal.addEventListener(
 
 
 /* =====================================================
-   TOUCH MOVE
+   SWIPE MOVE
 ===================================================== */
 
 photoModal.addEventListener(
@@ -939,17 +957,13 @@ photoModal.addEventListener(
 
 
 /* =====================================================
-   TOUCH END
+   SWIPE END
 ===================================================== */
 
 photoModal.addEventListener(
     "touchend",
     function (event) {
 
-        /*
-           X 버튼을 눌렀다면
-           swipe 처리하지 않음
-        */
         if (
             event.target.closest(
                 "#closeModal"
@@ -960,13 +974,10 @@ photoModal.addEventListener(
 
 
         const swipeDistance =
-            touchEndX - touchStartX;
+            touchEndX -
+            touchStartX;
 
 
-        /*
-           너무 조금 움직인 경우
-           일반 터치로 판단
-        */
         const minimumSwipeDistance =
             50;
 
@@ -975,6 +986,7 @@ photoModal.addEventListener(
            왼쪽으로 스와이프
            → 다음 사진
         */
+
         if (
             swipeDistance <
             -minimumSwipeDistance
@@ -991,6 +1003,7 @@ photoModal.addEventListener(
            오른쪽으로 스와이프
            → 이전 사진
         */
+
         if (
             swipeDistance >
             minimumSwipeDistance
@@ -1026,36 +1039,22 @@ function closePhotoModal() {
     );
 
 
-    modalImage.src = "";
-
-
-    document.body.style.position =
-        "";
-
-    document.body.style.top =
-        "";
-
-    document.body.style.left =
-        "";
-
-    document.body.style.right =
-        "";
-
-    document.body.style.width =
+    modalImage.src =
         "";
 
 
-    window.scrollTo(
-        0,
-        savedScrollPosition
-    );
+    document.documentElement.classList.remove(
+    "photo-modal-open"
+);
+
+document.body.classList.remove(
+    "photo-modal-open"
+);
 
 }
 
 
-/* =====================================================
-   X BUTTON
-===================================================== */
+/* X */
 
 closeModal.addEventListener(
     "click",
@@ -1089,7 +1088,8 @@ document.addEventListener(
 
 
         if (
-            event.key === "Escape"
+            event.key ===
+            "Escape"
         ) {
 
             closePhotoModal();
@@ -1098,7 +1098,8 @@ document.addEventListener(
 
 
         if (
-            event.key === "ArrowRight"
+            event.key ===
+            "ArrowRight"
         ) {
 
             showNextImage();
@@ -1107,100 +1108,13 @@ document.addEventListener(
 
 
         if (
-            event.key === "ArrowLeft"
+            event.key ===
+            "ArrowLeft"
         ) {
 
             showPreviousImage();
 
         }
-
-    }
-);
-
-
-
-/* =====================================================
-   GUEST PHOTO PREVIEW
-===================================================== */
-
-const photoUpload =
-    document.getElementById(
-        "photoUpload"
-    );
-
-
-const uploadPreview =
-    document.getElementById(
-        "uploadPreview"
-    );
-
-
-photoUpload.addEventListener(
-    "change",
-    function (event) {
-
-        uploadPreview.innerHTML =
-            "";
-
-
-        const files =
-            Array.from(
-                event.target.files
-            );
-
-
-        files.forEach(
-            function (file) {
-
-                /*
-                   사진이 아닌 파일 제외
-                */
-
-                if (
-                    !file.type.startsWith(
-                        "image/"
-                    )
-                ) {
-
-                    return;
-
-                }
-
-
-                const reader =
-                    new FileReader();
-
-
-                reader.onload =
-                    function (e) {
-
-                        const img =
-                            document.createElement(
-                                "img"
-                            );
-
-
-                        img.src =
-                            e.target.result;
-
-
-                        img.alt =
-                            "선택한 사진 미리보기";
-
-
-                        uploadPreview.appendChild(
-                            img
-                        );
-
-                    };
-
-
-                reader.readAsDataURL(
-                    file
-                );
-
-            }
-        );
 
     }
 );
@@ -1614,5 +1528,163 @@ accountToggles.forEach(
             }
         );
 
+    }
+);
+
+
+/* =====================================================
+   GALLERY MORE
+===================================================== */
+
+const galleryMoreButton =
+    document.getElementById(
+        "galleryMoreButton"
+    );
+
+const hiddenGalleryItems =
+    document.querySelectorAll(
+        ".gallery-hidden"
+    );
+
+
+if (galleryMoreButton) {
+
+    galleryMoreButton.addEventListener(
+        "click",
+        function () {
+
+            hiddenGalleryItems.forEach(
+                function (item) {
+
+                    item.classList.add(
+                        "show"
+                    );
+
+                }
+            );
+
+
+            /*
+               한 번 펼친 후
+               더보기 버튼 숨기기
+            */
+
+            galleryMoreButton.style.display =
+                "none";
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   IMAGE CONTEXT MENU BLOCK
+===================================================== */
+
+document.addEventListener(
+    "contextmenu",
+    function (event) {
+
+        /*
+           이미지에서만 우클릭 / 길게누르기 메뉴 차단
+        */
+
+        if (
+            event.target.tagName === "IMG"
+        ) {
+
+            event.preventDefault();
+
+        }
+
+    }
+);
+
+/* =====================================================
+   BLOCK LONG PRESS / CONTEXT MENU ON IMAGES
+===================================================== */
+
+document.addEventListener(
+    "contextmenu",
+    function (event) {
+
+        if (
+            event.target.tagName === "IMG"
+        ) {
+
+            event.preventDefault();
+            return false;
+
+        }
+
+    }
+);
+
+
+/* 모바일 길게 누르기 대응 */
+
+let longPressTimer = null;
+
+
+document.addEventListener(
+    "touchstart",
+    function (event) {
+
+        if (
+            event.target.tagName !== "IMG"
+        ) {
+            return;
+        }
+
+
+        longPressTimer = setTimeout(
+            function () {
+
+                /*
+                   길게 눌러도
+                   브라우저 기본 이미지 메뉴가
+                   뜨지 않도록 시도
+                */
+
+                event.preventDefault();
+
+            },
+            500
+        );
+
+    },
+    {
+        passive: false
+    }
+);
+
+
+document.addEventListener(
+    "touchend",
+    function () {
+
+        clearTimeout(
+            longPressTimer
+        );
+
+    },
+    {
+        passive: true
+    }
+);
+
+
+document.addEventListener(
+    "touchmove",
+    function () {
+
+        clearTimeout(
+            longPressTimer
+        );
+
+    },
+    {
+        passive: true
     }
 );
