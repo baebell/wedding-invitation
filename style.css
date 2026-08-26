@@ -3515,3 +3515,27 @@ body.photo-modal-open {
 
     color: #6f625a;
 }
+
+/* =====================================================
+   INVITATION → WEDDING DAY 간격 조정
+===================================================== */
+
+
+/* 부모님 / 신랑신부 영역을 조금 아래로 */
+.family-intro {
+    margin-top: 60px;
+    margin-bottom: 35px;
+}
+
+
+/* invitation 섹션 아래 여백 줄이기 */
+.invitation-message {
+    padding-bottom: 50px;
+}
+
+
+/* wedding day 섹션 위 여백 줄이기 */
+.calendar-section {
+    padding-top: 50px;
+}
+
