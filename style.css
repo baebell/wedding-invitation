@@ -518,7 +518,7 @@ a {
 
 .section {
     padding:
-        50px 30px;
+        50px 20px;
 
     text-align: center;
 }
@@ -3566,4 +3566,37 @@ body.photo-modal-open {
 
 .calendar-section {
     min-height: 0 !important;
+}
+
+/* =====================================================
+   MOBILE SIDE SPACING
+===================================================== */
+
+@media (max-width: 600px) {
+
+    /* 기본 본문 */
+    .section {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    /* 갤러리는 더 넓게 */
+    .gallery-section {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    /* 지도 */
+    .location {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    /* RSVP / 계좌 */
+    .rsvp-section,
+    .account {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
 }
