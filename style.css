@@ -3241,7 +3241,7 @@ body.photo-modal-open {
         "Noto Serif KR",
         serif;
 
-    font-size: 22px;
+    font-size: 20px;
 
     font-weight: 300;
 
@@ -3258,7 +3258,7 @@ body.photo-modal-open {
         "Nanum Pen Script",
         cursive;
 
-    font-size: 24px;
+    font-size: 30px;
 
     font-weight: 400;
 
@@ -3269,7 +3269,7 @@ body.photo-modal-open {
 .family-heart {
     padding-bottom: 3px;
 
-    font-size: 18px;
+    font-size: 24px;
 
     color: #c89a93;
 }
@@ -3498,23 +3498,6 @@ body.photo-modal-open {
 }
 
 
-/* 토요일 오후 3시 */
-
-.wedding-time-main {
-    margin-top: 22px;
-
-    font-family:
-        "Gowun Batang",
-        serif;
-
-    font-size: 19px;
-
-    font-weight: 400;
-
-    letter-spacing: 0.03em;
-
-    color: #5f554e;
-}
 
 
 /* 장소 */
