@@ -603,116 +603,213 @@ a {
 }
 
 
-
 /* =====================================================
-   CALENDAR
+   WEDDING CALENDAR
 ===================================================== */
 
-.calendar-section {
-    background: #faf8f5;
+.wedding-calendar {
+    width: 100%;
+
+    margin-top: 45px;
+
+    padding:
+        18px 0
+        28px;
+
+    border-top:
+        1px solid #5d5854;
+
+    border-bottom:
+        1px solid #5d5854;
 }
 
 
-.wedding-time {
-    margin-top: 8px;
+/* =====================================================
+   WEEKDAYS
+===================================================== */
 
-    color: #918980;
+.calendar-weekdays {
+    display: grid;
+
+    grid-template-columns:
+        repeat(7, 1fr);
+
+    align-items: center;
+
+    margin-bottom: 22px;
+}
+
+
+.calendar-weekdays span {
+    font-family:
+        "Noto Sans KR",
+        sans-serif;
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+    color: #504b47;
+
+    text-align: center;
+}
+
+
+/* 일요일 */
+
+.calendar-weekdays span:first-child {
+    color: #b98d85;
+}
+
+
+/* 토요일 */
+
+.calendar-weekdays span:last-child {
+    color: #728094;
+}
+
+
+/* =====================================================
+   DATES
+===================================================== */
+
+.calendar-dates {
+    display: grid;
+
+    grid-template-columns:
+        repeat(7, 1fr);
+
+    grid-auto-rows: 52px;
+
+    align-items: start;
+}
+
+
+.calendar-dates > span {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    height: 34px;
 
     font-family:
         "Cormorant Garamond",
         serif;
 
-    font-size: 16px;
+    font-size: 14px;
+
+    font-weight: 400;
+
+    color: #67615c;
 }
 
 
-.calendar {
-    margin-top: 40px;
+/* =====================================================
+   WEDDING DATE
+===================================================== */
+
+.calendar-wedding-date {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: flex-start;
+
+    position: relative;
 }
 
 
-.week,
-.days {
-    display: grid;
+.wedding-date-circle {
+    width: 38px;
+    height: 38px;
 
-    grid-template-columns:
-        repeat(7, 1fr);
-}
+    display: flex;
 
+    align-items: center;
+    justify-content: center;
 
-.week {
-    margin-bottom: 15px;
+    border-radius: 50%;
 
-    font-size: 11px;
+    background: #c7aea0;
 
-    color: #9c948c;
-}
-
-
-.days {
-    row-gap: 13px;
+    color: #ffffff;
 
     font-family:
         "Cormorant Garamond",
         serif;
 
     font-size: 15px;
+
+    font-weight: 500;
+
+    box-shadow:
+        0 2px 8px
+        rgba(0, 0, 0, 0.08);
 }
 
 
-.days span {
-    height: 30px;
+.calendar-wedding-date small {
+    margin-top: 3px;
 
-    display: flex;
+    font-family:
+        "Noto Sans KR",
+        sans-serif;
 
-    align-items: center;
-    justify-content: center;
+    font-size: 8px;
+
+    font-weight: 300;
+
+    color: #827973;
+
+    white-space: nowrap;
 }
-
-
-.wedding-day {
-    position: relative;
-
-    z-index: 1;
-
-    color: white;
-}
-
-
-.wedding-day::before {
-    content: "";
-
-    position: absolute;
-
-    width: 31px;
-    height: 31px;
-
-    border-radius: 50%;
-
-    background: #a48774;
-
-    z-index: -1;
-}
-
 
 
 /* =====================================================
    COUNTDOWN
 ===================================================== */
 
-.countdown {
+.wedding-countdown {
     margin-top: 55px;
 
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-
-    gap: 11px;
+    text-align: center;
 }
 
 
-.countdown div {
+.countdown-message {
+    margin: 0 0 30px;
+
+    font-family:
+        "Gowun Batang",
+        serif;
+
+    font-size: 14px;
+
+    font-weight: 400;
+
+    color: #665e58;
+}
+
+
+/* =====================================================
+   COUNTDOWN CIRCLES
+===================================================== */
+
+.countdown-circles {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 12px;
+
+    align-items: start;
+}
+
+
+.countdown-item {
     display: flex;
 
     flex-direction: column;
@@ -721,34 +818,70 @@ a {
 }
 
 
-.countdown strong {
+.countdown-circle {
+    width: 62px;
+    height: 62px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #c7aea0;
+
+    box-shadow:
+        0 3px 10px
+        rgba(0, 0, 0, 0.08);
+}
+
+
+.countdown-circle strong {
     font-family:
         "Cormorant Garamond",
         serif;
 
-    font-size: 29px;
+    font-size: 22px;
+
+    font-weight: 500;
+
+    color: #ffffff;
+}
+
+
+.countdown-item > span {
+    margin-top: 8px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 10px;
 
     font-weight: 400;
+
+    color: #8c847e;
 }
 
 
-.countdown small {
-    margin-top: 3px;
+/* 작은 휴대폰 대응 */
 
-    font-family:
-        "Cormorant Garamond",
-        serif;
+@media (max-width: 380px) {
 
-    font-size: 9px;
+    .countdown-circles {
+        gap: 7px;
+    }
 
-    color: #aaa29b;
+    .countdown-circle {
+        width: 55px;
+        height: 55px;
+    }
 
-    letter-spacing: 0.1em;
-}
+    .countdown-circle strong {
+        font-size: 19px;
+    }
 
-
-.countdown > span {
-    color: #b5ada5;
 }
 
 
@@ -3600,3 +3733,4 @@ body.photo-modal-open {
     }
 
 }
+
