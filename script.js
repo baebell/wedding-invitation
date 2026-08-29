@@ -1,4 +1,20 @@
 /* =====================================================
+   KAKAO INITIALIZE
+===================================================== */
+
+if (
+    typeof Kakao !== "undefined"
+    &&
+    !Kakao.isInitialized()
+) {
+
+    Kakao.init(
+        "abfc287ebd9ab8843aa5593b53cf52c2"
+    );
+
+}
+
+/* =====================================================
    SUPABASE
 ===================================================== */
 
@@ -1688,3 +1704,76 @@ document.addEventListener(
         passive: true
     }
 );
+
+
+
+/* =====================================================
+   KAKAO SHARE BUTTON
+===================================================== */
+
+const kakaoShareButton =
+    document.getElementById(
+        "kakaoShareButton"
+    );
+
+    if (kakaoShareButton) {
+
+    kakaoShareButton.addEventListener(
+        "click",
+        function () {
+
+            Kakao.Share.sendDefault({
+
+                objectType:
+                    "feed",
+
+                content: {
+
+                    title:
+                        "윤종 ♥ 예진, 결혼합니다",
+
+                    description:
+                        "2026년 12월 5일 토요일 오후 3시\n양재 엘타워 6층 그레이스홀",
+
+                    imageUrl:
+                        "https://wedding-invitation-beta-five-20.vercel.app/images/kakao-preview.jpg",
+
+                    link: {
+
+                        mobileWebUrl:
+                            "https://wedding-invitation-beta-five-20.vercel.app",
+
+                        webUrl:
+                            "https://wedding-invitation-beta-five-20.vercel.app"
+
+                    }
+
+                },
+
+                buttons: [
+
+                    {
+
+                        title:
+                            "모바일 청첩장 보기",
+
+                        link: {
+
+                            mobileWebUrl:
+                                "https://wedding-invitation-beta-five-20.vercel.app",
+
+                            webUrl:
+                                "https://wedding-invitation-beta-five-20.vercel.app"
+
+                        }
+
+                    }
+
+                ]
+
+            });
+
+        }
+    );
+
+}

@@ -3734,3 +3734,47 @@ body.photo-modal-open {
 
 }
 
+/* =====================================================
+   KAKAO SHARE
+===================================================== */
+
+.share-section {
+    background: #ffffff;
+
+    text-align: center;
+}
+
+
+.kakao-share-button {
+    width: 100%;
+    max-width: 300px;
+
+    margin-top: 30px;
+
+    padding: 15px 20px;
+
+    border: none;
+    border-radius: 6px;
+
+    background: #fee500;
+
+    color: #191919;
+
+    font-family:
+        "Noto Sans KR",
+        sans-serif;
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+    cursor: pointer;
+
+    -webkit-tap-highlight-color:
+        transparent;
+}
+
+
+.kakao-share-button:active {
+    opacity: 0.8;
+}
