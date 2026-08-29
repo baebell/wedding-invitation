@@ -1736,7 +1736,7 @@ const kakaoShareButton =
                         "2026년 12월 5일 토요일 오후 3시\n양재 엘타워 6층 그레이스홀",
 
                     imageUrl:
-                        "https://wedding-invitation-beta-five-20.vercel.app/images/kakao-preview.jpg",
+                        "https://wedding-invitation-beta-five-20.vercel.app/images/kakao-preview-2.jpg",
 
                     link: {
 
