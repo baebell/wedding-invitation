@@ -784,7 +784,7 @@ a {
     font-family:
         "NanumBarunPen";
 
-    font-size: 14px;
+    font-size: 17px;
 
     font-weight: 400;
 
@@ -1098,7 +1098,7 @@ a {
 /* 티맵 */
 
 .map-app-button.tmap {
-    background: #ef3340;
+    background: #120be0;
 
     color: white;
 }
@@ -1142,8 +1142,7 @@ a {
 
     padding-top: 15px;
 
-    border-top:
-        1px solid #e3ddd7;
+    border-top: none;
 
     text-align: left;
 }
