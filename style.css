@@ -2268,7 +2268,7 @@ body {
 
     line-height: 2.1;
 
-    font-size: 13px;
+    font-size: 17px;
 
     color: #746d67;
 }
@@ -2388,7 +2388,7 @@ body {
 .address,
 .venue-floor {
     font-weight: 300;
-    font-size: 15px;
+    font-size: 16px;
 
     letter-spacing: -0.02em;
 }
@@ -3208,7 +3208,8 @@ body.photo-modal-open {
     margin: 0;
 
     font-family:
-        "NanumBarunPen";
+        "Cormorant Garamond",
+        serif;
 
     font-size: 24px;
 
@@ -3578,7 +3579,7 @@ body.photo-modal-open {
     font-family:
         "NanumBarunPen";
 
-    font-size: 18px;
+    font-size: 20px;
 
     font-weight: 400;
 
