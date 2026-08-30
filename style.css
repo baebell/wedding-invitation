@@ -2212,8 +2212,7 @@ body {
 .section-label,
 .eyebrow {
     font-family:
-        "Cormorant Garamond",
-        serif;
+        "NanumBarunPen";
 
     font-size: 22px;
 
@@ -2242,8 +2241,7 @@ body {
 .section h2,
 .rsvp-card h2 {
     font-family:
-        "Gowun Batang",
-        serif;
+        "NanumBarunPen";
 
     font-weight: 400;
     font-size: 20px;
@@ -2262,8 +2260,7 @@ body {
 .description,
 .account-description {
     font-family:
-        "Noto Serif KR",
-        serif;
+        "NanumBarunPen";
 
     font-weight: 300;
 
@@ -2278,8 +2275,7 @@ body {
 
 .rsvp-description {
     font-family:
-        "Noto Serif KR",
-        serif;
+        "NanumBarunPen";
 
     font-weight: 300;
 
@@ -2294,8 +2290,7 @@ body {
 
 .gallery-description {
     font-family:
-        "Noto Serif KR",
-        serif;
+        "NanumBarunPen";
 
     font-weight: 300;
 
@@ -2317,8 +2312,7 @@ body {
 .couple-name p,
 .opening-names {
     font-family:
-        "Nanum Pen Script",
-        cursive;
+        "NanumBarunPen";
 
     font-size: 25px;
 
@@ -2333,8 +2327,7 @@ body {
 .couple-name span,
 .opening-names span {
     font-family:
-        "Noto Serif KR",
-        serif;
+        "NanumBarunPen";
 
     font-size: 11px;
 
@@ -2352,8 +2345,7 @@ body {
 .opening-date-text,
 .opening-date-on-photo {
     font-family:
-        "Cormorant Garamond",
-        serif;
+        "NanumBarunPen";
 
     font-weight: 500;
 
@@ -2368,8 +2360,7 @@ body {
 
 .venue-name {
     font-family:
-        "Gowun Batang",
-        serif;
+        "NanumBarunPen";
 
     font-weight: 400;
 
@@ -2390,8 +2381,7 @@ body {
 .venue-floor,
 .hero-place {
     font-family:
-        "Noto Sans KR",
-        sans-serif;
+        "NanumBarunPen";
 }
 
 
@@ -2419,8 +2409,7 @@ body {
 
 .map-app-button {
     font-family:
-        "Noto Sans KR",
-        sans-serif;
+        "NanumBarunPen";
 
     font-weight: 400;
     font-size: 15px;
@@ -2441,8 +2430,7 @@ body {
 .rsvp-field label,
 .rsvp-field-title {
     font-family:
-        "Noto Sans KR",
-        sans-serif;
+        "NanumBarunPen";
 
     font-weight: 400;
 
@@ -2460,8 +2448,7 @@ body {
 .rsvp-field input,
 .rsvp-field textarea {
     font-family:
-        "Noto Sans KR",
-        sans-serif;
+        "NanumBarunPen";
 
     font-weight: 300;
 }
@@ -2477,8 +2464,7 @@ body {
 
 .rsvp-options span {
     font-family:
-        "Noto Sans KR",
-        sans-serif;
+        "NanumBarunPen";
 
     font-weight: 400;
 }
@@ -2493,8 +2479,7 @@ body {
 .rsvp-later,
 .open-rsvp-button {
     font-family:
-        "Noto Sans KR",
-        sans-serif;
+        "NanumBarunPen";
 
     font-weight: 400;
 
@@ -2512,8 +2497,7 @@ body {
 
 .account-toggle {
     font-family:
-        "Gowun Batang",
-        serif;
+        "NanumBarunPen";
 
     font-weight: 400;
     font-size: 13px;
@@ -2529,8 +2513,7 @@ body {
 
 .account-owner {
     font-family:
-        "Noto Serif KR",
-        serif;
+        "NanumBarunPen";
 
     font-weight: 400;
     font-size: 13px;
@@ -2546,8 +2529,7 @@ body {
 
 .account-number {
     font-family:
-        "Noto Sans KR",
-        sans-serif;
+        "NanumBarunPen";
 
     font-weight: 400;
 
@@ -2565,8 +2547,7 @@ body {
 
 .copy-button {
     font-family:
-        "Noto Sans KR",
-        sans-serif;
+        "NanumBarunPen";
 
     font-weight: 400;
 }
@@ -2579,8 +2560,7 @@ body {
 
 .week {
     font-family:
-        "Noto Sans KR",
-        sans-serif;
+        "NanumBarunPen";
 
     font-weight: 300;
 }
@@ -2590,8 +2570,7 @@ body {
 .countdown strong,
 .countdown small {
     font-family:
-        "Cormorant Garamond",
-        serif;
+        "NanumBarunPen";
 }
 
 
@@ -2604,8 +2583,7 @@ body {
 
 .gallery-section h2 {
     font-family:
-        "Cormorant Garamond",
-        serif;
+        "NanumBarunPen";
 
     font-size: 30px;
 
@@ -2622,8 +2600,7 @@ body {
 
 .rsvp-label {
     font-family:
-        "Cormorant Garamond",
-        serif;
+        "NanumBarunPen";
 
     font-weight: 500;
 
@@ -2638,8 +2615,7 @@ body {
 
 footer p:first-child {
     font-family:
-        "Cormorant Garamond",
-        serif;
+        "NanumBarunPen";
 
     font-weight: 400;
 
@@ -2649,8 +2625,7 @@ footer p:first-child {
 
 footer p:nth-child(2) {
     font-family:
-        "Nanum Pen Script",
-        cursive;
+        "NanumBarunPen";
 
     font-size: 21px;
 
@@ -2660,8 +2635,7 @@ footer p:nth-child(2) {
 
 footer small {
     font-family:
-        "Cormorant Garamond",
-        serif;
+        "NanumBarunPen";
         font-size: 15px;
 
     letter-spacing: 0.12em;
@@ -2711,8 +2685,7 @@ footer small {
     gap: 5px;
 
     font-family:
-        "Gowun Batang",
-        serif;
+        "NanumBarunPen";
 
     font-size: 18px;
 
@@ -2738,8 +2711,7 @@ footer small {
         0 0 12px;
 
     font-family:
-        "Noto Sans KR",
-        sans-serif;
+        "NanumBarunPen";
 
     font-size: 14px;
 
@@ -2835,8 +2807,7 @@ footer small {
     color: #72675f;
 
     font-family:
-        "Noto Sans KR",
-        sans-serif;
+        "NanumBarunPen";
 
     font-size: 11px;
 
@@ -2929,8 +2900,7 @@ footer small {
         rgba(255, 255, 255, 0.9);
 
     font-family:
-        "Cormorant Garamond",
-        serif;
+        "NanumBarunPen";
 
     font-size: 14px;
 
@@ -3006,8 +2976,7 @@ footer small {
     margin: 0;
 
     font-family:
-        "Cormorant Garamond",
-        serif;
+        "NanumBarunPen";
 
     font-size: 22px;
 
@@ -3037,8 +3006,7 @@ footer small {
     margin: 10px 0 0;
 
     font-family:
-        "Noto Serif KR",
-        serif;
+        "NanumBarunPen";
 
     font-size: 14px;
 
@@ -3087,8 +3055,7 @@ footer small {
     text-align: center;
 
     font-family:
-        "Cormorant Garamond",
-        serif;
+        "NanumBarunPen";
 
     font-size: 25px;
 
@@ -3241,8 +3208,7 @@ body.photo-modal-open {
     margin: 0;
 
     font-family:
-        "Cormorant Garamond",
-        serif;
+        "NanumBarunPen";
 
     font-size: 24px;
 
@@ -3267,8 +3233,7 @@ body.photo-modal-open {
     margin-top: 7px;
 
     font-family:
-        "Cormorant Garamond",
-        serif;
+        "NanumBarunPen";
 
     font-size: 20px;
 
@@ -3314,8 +3279,7 @@ body.photo-modal-open {
     margin: 0;
 
     font-family:
-        "Cormorant Garamond",
-        serif;
+        "NanumBarunPen";
 
     font-size: 24px;
 
@@ -3333,8 +3297,7 @@ body.photo-modal-open {
     margin-top: 6px;
 
     font-family:
-        "Gowun Batang",
-        serif;
+        "NanumBarunPen";
 
     font-size: 25px;
 
@@ -3374,8 +3337,7 @@ body.photo-modal-open {
     margin: 0 0 10px;
 
     font-family:
-        "Noto Serif KR",
-        serif;
+        "NanumBarunPen";
 
     font-size: 20px;
 
@@ -3391,8 +3353,7 @@ body.photo-modal-open {
 
 .family-name {
     font-family:
-        "Nanum Pen Script",
-        cursive;
+        "NanumBarunPen";
 
     font-size: 30px;
 
@@ -3599,8 +3560,7 @@ body.photo-modal-open {
     margin: 0;
 
     font-family:
-        "Cormorant Garamond",
-        serif;
+        "NanumBarunPen";
 
     font-size: 20px;
 
@@ -3616,8 +3576,7 @@ body.photo-modal-open {
     margin-top: 24px;
 
     font-family:
-        "Gowun Batang",
-        serif;
+        "NanumBarunPen";
 
     font-size: 18px;
 
@@ -3638,8 +3597,7 @@ body.photo-modal-open {
     margin-top: 14px;
 
     font-family:
-        "Gowun Batang",
-        serif;
+        "NanumBarunPen";
 
     font-size: 17px;
 
@@ -3764,8 +3722,7 @@ body.photo-modal-open {
     color: #191919;
 
     font-family:
-        "Noto Sans KR",
-        sans-serif;
+        "NanumBarunPen";
 
     font-size: 13px;
 
