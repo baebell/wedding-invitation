@@ -697,10 +697,9 @@ a {
     height: 34px;
 
     font-family:
-        "Cormorant Garamond",
-        serif;
+        "NanumBarunPen";
 
-    font-size: 14px;
+    font-size: 16px;
 
     font-weight: 400;
 
@@ -740,10 +739,9 @@ a {
     color: #ffffff;
 
     font-family:
-        "Cormorant Garamond",
-        serif;
+        "NanumBarunPen";
 
-    font-size: 15px;
+    font-size: 16px;
 
     font-weight: 500;
 
@@ -757,10 +755,9 @@ a {
     margin-top: 3px;
 
     font-family:
-        "Noto Sans KR",
-        sans-serif;
+        "NanumBarunPen";
 
-    font-size: 8px;
+    font-size: 12px;
 
     font-weight: 300;
 
@@ -785,8 +782,7 @@ a {
     margin: 0 0 30px;
 
     font-family:
-        "Gowun Batang",
-        serif;
+        "NanumBarunPen";
 
     font-size: 14px;
 
@@ -857,10 +853,9 @@ a {
     margin-top: 8px;
 
     font-family:
-        "Cormorant Garamond",
-        serif;
+        "NanumBarunPen";
 
-    font-size: 10px;
+    font-size: 14px;
 
     font-weight: 400;
 
@@ -3340,7 +3335,7 @@ body.photo-modal-open {
     font-family:
         "NanumBarunPen";
 
-    font-size: 20px;
+    font-size: 18px;
 
     font-weight: 300;
 
@@ -3356,7 +3351,7 @@ body.photo-modal-open {
     font-family:
         "NanumBarunPen";
 
-    font-size: 30px;
+    font-size: 25px;
 
     font-weight: 400;
 
