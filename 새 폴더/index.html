@@ -12,40 +12,6 @@
 
     <title>배윤종 ♥ 방예진</title>
 
-    <!-- =====================================================
-     KAKAO / OPEN GRAPH PREVIEW
-===================================================== -->
-
-<meta
-    property="og:type"
-    content="website"
->
-
-<meta
-    property="og:title"
-    content="윤종 ♥ 예진, 결혼합니다"
->
-
-<meta
-    property="og:description"
-    content="2026.12.05.(토) 오후 3시 양재 엘타워 6층 그레이스홀"
->
-
-<meta
-    property="og:image"
-    content="https://wedding-invitation-beta-five-20.vercel.app/images/kakao-preview-2.jpg"
->
-
-<meta
-    property="og:url"
-    content="https://wedding-invitation-beta-five-20.vercel.app"
->
-
-<meta
-    property="og:site_name"
-    content="윤종 ♥ 예진 Wedding"
->
-
     <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 
@@ -73,14 +39,10 @@
 
 <audio
     id="bgm"
+    src="music/wedding-bgm.mp3"
     loop
     preload="auto"
->
-    <source
-        src="music/wedding-bgm.mp3"
-        type="audio/mpeg"
-    >
-</audio>
+></audio>
 
 
 
@@ -111,49 +73,25 @@
 
     <div class="opening-image-wrap">
 
+    <!-- 오프닝 사진을 CSS 배경으로 표시 -->
     <div class="opening-background"></div>
 
-    <!-- 자동 인트로 -->
-    <div class="opening-intro-overlay">
 
-        <div class="opening-intro-words">
-
-            <span>WE ARE</span>
-            <span>GETTING</span>
-            <span>MARRIED</span>
-
-        </div>
-
-    </div>
-
-    
+    <!-- 사진 위 음영 -->
+    <div class="opening-image-shade"></div>
 
 
-    <!-- 위쪽 문구 -->
-    <div class="opening-top-text">
-
-        <p class="opening-couple-name">
-            YOONJONG & YEJIN
-        </p>
-
-
+    <!-- 맨 위 이름 -->
+    <div class="opening-name-top">
+        YOONJONG & YEJIN<br>
+        2026.12.05.SAT
     </div>
 
 
-    <!-- 아래쪽 날짜 / 장소 -->
-    <div class="opening-bottom-text">
-
-        <p class="opening-date-text">
-            2026.12.05 SAT
-        </p>
-
-        <p class="opening-place-text">
-            엘타워 그레이스홀
-        </p>
-
-    </div>
 
 
+
+    <!-- 스크롤 안내 -->
     <div class="scroll-guide">
 
         <span class="scroll-line"></span>
@@ -219,43 +157,15 @@
     </p>
 
 
-    <!-- =====================================================
-     FAMILY INTRO
-===================================================== -->
+    <div class="couple-name">
 
-<div class="family-intro">
-
-    <div class="family-side">
-
-        <p class="family-parent">
-            배기웅 · 임묘순의 장남
-        </p>
-
-        <p class="family-name">
+        <p>
             배윤종
-        </p>
-
-    </div>
-
-
-    <div class="family-heart">
-        ♥
-    </div>
-
-
-    <div class="family-side">
-
-        <p class="family-parent">
-            방용국 · 권현정의 장녀
-        </p>
-
-        <p class="family-name">
+            <span>♥</span>
             방예진
         </p>
 
     </div>
-
-</div>
 
 </section>
 
@@ -266,192 +176,144 @@
 
 <section class="section calendar-section">
 
-    <section class="section calendar-section">
-
-    <p class="wedding-day-label">
+    <p class="section-label">
         WEDDING DAY
     </p>
 
-    <p class="wedding-date-time">
-        2026.12.05 토요일 오후 3시
+
+    <h2>
+        2026. 12. 05
+    </h2>
+
+
+    <p class="wedding-time">
+        SATURDAY · PM 3:00
     </p>
 
 
-    <p class="wedding-place-main">
-        양재 엘타워 6층 그레이스홀
-    </p>
+    <!-- CALENDAR -->
 
-    <!-- 아래 기존 달력 / countdown은 그대로 -->
+    <div class="calendar">
 
+        <div class="week">
 
-    <!-- =====================================================
-     WEDDING CALENDAR
-===================================================== -->
+            <span>일</span>
+            <span>월</span>
+            <span>화</span>
+            <span>수</span>
+            <span>목</span>
+            <span>금</span>
+            <span>토</span>
 
-<div class="wedding-calendar">
-
-    <!-- 요일 -->
-
-    <div class="calendar-weekdays">
-
-        <span>일</span>
-        <span>월</span>
-        <span>화</span>
-        <span>수</span>
-        <span>목</span>
-        <span>금</span>
-        <span>토</span>
-
-    </div>
+        </div>
 
 
-    <!-- 날짜 -->
+        <div class="days">
 
-    <div class="calendar-dates">
+            <span></span>
+            <span></span>
 
-        <!-- 2026년 12월 1일은 화요일 -->
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
 
-        <span></span>
-        <span></span>
-
-        <span>1</span>
-        <span>2</span>
-        <span>3</span>
-        <span>4</span>
-
-        <!-- 결혼식 날짜 -->
-
-        <div class="calendar-wedding-date">
-
-            <span class="wedding-date-circle">
+            <span class="wedding-day">
                 5
             </span>
 
-            <small>
-                오후 3시
-            </small>
+            <span>6</span>
+            <span>7</span>
+            <span>8</span>
+            <span>9</span>
+            <span>10</span>
+            <span>11</span>
+            <span>12</span>
 
-        </div>
+            <span>13</span>
+            <span>14</span>
+            <span>15</span>
+            <span>16</span>
+            <span>17</span>
+            <span>18</span>
+            <span>19</span>
 
+            <span>20</span>
+            <span>21</span>
+            <span>22</span>
+            <span>23</span>
+            <span>24</span>
+            <span>25</span>
+            <span>26</span>
 
-        <span>6</span>
-        <span>7</span>
-        <span>8</span>
-        <span>9</span>
-        <span>10</span>
-        <span>11</span>
-        <span>12</span>
-
-        <span>13</span>
-        <span>14</span>
-        <span>15</span>
-        <span>16</span>
-        <span>17</span>
-        <span>18</span>
-        <span>19</span>
-
-        <span>20</span>
-        <span>21</span>
-        <span>22</span>
-        <span>23</span>
-        <span>24</span>
-        <span>25</span>
-        <span>26</span>
-
-        <span>27</span>
-        <span>28</span>
-        <span>29</span>
-        <span>30</span>
-        <span>31</span>
-
-    </div>
-
-</div>
-
-
-<!-- =====================================================
-     COUNTDOWN
-===================================================== -->
-
-<div class="wedding-countdown">
-
-    <p class="countdown-message">
-        윤종 ♥ 예진 결혼식까지
-    </p>
-
-
-    <div class="countdown-circles">
-
-        <div class="countdown-item">
-
-            <div class="countdown-circle">
-
-                <strong id="days">
-                    00
-                </strong>
-
-            </div>
-
-            <span>
-                Days
-            </span>
-
-        </div>
-
-
-        <div class="countdown-item">
-
-            <div class="countdown-circle">
-
-                <strong id="hours">
-                    00
-                </strong>
-
-            </div>
-
-            <span>
-                Hours
-            </span>
-
-        </div>
-
-
-        <div class="countdown-item">
-
-            <div class="countdown-circle">
-
-                <strong id="minutes">
-                    00
-                </strong>
-
-            </div>
-
-            <span>
-                Minutes
-            </span>
-
-        </div>
-
-
-        <div class="countdown-item">
-
-            <div class="countdown-circle">
-
-                <strong id="seconds">
-                    00
-                </strong>
-
-            </div>
-
-            <span>
-                Seconds
-            </span>
+            <span>27</span>
+            <span>28</span>
+            <span>29</span>
+            <span>30</span>
+            <span>31</span>
 
         </div>
 
     </div>
 
-</div>
+
+    <!-- COUNTDOWN -->
+
+    <div class="countdown">
+
+        <div>
+
+            <strong id="days">
+                00
+            </strong>
+
+            <small>DAYS</small>
+
+        </div>
+
+
+        <span>:</span>
+
+
+        <div>
+
+            <strong id="hours">
+                00
+            </strong>
+
+            <small>HOUR</small>
+
+        </div>
+
+
+        <span>:</span>
+
+
+        <div>
+
+            <strong id="minutes">
+                00
+            </strong>
+
+            <small>MIN</small>
+
+        </div>
+
+
+        <span>:</span>
+
+
+        <div>
+
+            <strong id="seconds">
+                00
+            </strong>
+
+            <small>SEC</small>
+
+        </div>
+
+    </div>
 
 </section>
 
@@ -597,11 +459,11 @@
     </h2>
 
     <p class="venue-name">
-        양재 엘타워
+        양재 엘타워 그레이스홀
     </p>
 
     <p class="venue-floor">
-        6F · 그레이스홀
+        엘타워 6F · 그레이스홀
     </p>
 
     <p class="address">
@@ -1037,34 +899,7 @@
 
 </section>
 
-<!-- =====================================================
-     KAKAO SHARE
-===================================================== -->
 
-<section class="section share-section">
-
-    <p class="section-label">
-        SHARE
-    </p>
-
-    <h2>
-        청첩장 공유하기
-    </h2>
-
-    <p class="description">
-        소중한 분들께<br>
-        청첩장을 공유해주세요.
-    </p>
-
-    <button
-        id="kakaoShareButton"
-        class="kakao-share-button"
-        type="button"
-    >
-        카카오톡으로 공유하기
-    </button>
-
-</section>
 <!-- =====================================================
      FOOTER
 ===================================================== -->
@@ -1423,28 +1258,8 @@
 
 
 <!-- 우리 JavaScript -->
-<!-- KAKAO JAVASCRIPT SDK -->
-
-<script
-    src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.4/kakao.min.js"
-    crossorigin="anonymous"
-></script>
-
-
-<!-- SUPABASE -->
-
-<script
-    src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
-></script>
-
-
-<!-- OUR JAVASCRIPT -->
 
 <script src="script.js"></script>
-
-</body>
-</html>
-
 
 </body>
 </html>

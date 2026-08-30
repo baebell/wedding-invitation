@@ -1,0 +1,3059 @@
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    margin: 0;
+
+    background: #e9e5df;
+    color: #403b36;
+
+    font-family:
+        "Noto Serif KR",
+        serif;
+
+    font-weight: 300;
+
+    overflow-x: hidden;
+}
+
+
+img {
+    display: block;
+    width: 100%;
+}
+
+
+button,
+input,
+label {
+    font-family: inherit;
+}
+
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+
+/* =====================================================
+   OPENING
+===================================================== */
+
+.opening-hero {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+    background: #ffffff;
+}
+
+
+/* =====================================================
+   OPENING PHOTO
+===================================================== */
+
+/* =====================================================
+   OPENING PHOTO - FULL SCREEN
+===================================================== */
+
+.opening-image-wrap {
+    position: relative;
+
+    width: 100vw;
+
+    height: 100vh;
+    height: 100dvh;
+
+    margin: 0;
+    padding: 0;
+
+    overflow: hidden;
+
+    background: #ffffff;
+
+    touch-action: pan-y;
+}
+
+
+.opening-image {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    /*
+       여백 없이 꽉 채우기
+    */
+    object-fit: cover;
+
+    /*
+       사진에서 보여줄 중심 위치
+    */
+    object-position: center center;
+
+    /*
+       자동 확대 효과 제거
+    */
+    transform: none;
+    animation: none;
+
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-touch-callout: none;
+
+    /*
+       위아래 스크롤은 가능
+    */
+    touch-action: pan-y;
+}
+
+
+.opening-image {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    object-position: center center;
+
+    transform: none;
+    animation: none;
+
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-touch-callout: none;
+
+    /* 세로 스크롤 허용 */
+    touch-action: pan-y;
+}
+
+
+/* =====================================================
+   TEXT ON OPENING PHOTO
+===================================================== */
+
+.opening-overlay-text {
+    position: absolute;
+
+    left: 20px;
+    right: 20px;
+
+    /*
+       사진 아래에서 10~15% 위치
+    */
+    bottom: 11%;
+
+    z-index: 2;
+
+    text-align: center;
+
+    pointer-events: none;
+}
+
+
+.opening-script {
+    margin: 0;
+
+    font-family:
+        "Allura",
+        cursive;
+
+    font-size:
+        clamp(
+            48px,
+            14vw,
+            68px
+        );
+
+    font-weight: 400;
+
+    line-height: 0.95;
+
+    color: #ff3d69;
+
+    text-shadow:
+        0 2px 8px
+        rgba(0, 0, 0, 0.10);
+
+    opacity: 0;
+
+    transform:
+        translateY(12px);
+
+    animation:
+        openingFadeUp
+        1.2s ease forwards;
+
+    animation-delay:
+        0.35s;
+}
+
+
+.opening-date-on-photo {
+    margin-top: 18px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+    letter-spacing:
+        0.16em;
+
+    color: #ff3d69;
+
+    opacity: 0;
+
+    animation:
+        openingFadeUp
+        1.2s ease forwards;
+
+    animation-delay:
+        0.6s;
+}
+
+
+
+/* =====================================================
+   SCROLL GUIDE ON PHOTO
+===================================================== */
+
+.scroll-guide {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+/*여길 위아래로 조정하면 위치 조정가능*/
+    bottom: 18px;
+
+    z-index: 3;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 6px;
+
+    color: rgba(255, 255, 255, 0.85);
+
+    pointer-events: none;
+
+    animation:
+        scrollBlink
+        2.2s ease-in-out
+        infinite;
+}
+
+
+.scroll-line {
+    width: 1px;
+    height: 24px;
+
+    background:
+        rgba(255, 255, 255, 0.7);
+}
+
+
+.scroll-guide p {
+    margin: 0;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 8px;
+
+    letter-spacing: 0.25em;
+}
+
+
+@keyframes scrollBlink {
+
+    0%,
+    100% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+}
+
+
+/* =====================================================
+   APPEAR
+===================================================== */
+
+@keyframes openingFadeUp {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+.invitation {
+    position: relative;
+
+    width: 100%;
+    max-width: 520px;
+
+    margin: 0 auto;
+
+    background: #faf8f5;
+
+    opacity: 1;
+
+    transform: none;
+}
+
+
+
+
+@media (min-width: 700px) {
+
+    body {
+        padding: 30px 0;
+    }
+
+
+    .invitation {
+        box-shadow:
+            0 20px 80px
+            rgba(0, 0, 0, 0.08);
+    }
+
+}
+
+
+
+/* =====================================================
+   MUSIC BUTTON
+===================================================== */
+
+.music-button {
+    position: fixed;
+
+    top:
+        max(
+            20px,
+            env(safe-area-inset-top)
+        );
+
+    right: 20px;
+
+    z-index: 500;
+
+    width: 42px;
+    height: 42px;
+
+    /* 배경 제거 */
+    background: transparent;
+
+    /* 테두리 제거 */
+    border: none;
+
+    /* 블러 제거 */
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+
+    color: #ffffff;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 22px;
+
+    padding: 0;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+.music-button.off {
+    opacity: 0.6;
+}
+
+
+#musicIcon {
+    line-height: 1;
+}
+
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+    padding:
+        90px 25px
+        100px;
+
+    text-align: center;
+}
+
+/*invitation, wedding day 와 같은 소제목*/
+.eyebrow,
+.section-label {
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+    letter-spacing: 0.25em;
+
+    color: #938a82;
+}
+
+
+.hero h1 {
+    margin: 20px 0;
+
+    font-family:
+        "Nanum Pen Script",
+        cursive;
+
+    font-size: 46px;
+
+    font-weight: 400;
+}
+
+
+.hero h1 span {
+    color: #b39480;
+
+    font-size: 22px;
+
+    margin: 0 6px;
+}
+
+
+.hero-date {
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 17px;
+
+    letter-spacing: 0.1em;
+}
+
+
+.hero-place {
+    margin-top: 12px;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+
+    color: #8a837c;
+}
+
+
+.hero-photo {
+    margin-top: 45px;
+}
+
+
+.hero-photo img {
+    aspect-ratio: 3 / 4;
+
+    object-fit: cover;
+}
+
+
+
+/* =====================================================
+   SECTIONS
+===================================================== */
+
+.section {
+    padding:
+        50px 30px;
+
+    text-align: center;
+}
+
+/*참석 여부 전달과 같은 부분 수정*/
+
+.section h2 {
+    margin-top: 18px;
+
+    font-family:
+        "Gowun Batang",
+        serif;
+
+    font-size: 25px;
+
+    font-weight: 400;
+
+    line-height: 1.7;
+
+    letter-spacing: -0.02em;
+
+    color: #514943;
+}
+
+/*초대글과 같은 본문*/
+
+.description {
+    margin-top: 32px;
+
+    font-family:
+        "Noto Serif KR",
+        serif;
+
+    font-size: 13px;
+
+    font-weight: 300;
+
+    line-height: 2.15;
+
+    letter-spacing: -0.01em;
+
+    color: #726b65;
+}
+
+
+/* =====================================================
+   INVITATION MESSAGE
+===================================================== */
+
+.invitation-message {
+    background: #f2eee8;
+}
+
+/*신랑 신부 이름*/
+.couple-name {
+    margin-top: 50px;
+
+    padding-top: 30px;
+
+    border-top:
+        1px solid #dfd9d2;
+}
+
+
+.opening-names,
+.couple-name p {
+    font-family:
+        "Nanum Pen Script",
+        cursive;
+
+    font-size: 25px;
+
+    font-weight: 400;
+
+    color: #5d5149;
+}
+
+.couple-name span {
+    margin: 0 8px;
+
+    color: #b39480;
+}
+
+
+
+/* =====================================================
+   CALENDAR
+===================================================== */
+
+.calendar-section {
+    background: #faf8f5;
+}
+
+
+.wedding-time {
+    margin-top: 8px;
+
+    color: #918980;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 16px;
+}
+
+
+.calendar {
+    margin-top: 40px;
+}
+
+
+.week,
+.days {
+    display: grid;
+
+    grid-template-columns:
+        repeat(7, 1fr);
+}
+
+
+.week {
+    margin-bottom: 15px;
+
+    font-size: 11px;
+
+    color: #9c948c;
+}
+
+
+.days {
+    row-gap: 13px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 15px;
+}
+
+
+.days span {
+    height: 30px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+
+.wedding-day {
+    position: relative;
+
+    z-index: 1;
+
+    color: white;
+}
+
+
+.wedding-day::before {
+    content: "";
+
+    position: absolute;
+
+    width: 31px;
+    height: 31px;
+
+    border-radius: 50%;
+
+    background: #a48774;
+
+    z-index: -1;
+}
+
+
+
+/* =====================================================
+   COUNTDOWN
+===================================================== */
+
+.countdown {
+    margin-top: 55px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 11px;
+}
+
+
+.countdown div {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+}
+
+
+.countdown strong {
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 29px;
+
+    font-weight: 400;
+}
+
+
+.countdown small {
+    margin-top: 3px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 9px;
+
+    color: #aaa29b;
+
+    letter-spacing: 0.1em;
+}
+
+
+.countdown > span {
+    color: #b5ada5;
+}
+
+
+
+/* =====================================================
+   GALLERY
+===================================================== */
+
+.gallery-section {
+    background: #f2eee8;
+}
+
+
+.gallery-description {
+    margin-top: 15px;
+
+    color: #8c857e;
+
+    font-size: 12px;
+}
+
+
+/* =====================================================
+   GALLERY - 3 COLUMNS / SAME SIZE
+===================================================== */
+
+.gallery {
+    margin-top: 40px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 4px;
+}
+
+
+.gallery-item {
+    width: 100%;
+
+    padding: 0;
+
+    border: none;
+
+    background: transparent;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    aspect-ratio: 1 / 1;
+}
+
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+/* =====================================================
+   중요!
+   예전에 첫 번째 사진 크게 만들던 설정 무효화
+===================================================== */
+
+.gallery-item:first-child {
+    grid-column: auto;
+}
+
+
+.gallery-item:first-child img {
+    aspect-ratio: auto;
+}
+
+
+/* 처음 숨겨지는 사진 */
+
+.gallery-hidden {
+    display: none;
+}
+
+
+/* 더보기 후 표시 */
+
+.gallery-hidden.show {
+    display: block;
+}
+
+
+
+/* =====================================================
+   LOCATION
+===================================================== */
+
+.location {
+    background: #faf8f5;
+}
+
+
+.venue-name {
+    margin-top: 35px;
+
+    font-size: 18px;
+
+    font-weight: 400;
+}
+
+
+.venue-floor {
+    margin-top: 8px;
+
+    color: #8f877f;
+
+    font-size: 12px;
+}
+
+
+.address {
+    margin-top: 8px;
+
+    color: #89827b;
+
+    font-size: 12px;
+}
+
+
+
+/* =====================================================
+   NAVER WEDDING MAP
+===================================================== */
+
+.wedding-map {
+    width: 100%;
+
+    height: 290px;
+
+    margin-top: 35px;
+
+    background: #e8e4df;
+
+    overflow: hidden;
+}
+
+
+
+/* =====================================================
+   MAP BUTTONS
+===================================================== */
+
+.map-app-buttons {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 7px;
+
+    margin-top: 12px;
+    
+}
+
+
+.map-app-button {
+    min-width: 0;
+
+    padding: 13px 4px;
+
+    border: none;
+    border-radius: 4px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+
+    font-size: 11px;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+.map-app-button:active {
+    opacity: 0.7;
+}
+
+
+/* 카카오맵 */
+
+.map-app-button.kakao {
+    background: #fee500;
+
+    color: #191919;
+}
+
+
+/* 네이버지도 */
+
+.map-app-button.naver {
+    background: #03c75a;
+
+    color: white;
+}
+
+
+/* 티맵 */
+
+.map-app-button.tmap {
+    background: #ef3340;
+
+    color: white;
+}
+
+
+.map-icon {
+    width: 21px;
+    height: 21px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        rgba(255, 255, 255, 0.75);
+
+    color: #333;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    flex-shrink: 0;
+}
+
+
+
+/* =====================================================
+   TRANSPORT INFO
+===================================================== */
+
+.transport-info {
+    margin-top: 35px;
+
+    padding-top: 15px;
+
+    border-top:
+        1px solid #e3ddd7;
+
+    text-align: left;
+}
+
+
+
+
+
+/* =====================================================
+   PHOTO UPLOAD
+===================================================== */
+
+.photo-upload {
+    background: #f1ede7;
+}
+
+
+.upload-button {
+    display: inline-block;
+
+    margin-top: 35px;
+
+    padding:
+        15px 30px;
+
+    border:
+        1px solid #b8aea5;
+
+    color: #5f5852;
+
+    font-size: 12px;
+
+    cursor: pointer;
+
+    -webkit-tap-highlight-color:
+        transparent;
+}
+
+
+.upload-preview {
+    margin-top: 25px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 5px;
+}
+
+
+.upload-preview img {
+    width: 100%;
+
+    aspect-ratio: 1 / 1;
+
+    object-fit: cover;
+}
+
+
+.upload-notice {
+    margin-top: 20px;
+
+    color: #9a928b;
+
+    font-size: 10px;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   ACCOUNT
+===================================================== */
+
+.account {
+    background: #faf8f5;
+}
+
+
+.account-description {
+    margin-top: 20px;
+
+    color: #918981;
+
+    font-size: 12px;
+
+    line-height: 1.9;
+}
+
+
+
+/* =====================================================
+   ACCOUNT GROUP
+===================================================== */
+
+.account-group {
+    margin-top: 15px;
+
+    border:
+        1px solid #e4ded8;
+
+    background: #ffffff;
+
+    overflow: hidden;
+}
+
+
+.account-group:first-of-type {
+    margin-top: 40px;
+}
+
+
+
+/* =====================================================
+   ACCOUNT TOGGLE
+===================================================== */
+
+.account-toggle {
+    width: 100%;
+
+    padding:
+        18px 20px;
+
+    border: none;
+
+    background: #ffffff;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    color: #554e48;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    -webkit-tap-highlight-color:
+        transparent;
+}
+
+
+.account-arrow {
+    color: #a58d7d;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 20px;
+
+    font-weight: 300;
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+
+/* =====================================================
+   ACCOUNT LIST
+===================================================== */
+
+.account-list {
+    max-height: 0;
+
+    overflow: hidden;
+
+    background: #f9f7f4;
+
+    transition:
+        max-height 0.5s ease;
+}
+
+
+.account-list.open {
+    max-height: 500px;
+}
+
+
+
+/* =====================================================
+   ACCOUNT CARD
+===================================================== */
+
+.account-card {
+    min-height: 75px;
+
+    padding:
+        17px 18px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+
+    border-top:
+        1px solid #ece7e2;
+
+    text-align: left;
+}
+
+
+.account-info {
+    min-width: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+
+.account-owner {
+    color: #857b72;
+
+    font-size: 11px;
+}
+
+
+.account-number {
+    color: #49433e;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+
+    word-break: keep-all;
+}
+
+
+
+/* =====================================================
+   COPY BUTTON
+===================================================== */
+
+.copy-button {
+    flex-shrink: 0;
+
+    padding:
+        7px 11px;
+
+    border:
+        1px solid #d7cec6;
+
+    border-radius: 3px;
+
+    background: #ffffff;
+
+    color: #75685e;
+
+    font-size: 10px;
+
+    cursor: pointer;
+
+    -webkit-tap-highlight-color:
+        transparent;
+}
+
+
+.copy-button:active {
+    background: #eee8e2;
+}
+
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+    padding:
+        55px 20px;
+
+    text-align: center;
+
+    background: #302d2a;
+
+    color: #dcd4cc;
+}
+
+
+footer p:first-child {
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    letter-spacing: 0.2em;
+
+    font-size: 13px;
+}
+
+
+footer p:nth-child(2) {
+    margin-top: 10px;
+
+    font-size: 13px;
+}
+
+
+footer small {
+    display: block;
+
+    margin-top: 25px;
+
+    color: #817a75;
+
+    font-size: 9px;
+}
+
+
+
+/* =====================================================
+   PHOTO MODAL
+
+   카카오톡 / 모바일 브라우저 대응
+===================================================== */
+
+.photo-modal {
+    /*
+       반드시 화면 자체를 기준으로 고정
+    */
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+
+    /*
+       일반 브라우저 대비
+    */
+    height: 100vh;
+
+    /*
+       모바일 브라우저의 실제 화면 높이
+    */
+    height: 100dvh;
+
+    z-index: 999999;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding:
+        max(
+            65px,
+            env(safe-area-inset-top)
+        )
+        20px
+        max(
+            30px,
+            env(safe-area-inset-bottom)
+        );
+
+    background:
+        rgba(0, 0, 0, 0.94);
+
+    overflow: hidden;
+
+    -webkit-tap-highlight-color:
+        transparent;
+}
+
+
+.photo-modal.active {
+    display: flex;
+}
+
+
+
+/* =====================================================
+   MODAL IMAGE
+===================================================== */
+
+.modal-image-container {
+    width: 100%;
+
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    /*
+       이 영역이 클릭을 가로채지 않음
+    */
+
+    pointer-events: none;
+}
+
+
+.modal-image-container img {
+    width: auto;
+    height: auto;
+
+    max-width: 100%;
+    max-height: 80dvh;
+
+    object-fit: contain;
+
+    /* 확대 방지 */
+    touch-action: pan-y;
+
+    user-select: none;
+    -webkit-user-select: none;
+
+    -webkit-user-drag: none;
+    -webkit-touch-callout: none;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   MODAL CLOSE BUTTON
+===================================================== */
+
+.close-modal {
+    position: absolute;
+
+    top:
+        max(
+            15px,
+            env(safe-area-inset-top)
+        );
+
+    right: 15px;
+
+    z-index: 1000000;
+
+    width: 50px;
+    height: 50px;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background:
+        rgba(0, 0, 0, 0.4);
+
+    color: white;
+
+    font-size: 34px;
+
+    line-height: 50px;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    -webkit-tap-highlight-color:
+        transparent;
+}
+
+/* =====================================================
+   SWIPE PHOTO
+===================================================== */
+
+.photo-modal {
+    touch-action: none;
+}
+
+.modal-image-container img {
+    touch-action: none;
+}
+
+.modal-image-container img {
+    pointer-events: none;
+
+    -webkit-user-drag: none;
+
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.wedding-map {
+    width: 100%;
+    height: 290px;
+    margin-top: 35px;
+    background: #e8e4df;
+}
+
+
+/* =====================================================
+   SIMPLE ELTOWER MARKER
+===================================================== */
+
+.simple-wedding-marker {
+    width: 80px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    pointer-events: none;
+}
+
+
+.simple-marker-label {
+    padding: 5px 9px;
+
+    background:
+        rgba(255, 255, 255, 0.95);
+
+    border:
+        1px solid #ddd5cd;
+
+    border-radius: 4px;
+
+    box-shadow:
+        0 2px 8px
+        rgba(0, 0, 0, 0.12);
+
+    color: #65584f;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 12px;
+
+    font-weight: 500;
+
+    letter-spacing: 0.08em;
+
+    white-space: nowrap;
+}
+
+
+.simple-marker-dot {
+    width: 10px;
+    height: 10px;
+
+    margin-top: 3px;
+
+    border:
+        2px solid white;
+
+    border-radius: 50%;
+
+    background: #a48774;
+
+    box-shadow:
+        0 1px 5px
+        rgba(0, 0, 0, 0.25);
+}
+
+
+/* =====================================================
+   RSVP MODAL
+===================================================== */
+
+.rsvp-modal {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 999990;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding:
+        max(25px, env(safe-area-inset-top))
+        20px
+        max(25px, env(safe-area-inset-bottom));
+
+    background:
+        rgba(41, 37, 33, 0.68);
+
+    backdrop-filter:
+        blur(5px);
+
+    -webkit-backdrop-filter:
+        blur(5px);
+
+    overflow-y: auto;
+}
+
+
+.rsvp-modal.active {
+    display: flex;
+}
+
+
+/* =====================================================
+   RSVP CARD
+===================================================== */
+
+.rsvp-card {
+    position: relative;
+
+    width: 100%;
+    max-width: 410px;
+
+    max-height: 88dvh;
+
+    padding:
+        38px 25px 28px;
+
+    background: #faf8f5;
+
+    border-radius: 10px;
+
+    overflow-y: auto;
+
+    box-shadow:
+        0 15px 50px
+        rgba(0, 0, 0, 0.2);
+
+    text-align: center;
+}
+
+
+/* 닫기 */
+
+.rsvp-close {
+    position: absolute;
+
+    top: 10px;
+    right: 12px;
+
+    width: 40px;
+    height: 40px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #8b8179;
+
+    font-size: 28px;
+
+    cursor: pointer;
+}
+
+
+/* RSVP */
+
+.rsvp-label {
+    color: #a58c7c;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 13px;
+
+    letter-spacing: 0.25em;
+}
+
+
+.rsvp-card h2 {
+    margin-top: 12px;
+
+    color: #463f39;
+
+    font-size: 21px;
+
+    font-weight: 400;
+}
+
+
+.rsvp-description {
+    margin-top: 15px;
+
+    color: #8c847d;
+
+    font-size: 11px;
+
+    line-height: 1.9;
+}
+
+
+/* =====================================================
+   FORM
+===================================================== */
+
+#rsvpForm {
+    margin-top: 30px;
+
+    text-align: left;
+}
+
+
+.rsvp-field {
+    margin-top: 22px;
+}
+
+
+.rsvp-field label,
+.rsvp-field-title {
+    display: block;
+
+    margin-bottom: 9px;
+
+    color: #746b64;
+
+    font-size: 11px;
+}
+
+
+.rsvp-field small {
+    color: #aaa29b;
+}
+
+
+/* =====================================================
+   INPUT
+===================================================== */
+
+.rsvp-field input[type="text"],
+.rsvp-field textarea {
+    width: 100%;
+
+    padding: 13px 14px;
+
+    border:
+        1px solid #ded7d0;
+
+    border-radius: 4px;
+
+    outline: none;
+
+    background: white;
+
+    color: #49423d;
+
+    font-family: inherit;
+
+    font-size: 12px;
+}
+
+
+.rsvp-field textarea {
+    resize: none;
+}
+
+
+.rsvp-field input:focus,
+.rsvp-field textarea:focus {
+    border-color: #aa9383;
+}
+
+
+/* =====================================================
+   RADIO BUTTON
+===================================================== */
+
+.rsvp-options {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 8px;
+}
+
+
+.rsvp-options label {
+    margin: 0;
+
+    cursor: pointer;
+}
+
+
+.rsvp-options input {
+    display: none;
+}
+
+
+.rsvp-options span {
+    height: 43px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid #ddd5ce;
+
+    border-radius: 4px;
+
+    background: white;
+
+    color: #756c65;
+
+    font-size: 11px;
+}
+
+
+.rsvp-options input:checked + span {
+    border-color: #a78e7e;
+
+    background: #a78e7e;
+
+    color: white;
+}
+
+
+/* =====================================================
+   GUEST COUNTER
+===================================================== */
+
+.guest-counter {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 28px;
+
+    height: 50px;
+
+    border:
+        1px solid #ded7d0;
+
+    background: white;
+}
+
+
+.guest-counter button {
+    width: 35px;
+    height: 35px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #8b7769;
+
+    font-size: 20px;
+
+    cursor: pointer;
+}
+
+
+#guestCountDisplay {
+    min-width: 25px;
+
+    text-align: center;
+
+    color: #4c443e;
+
+    font-size: 16px;
+}
+
+
+/* =====================================================
+   RSVP BUTTONS
+===================================================== */
+
+.rsvp-submit {
+    width: 100%;
+
+    margin-top: 30px;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 4px;
+
+    background: #8f7666;
+
+    color: white;
+
+    font-size: 12px;
+
+    cursor: pointer;
+}
+
+
+.rsvp-later {
+    width: 100%;
+
+    margin-top: 8px;
+
+    padding: 12px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #aaa19a;
+
+    font-size: 10px;
+
+    cursor: pointer;
+}
+
+
+/* =====================================================
+   RSVP SECTION
+===================================================== */
+
+.rsvp-section {
+    background: #f2eee8;
+}
+
+
+.open-rsvp-button {
+    margin-top: 35px;
+
+    width: 100%;
+
+    max-width: 280px;
+
+    padding: 15px 20px;
+
+    border:
+        1px solid #a78e7e;
+
+    border-radius: 4px;
+
+    background: #a78e7e;
+
+    color: white;
+
+    font-size: 12px;
+
+    cursor: pointer;
+
+    -webkit-tap-highlight-color:
+        transparent;
+}
+
+
+.open-rsvp-button:active {
+    opacity: 0.75;
+}
+
+
+/* =====================================================
+   WHITE BACKGROUND
+===================================================== */
+
+body {
+    background: #ffffff;
+}
+
+.invitation {
+    background: #ffffff;
+}
+
+.opening-hero,
+.invitation-message,
+.calendar-section,
+.gallery-section,
+.location,
+.photo-upload,
+.account,
+.rsvp-section,
+.quote-section,
+.couple-profile,
+.story-section {
+    background: #ffffff;
+}
+
+
+/* =====================================================
+   WEDDING FONT THEME
+===================================================== */
+
+
+/* =====================================================
+   1. 전체 기본 본문
+===================================================== */
+
+body {
+    font-family:
+        "Noto Serif KR",
+        serif;
+
+    font-weight: 300;
+
+    color: #4f4842;
+}
+
+
+
+/* =====================================================
+   2. OPENING - Happy wedding day
+===================================================== */
+
+.opening-script {
+    font-family:
+        "Allura",
+        cursive;
+
+    font-weight: 400;
+
+    letter-spacing: 0;
+
+    color: #e94c6f;
+}
+
+
+
+/* =====================================================
+   3. OPENING 날짜
+===================================================== */
+
+.opening-date-on-photo,
+.opening-date-only {
+    font-family:
+        "Noto Sans KR",
+        sans-serif;
+
+    font-weight: 500;
+    font-size: 18px;
+
+    letter-spacing: 0.16em;
+}
+
+
+
+/* =====================================================
+   4. SCROLL 문구
+===================================================== */
+
+.scroll-guide p {
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-weight: 400;
+
+    letter-spacing: 0.25em;
+}
+
+
+
+/* =====================================================
+   5. 영문 SECTION LABEL
+
+   INVITATION
+   WEDDING DAY
+   GALLERY
+   LOCATION
+   RSVP
+   ACCOUNT
+===================================================== */
+
+.section-label,
+.eyebrow {
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 22px;
+
+    font-weight: 500;
+
+    letter-spacing: 0.24em;
+
+    color: #a18f83;
+}
+
+
+
+/* =====================================================
+   6. 한글 큰 제목
+
+   우리의 새로운 시작에
+   초대합니다
+
+   오시는 길
+
+   참석 여부를 알려주세요
+
+   마음 전하실 곳
+===================================================== */
+
+.section h2,
+.rsvp-card h2 {
+    font-family:
+        "Gowun Batang",
+        serif;
+
+    font-weight: 400;
+    font-size: 20px;
+
+    letter-spacing: -0.025em;
+
+    color: #514943;
+}
+
+
+
+/* =====================================================
+   7. 일반 설명 / 초대 문구
+===================================================== */
+
+.description,
+.account-description {
+    font-family:
+        "Noto Serif KR",
+        serif;
+
+    font-weight: 300;
+
+    letter-spacing: -0.01em;
+
+    line-height: 2.1;
+
+    font-size: 13px;
+
+    color: #746d67;
+}
+
+.rsvp-description {
+    font-family:
+        "Noto Serif KR",
+        serif;
+
+    font-weight: 300;
+
+    letter-spacing: -0.01em;
+
+    line-height: 2.1;
+
+    font-size: 12px;
+
+    color: #746d67;
+}
+
+.gallery-description {
+    font-family:
+        "Noto Serif KR",
+        serif;
+
+    font-weight: 300;
+
+    letter-spacing: -0.01em;
+
+    line-height: 2.1;
+
+    font-size: 13px;
+
+    color: #746d67;
+}
+
+/* =====================================================
+   8. 신랑 신부 이름
+
+   배윤종 ♥ 방예진
+===================================================== */
+
+.couple-name p,
+.opening-names {
+    font-family:
+        "Nanum Pen Script",
+        cursive;
+
+    font-size: 25px;
+
+    font-weight: 400;
+
+    letter-spacing: 0.02em;
+
+    color: #66584f;
+}
+
+
+.couple-name span,
+.opening-names span {
+    font-family:
+        "Noto Serif KR",
+        serif;
+
+    font-size: 11px;
+
+    color: #c59b91;
+}
+
+
+
+/* =====================================================
+   9. 날짜 / 시간
+===================================================== */
+
+.hero-date,
+.wedding-time,
+.opening-date-text,
+.opening-date-on-photo {
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-weight: 500;
+
+    letter-spacing: 0.12em;
+}
+
+
+
+/* =====================================================
+   10. 예식장 이름
+===================================================== */
+
+.venue-name {
+    font-family:
+        "Gowun Batang",
+        serif;
+
+    font-weight: 400;
+
+    letter-spacing: -0.02em;
+
+    color: #514943;
+}
+
+
+
+/* =====================================================
+   11. 주소 / 층 / 교통안내
+
+   정보성 내용은 고딕
+===================================================== */
+
+.address,
+.venue-floor,
+.hero-place {
+    font-family:
+        "Noto Sans KR",
+        sans-serif;
+}
+
+
+.address,
+.venue-floor {
+    font-weight: 300;
+    font-size: 15px;
+
+    letter-spacing: -0.02em;
+}
+
+
+
+
+/* =====================================================
+   12. 교통 안내 제목
+===================================================== */
+
+
+
+
+/* =====================================================
+   13. 지도 버튼
+===================================================== */
+
+.map-app-button {
+    font-family:
+        "Noto Sans KR",
+        sans-serif;
+
+    font-weight: 400;
+    font-size: 15px;
+
+    letter-spacing: -0.02em;
+}
+
+
+
+/* =====================================================
+   14. RSVP INPUT LABEL
+
+   성함
+   참석 여부
+   참석 인원
+===================================================== */
+
+.rsvp-field label,
+.rsvp-field-title {
+    font-family:
+        "Noto Sans KR",
+        sans-serif;
+
+    font-weight: 400;
+
+    letter-spacing: -0.02em;
+
+    color: #70675f;
+}
+
+
+
+/* =====================================================
+   15. RSVP INPUT
+===================================================== */
+
+.rsvp-field input,
+.rsvp-field textarea {
+    font-family:
+        "Noto Sans KR",
+        sans-serif;
+
+    font-weight: 300;
+}
+
+
+
+/* =====================================================
+   16. RSVP 선택 버튼
+
+   신랑측 / 신부측
+   참석 / 불참
+===================================================== */
+
+.rsvp-options span {
+    font-family:
+        "Noto Sans KR",
+        sans-serif;
+
+    font-weight: 400;
+}
+
+
+
+/* =====================================================
+   17. RSVP 제출 버튼
+===================================================== */
+
+.rsvp-submit,
+.rsvp-later,
+.open-rsvp-button {
+    font-family:
+        "Noto Sans KR",
+        sans-serif;
+
+    font-weight: 400;
+
+    letter-spacing: -0.02em;
+}
+
+
+
+/* =====================================================
+   18. 계좌측 제목
+
+   신랑측 계좌번호
+   신부측 계좌번호
+===================================================== */
+
+.account-toggle {
+    font-family:
+        "Gowun Batang",
+        serif;
+
+    font-weight: 400;
+    font-size: 13px;
+
+    color: #554d47;
+}
+
+
+
+/* =====================================================
+   19. 계좌 예금주
+===================================================== */
+
+.account-owner {
+    font-family:
+        "Noto Serif KR",
+        serif;
+
+    font-weight: 400;
+    font-size: 13px;
+
+    color: #81766d;
+}
+
+
+
+/* =====================================================
+   20. 계좌번호
+===================================================== */
+
+.account-number {
+    font-family:
+        "Noto Sans KR",
+        sans-serif;
+
+    font-weight: 400;
+
+    letter-spacing: 0.01em;
+    font-size: 13px;
+
+    color: #49433e;
+}
+
+
+
+/* =====================================================
+   21. 계좌 복사 버튼
+===================================================== */
+
+.copy-button {
+    font-family:
+        "Noto Sans KR",
+        sans-serif;
+
+    font-weight: 400;
+}
+
+
+
+/* =====================================================
+   22. 달력
+===================================================== */
+
+.week {
+    font-family:
+        "Noto Sans KR",
+        sans-serif;
+
+    font-weight: 300;
+}
+
+
+.days,
+.countdown strong,
+.countdown small {
+    font-family:
+        "Cormorant Garamond",
+        serif;
+}
+
+
+
+/* =====================================================
+   23. GALLERY 제목
+
+   Our Moments 같은 영어
+===================================================== */
+
+.gallery-section h2 {
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 30px;
+
+    font-weight: 400;
+
+    letter-spacing: 0.02em;
+}
+
+
+
+/* =====================================================
+   24. RSVP 팝업의 RSVP 영문
+===================================================== */
+
+.rsvp-label {
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-weight: 500;
+
+    letter-spacing: 0.25em;
+}
+
+
+
+/* =====================================================
+   25. Footer
+===================================================== */
+
+footer p:first-child {
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-weight: 400;
+
+    letter-spacing: 0.2em;
+}
+
+
+footer p:nth-child(2) {
+    font-family:
+        "Nanum Pen Script",
+        cursive;
+
+    font-size: 21px;
+
+    font-weight: 400;
+}
+
+
+footer small {
+    font-family:
+        "Cormorant Garamond",
+        serif;
+        font-size: 15px;
+
+    letter-spacing: 0.12em;
+}
+
+
+.invitation-message {
+    padding-top: 55px;
+}
+
+
+/* =====================================================
+   TRANSPORT INFO
+===================================================== */
+
+.transport-info {
+    margin-top: 45px;
+
+    padding:
+        0 8px;
+
+    text-align: left;
+}
+
+
+/* 각 교통수단 블록 */
+
+.transport-block {
+    margin-bottom: 52px;
+}
+
+
+.transport-block:last-child {
+    margin-bottom: 0;
+}
+
+
+/* 버스 / 지하철 / 자차 제목 */
+
+.transport-heading {
+    margin: 0 0 24px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    font-family:
+        "Gowun Batang",
+        serif;
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    color: #df8e66;
+}
+
+
+/* 이모지 */
+
+.transport-emoji {
+    font-size: 20px;
+
+    line-height: 1;
+}
+
+
+/* 상세 안내 */
+
+.transport-text {
+    margin:
+        0 0 12px;
+
+    font-family:
+        "Noto Sans KR",
+        sans-serif;
+
+    font-size: 14px;
+
+    font-weight: 300;
+
+    line-height: 1.9;
+
+    letter-spacing: -0.03em;
+
+    color: #46413d;
+}
+
+
+/* 강조 */
+
+.transport-text strong {
+    font-weight: 500;
+
+    color: #4c433e;
+}
+
+
+
+/* =====================================================
+   GALLERY - 20 PHOTOS
+===================================================== */
+
+.gallery {
+    margin-top: 40px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 4px;
+}
+
+
+.gallery-item {
+    padding: 0;
+
+    border: none;
+
+    background: transparent;
+
+    overflow: hidden;
+
+    cursor: pointer;
+}
+
+
+.gallery-item img {
+    width: 100%;
+
+    aspect-ratio: 3 / 4;
+
+    object-fit: cover;
+}
+
+
+/* 처음에 숨겨지는 사진 */
+
+.gallery-hidden {
+    display: none;
+}
+
+
+/* 더보기 후 표시 */
+
+.gallery-hidden.show {
+    display: block;
+}
+
+
+/* =====================================================
+   GALLERY MORE BUTTON
+===================================================== */
+
+.gallery-more-button {
+    margin-top: 28px;
+
+    padding:
+        12px 28px;
+
+    border:
+        1px solid #d7cec6;
+
+    border-radius: 30px;
+
+    background: #ffffff;
+
+    color: #72675f;
+
+    font-family:
+        "Noto Sans KR",
+        sans-serif;
+
+    font-size: 11px;
+
+    cursor: pointer;
+
+    -webkit-tap-highlight-color:
+        transparent;
+}
+
+
+.gallery-more-button:active {
+    background: #f4f0ed;
+}
+
+
+/* =====================================================
+   PHOTO NAVIGATION
+===================================================== */
+
+.photo-nav {
+    position: absolute;
+
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    z-index: 1000001;
+
+    width: 38px;
+    height: 60px;
+
+    border: none;
+
+    background:
+        rgba(0, 0, 0, 0.12);
+
+    color:
+        rgba(255, 255, 255, 0.9);
+
+    font-size: 38px;
+
+    font-weight: 200;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    -webkit-tap-highlight-color:
+        transparent;
+}
+
+
+.photo-nav-prev {
+    left: 5px;
+}
+
+
+.photo-nav-next {
+    right: 5px;
+}
+
+
+/* =====================================================
+   PHOTO COUNTER
+===================================================== */
+
+.photo-counter {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+
+    bottom:
+        max(
+            20px,
+            env(safe-area-inset-bottom)
+        );
+
+    z-index: 1000001;
+
+    text-align: center;
+
+    color:
+        rgba(255, 255, 255, 0.9);
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 14px;
+
+    letter-spacing: 0.12em;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   IMAGE LONG PRESS / SAVE MENU BLOCK
+===================================================== */
+
+.gallery-item img,
+.opening-image,
+.hero-photo img,
+.modal-image-container img {
+    /* iPhone / Safari 길게 누르기 메뉴 방지 */
+    -webkit-touch-callout: none;
+
+    /* 텍스트/이미지 선택 방지 */
+    -webkit-user-select: none;
+    user-select: none;
+
+    /* 이미지 드래그 방지 */
+    -webkit-user-drag: none;
+
+    /* 모바일 터치 강조 제거 */
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* 얼굴이 사진 위쪽에 있는 경우 */
+.face-top {
+    object-position: center 25%;
+}
+
+
+/* 일반 중앙 */
+.face-center {
+    object-position: center center;
+}
+
+
+/* 얼굴이 조금 아래쪽에 있는 경우 */
+.face-low {
+    object-position: center 65%;
+}
+
+
+/* =====================================================
+   OPENING TEXT ON PHOTO
+===================================================== */
+
+.opening-overlay-text {
+    position: absolute;
+
+    left: 20px;
+    right: 20px;
+
+    bottom: 12%;
+
+    z-index: 3;
+
+    text-align: center;
+
+    pointer-events: none;
+}
+
+
+/* YOONJONG & YEJIN */
+
+.opening-name-en {
+    margin: 0;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 22px;
+
+    font-weight: 500;
+
+    letter-spacing: 0.18em;
+
+    color: #ffffff;
+
+    opacity: 0;
+
+    transform: translateY(12px);
+
+    animation:
+        openingFadeUp 1.2s ease forwards;
+
+    animation-delay: 0.3s;
+
+    text-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.18);
+}
+
+
+/* 날짜 / 장소 */
+
+.opening-info-line {
+    margin: 10px 0 0;
+
+    font-family:
+        "Noto Serif KR",
+        serif;
+
+    font-size: 14px;
+
+    font-weight: 300;
+
+    line-height: 1.8;
+
+    letter-spacing: -0.01em;
+
+    color: #ffffff;
+
+    opacity: 0;
+
+    transform: translateY(12px);
+
+    animation:
+        openingFadeUp 1.2s ease forwards;
+
+    text-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.18);
+}
+
+
+.opening-info-line:nth-of-type(2) {
+    animation-delay: 0.55s;
+}
+
+.opening-info-line:nth-of-type(3) {
+    animation-delay: 0.75s;
+}
+
+
+/* =====================================================
+   OPENING TOP NAME
+===================================================== */
+
+.opening-name-top {
+    position: absolute;
+
+    top: 40px;
+    left: 20px;
+    right: 20px;
+
+    z-index: 3;
+
+    text-align: center;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 25px;
+
+    font-weight: 1000;
+
+    letter-spacing: 0.22em;
+
+    color: #fff8e7;
+    
+    text-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.45)    ;
+
+
+
+    pointer-events: none;
+}
+
+/* =====================================================
+   BLOCK IMAGE SAVE MENU - INCLUDING KAKAO IN-APP BROWSER
+===================================================== */
+
+.opening-image,
+.gallery-item img,
+.hero-photo img,
+.modal-image-container img {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* =====================================================
+   OPENING BACKGROUND IMAGE
+===================================================== */
+
+.opening-image-wrap {
+    position: relative;
+
+    width: 100vw;
+
+    height: 100vh;
+    height: 100dvh;
+
+    margin: 0;
+    padding: 0;
+
+    overflow: hidden;
+
+    background: #ffffff;
+
+    touch-action: pan-y;
+}
+
+
+/* 실제 오프닝 사진 */
+
+.opening-background {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-image:
+        url("images/opening.jpg");
+
+    /*
+       여백 없이 화면 꽉 채우기
+    */
+    background-size: cover;
+
+    /*
+       사진 중심 위치
+    */
+    background-position: center center;
+
+    background-repeat: no-repeat;
+
+    /*
+       이미지 선택 관련 동작 방지
+    */
+    user-select: none;
+
+    -webkit-user-select: none;
+
+    -webkit-touch-callout: none;
+
+    /*
+       세로 스크롤은 허용
+    */
+    touch-action: pan-y;
+
+    pointer-events: none;
+}
+
+html.photo-modal-open,
+body.photo-modal-open {
+    overflow: hidden;
+    overscroll-behavior: none;
+}
+
