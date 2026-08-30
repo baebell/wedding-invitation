@@ -52,9 +52,10 @@ const invitation =
 
 
 let isPlaying = false;
+let firstBgmStarted = false;
 
 /* =====================================================
-   실제 재생 시도
+   PLAY
 ===================================================== */
 
 async function playBgm() {
@@ -67,24 +68,11 @@ async function playBgm() {
 
         musicButton.classList.remove("off");
 
-        if (musicIcon) {
-            musicIcon.textContent = "♪";
-        }
-
     } catch (error) {
-
-        /*
-           모바일 자동재생 차단
-           → 사용자가 터치할 때 다시 시도
-        */
 
         isPlaying = false;
 
         musicButton.classList.add("off");
-
-        if (musicIcon) {
-            musicIcon.textContent = "♪";
-        }
 
     }
 
@@ -92,7 +80,7 @@ async function playBgm() {
 
 
 /* =====================================================
-   음악 정지
+   PAUSE
 ===================================================== */
 
 function pauseBgm() {
@@ -107,13 +95,14 @@ function pauseBgm() {
 
 
 /* =====================================================
-   음악 버튼
+   MUSIC BUTTON
 ===================================================== */
 
 musicButton.addEventListener(
     "click",
     function (event) {
 
+        event.preventDefault();
         event.stopPropagation();
 
         if (isPlaying) {
@@ -129,14 +118,26 @@ musicButton.addEventListener(
     }
 );
 
+
 /* =====================================================
-   FIRST USER INTERACTION → BGM START
+   FIRST USER INTERACTION
 ===================================================== */
 
-let firstBgmStarted = false;
+function startBgmOnFirstInteraction(event) {
 
+    /*
+       음악 버튼을 눌렀을 때는
+       자동재생 이벤트 실행하지 않음
+    */
 
-function startBgmOnFirstInteraction() {
+    if (
+        event.target.closest(
+            "#musicButton"
+        )
+    ) {
+        return;
+    }
+
 
     if (firstBgmStarted) {
         return;
@@ -161,6 +162,8 @@ function startBgmOnFirstInteraction() {
 }
 
 
+/* 첫 터치 */
+
 document.addEventListener(
     "touchstart",
     startBgmOnFirstInteraction,
@@ -170,11 +173,12 @@ document.addEventListener(
 );
 
 
+/* PC 클릭 */
+
 document.addEventListener(
     "click",
     startBgmOnFirstInteraction
 );
-
 
 /* =====================================================
    RSVP

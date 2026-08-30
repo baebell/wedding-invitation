@@ -399,7 +399,7 @@ a {
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
 
-    color: #ffffff;
+    color: #8c8580;
 
     cursor: pointer;
 
@@ -416,9 +416,12 @@ a {
 
 
 .music-button.off {
-    opacity: 0.6;
+    opacity: 0.45;
 }
 
+.music-button:not(.off) {
+    opacity: 0.85;
+}
 
 #musicIcon {
     line-height: 1;
