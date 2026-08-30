@@ -46,13 +46,12 @@ const musicButton =
 const musicIcon =
     document.getElementById("musicIcon");
 
-
 const invitation =
     document.getElementById("invitation");
 
 
-let isPlaying = false;
 let firstBgmStarted = false;
+
 
 /* =====================================================
    PLAY
@@ -64,32 +63,25 @@ async function playBgm() {
 
         await bgm.play();
 
-        isPlaying = true;
-
         musicButton.classList.remove("off");
 
-    } catch (error) {
+        musicIcon.textContent = "♪";
 
-        isPlaying = false;
+    } catch (error) {
 
         musicButton.classList.add("off");
 
     }
-
 }
 
-
-/* =====================================================
-   PAUSE
-===================================================== */
 
 function pauseBgm() {
 
     bgm.pause();
 
-    isPlaying = false;
-
     musicButton.classList.add("off");
+
+    musicIcon.textContent = "♩";
 
 }
 
@@ -105,13 +97,20 @@ musicButton.addEventListener(
         event.preventDefault();
         event.stopPropagation();
 
-        if (isPlaying) {
 
-            pauseBgm();
+        /*
+           실제 오디오 상태 기준으로 판단
+        */
+
+        if (
+            bgm.paused
+        ) {
+
+            playBgm();
 
         } else {
 
-            playBgm();
+            pauseBgm();
 
         }
 
@@ -126,8 +125,7 @@ musicButton.addEventListener(
 function startBgmOnFirstInteraction(event) {
 
     /*
-       음악 버튼을 눌렀을 때는
-       자동재생 이벤트 실행하지 않음
+       음악 버튼 터치는 제외
     */
 
     if (
@@ -139,14 +137,27 @@ function startBgmOnFirstInteraction(event) {
     }
 
 
-    if (firstBgmStarted) {
+    if (
+        firstBgmStarted
+    ) {
         return;
     }
 
 
     firstBgmStarted = true;
 
-    playBgm();
+
+    /*
+       현재 정지 상태일 때만 재생
+    */
+
+    if (
+        bgm.paused
+    ) {
+
+        playBgm();
+
+    }
 
 
     document.removeEventListener(
@@ -162,7 +173,7 @@ function startBgmOnFirstInteraction(event) {
 }
 
 
-/* 첫 터치 */
+/* 모바일 첫 터치 */
 
 document.addEventListener(
     "touchstart",
@@ -173,7 +184,7 @@ document.addEventListener(
 );
 
 
-/* PC 클릭 */
+/* PC 첫 클릭 */
 
 document.addEventListener(
     "click",
@@ -628,59 +639,6 @@ rsvpForm.addEventListener(
     }
 );
 
-/* =====================================================
-   MUSIC ON / OFF
-===================================================== */
-
-musicButton.addEventListener(
-    "click",
-    function (event) {
-
-        event.preventDefault();
-
-        event.stopPropagation();
-
-
-        if (isPlaying) {
-
-            bgm.pause();
-
-            isPlaying = false;
-
-            musicIcon.textContent =
-                "🔇";
-
-            musicButton.classList.add(
-                "off"
-            );
-
-        } else {
-
-            bgm.play()
-                .then(() => {
-
-                    isPlaying = true;
-
-                    musicIcon.textContent =
-                        "♪";
-
-                    musicButton.classList.remove(
-                        "off"
-                    );
-
-                })
-                .catch(() => {
-
-                    alert(
-                        "음악을 재생할 수 없습니다."
-                    );
-
-                });
-
-        }
-
-    }
-);
 
 
 
