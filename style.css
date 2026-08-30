@@ -987,7 +987,7 @@ a {
 .venue-name {
     margin-top: 35px;
 
-    font-size: 18px;
+    font-size: 20px;
 
     font-weight: 400;
 }
@@ -2293,10 +2293,13 @@ body {
 
     line-height: 2.1;
 
-    font-size: 13px;
+    font-size: 17px;
 
     color: #746d67;
 }
+
+
+
 
 /* =====================================================
    8. 신랑 신부 이름
@@ -2358,7 +2361,7 @@ body {
         "NanumBarunPen";
 
     font-weight: 400;
-    fon-size: 20px;
+    font-size: 20px;
 
     letter-spacing: -0.02em;
 
