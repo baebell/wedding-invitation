@@ -1279,7 +1279,7 @@ a {
 
     color: #554e48;
 
-    font-size: 13px;
+    font-size: 17px;
 
     cursor: pointer;
 
@@ -2079,7 +2079,7 @@ footer small {
 
     color: white;
 
-    font-size: 12px;
+    font-size: 14px;
 
     cursor: pointer;
 
@@ -2209,7 +2209,7 @@ body {
     font-family:
         "NanumBarunPen";
 
-    font-size: 22px;
+    font-size: 18px;
 
     font-weight: 500;
 
@@ -2499,11 +2499,23 @@ body {
         "NanumBarunPen";
 
     font-weight: 400;
-    font-size: 13px;
+    font-size: 17px;
+    position: relative;
+    justify-content: center;
+    text-align: center;
 
     color: #554d47;
 }
 
+.account-toggle .account-arrow {
+    position: absolute;
+
+    right: 18px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+}
 
 
 /* =====================================================
@@ -2584,7 +2596,7 @@ body {
     font-family:
         "NanumBarunPen";
 
-    font-size: 30px;
+    font-size: 24px;
 
     font-weight: 400;
 
@@ -3737,4 +3749,33 @@ body.photo-modal-open {
 
 .kakao-share-button:active {
     opacity: 0.8;
+}
+
+/* =====================================================
+   INVITATION MIDDLE PHOTO
+===================================================== */
+
+.invitation-middle-photo {
+    margin: 34px auto 34px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.invitation-middle-photo img {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+
+    border-radius: 14px;
+
+    object-fit: cover;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.08);
+
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-touch-callout: none;
 }
