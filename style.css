@@ -898,7 +898,7 @@ a {
 
     color: #8c857e;
 
-    font-size: 12px;
+    font-size: 17px;
 }
 
 
@@ -2358,6 +2358,7 @@ body {
         "NanumBarunPen";
 
     font-weight: 400;
+    fon-size: 20px;
 
     letter-spacing: -0.02em;
 
@@ -2383,7 +2384,7 @@ body {
 .address,
 .venue-floor {
     font-weight: 300;
-    font-size: 16px;
+    font-size: 18px;
 
     letter-spacing: -0.02em;
 }
@@ -2708,7 +2709,7 @@ footer small {
     font-family:
         "NanumBarunPen";
 
-    font-size: 14px;
+    font-size: 17px;
 
     font-weight: 300;
 
