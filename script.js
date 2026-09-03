@@ -220,7 +220,37 @@ const openRsvpButton =
         "openRsvpButton"
     );
 
+/* =====================================================
+   RSVP ELEMENTS
+===================================================== */
 
+const guestCount =
+    document.getElementById(
+        "guestCount"
+    );
+
+const guestCountDisplay =
+    document.getElementById(
+        "guestCountDisplay"
+    );
+
+const guestMinus =
+    document.getElementById(
+        "guestMinus"
+    );
+
+const guestPlus =
+    document.getElementById(
+        "guestPlus"
+    );
+
+const guestCountField =
+    document.getElementById(
+        "guestCountField"
+    );
+
+
+let currentGuestCount = 1;
 /* =====================================================
    RSVP OPEN
 ===================================================== */
@@ -379,50 +409,55 @@ window.addEventListener(
 /* =====================================================
    GUEST COUNT
 ===================================================== */
+if (guestMinus) {
 
-guestMinus.addEventListener(
-    "click",
-    function () {
+    guestMinus.addEventListener(
+        "click",
+        function () {
 
-        if (currentGuestCount > 1) {
+            if (currentGuestCount > 1) {
 
-            currentGuestCount--;
+                currentGuestCount--;
 
-            updateGuestCount();
+                updateGuestCount();
 
-        }
-
-    }
-);
-
-
-guestPlus.addEventListener(
-    "click",
-    function () {
-
-        /*
-           최대 10명
-        */
-
-        if (currentGuestCount < 10) {
-
-            currentGuestCount++;
-
-            updateGuestCount();
+            }
 
         }
+    );
 
-    }
-);
+}
 
+if (guestPlus) {
+
+    guestPlus.addEventListener(
+        "click",
+        function () {
+
+            if (currentGuestCount < 10) {
+
+                currentGuestCount++;
+
+                updateGuestCount();
+
+            }
+
+        }
+    );
+
+}
 
 function updateGuestCount() {
 
-    guestCountDisplay.textContent =
-        currentGuestCount;
+    if (guestCountDisplay) {
+        guestCountDisplay.textContent =
+            currentGuestCount;
+    }
 
-    guestCount.value =
-        currentGuestCount;
+    if (guestCount) {
+        guestCount.value =
+            currentGuestCount;
+    }
 
 }
 
@@ -1693,7 +1728,6 @@ document.addEventListener(
         ) {
 
             event.preventDefault();
-            return false;
 
         }
 
@@ -1701,72 +1735,6 @@ document.addEventListener(
 );
 
 
-/* 모바일 길게 누르기 대응 */
-
-let longPressTimer = null;
-
-
-document.addEventListener(
-    "touchstart",
-    function (event) {
-
-        if (
-            event.target.tagName !== "IMG"
-        ) {
-            return;
-        }
-
-
-        longPressTimer = setTimeout(
-            function () {
-
-                /*
-                   길게 눌러도
-                   브라우저 기본 이미지 메뉴가
-                   뜨지 않도록 시도
-                */
-
-                event.preventDefault();
-
-            },
-            500
-        );
-
-    },
-    {
-        passive: false
-    }
-);
-
-
-document.addEventListener(
-    "touchend",
-    function () {
-
-        clearTimeout(
-            longPressTimer
-        );
-
-    },
-    {
-        passive: true
-    }
-);
-
-
-document.addEventListener(
-    "touchmove",
-    function () {
-
-        clearTimeout(
-            longPressTimer
-        );
-
-    },
-    {
-        passive: true
-    }
-);
 
 
 
@@ -1841,52 +1809,3 @@ const kakaoShareButton =
 
 }
 
-
-/* =====================================================
-   BLOCK IMAGE CONTEXT MENU / DRAG
-===================================================== */
-
-
-/*
-   이미지 우클릭 / 일부 모바일 길게누르기 메뉴
-*/
-
-document.addEventListener(
-    "contextmenu",
-    function (event) {
-
-        if (
-            event.target.closest(
-                ".gallery-item,
-                 .modal-image-container,
-                 .invitation-middle-photo,
-                 .opening-image-wrap"
-            )
-        ) {
-
-            event.preventDefault();
-
-        }
-
-    }
-);
-
-
-/*
-   이미지 드래그 방지
-*/
-
-document.addEventListener(
-    "dragstart",
-    function (event) {
-
-        if (
-            event.target.tagName === "IMG"
-        ) {
-
-            event.preventDefault();
-
-        }
-
-    }
-);
