@@ -3778,3 +3778,138 @@ body.photo-modal-open {
     -webkit-user-drag: none;
     -webkit-touch-callout: none;
 }
+
+/* =====================================================
+   IMAGE SAVE / LONG PRESS PROTECTION
+===================================================== */
+
+/* 모든 이미지 기본 보호 */
+
+img {
+    -webkit-touch-callout: none !important;
+
+    -webkit-user-select: none !important;
+    user-select: none !important;
+
+    -webkit-user-drag: none !important;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* =====================================================
+   GALLERY
+===================================================== */
+
+.gallery-item {
+    position: relative;
+
+    overflow: hidden;
+
+    -webkit-touch-callout: none !important;
+    -webkit-user-select: none !important;
+    user-select: none !important;
+}
+
+
+/*
+   실제 이미지는 터치 이벤트를 직접 받지 않음.
+   클릭은 부모 .gallery-item이 받음.
+*/
+
+.gallery-item img {
+    pointer-events: none;
+
+    -webkit-touch-callout: none !important;
+    -webkit-user-select: none !important;
+    user-select: none !important;
+
+    -webkit-user-drag: none !important;
+}
+
+
+/*
+   이미지 위 투명 보호막
+*/
+
+.gallery-item::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 2;
+
+    background: transparent;
+
+    -webkit-touch-callout: none !important;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   INVITATION MIDDLE PHOTO
+===================================================== */
+
+.invitation-middle-photo,
+.invitation-middle-background {
+    -webkit-touch-callout: none !important;
+
+    -webkit-user-select: none !important;
+    user-select: none !important;
+
+    -webkit-tap-highlight-color: transparent;
+
+    touch-action: pan-y;
+}
+
+
+/* =====================================================
+   PHOTO MODAL
+===================================================== */
+
+.modal-image-container {
+    position: relative;
+
+    -webkit-touch-callout: none !important;
+
+    -webkit-user-select: none !important;
+    user-select: none !important;
+}
+
+
+.modal-image-container img {
+    pointer-events: none;
+
+    -webkit-touch-callout: none !important;
+
+    -webkit-user-select: none !important;
+    user-select: none !important;
+
+    -webkit-user-drag: none !important;
+
+    touch-action: none;
+}
+
+
+/*
+   모달 사진 위에도 투명 보호막
+*/
+
+.modal-image-container::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 2;
+
+    background: transparent;
+
+    -webkit-touch-callout: none !important;
+
+    pointer-events: none;
+}

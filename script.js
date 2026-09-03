@@ -1857,3 +1857,53 @@ const kakaoShareButton =
     );
 
 }
+
+
+/* =====================================================
+   BLOCK IMAGE CONTEXT MENU / DRAG
+===================================================== */
+
+
+/*
+   이미지 우클릭 / 일부 모바일 길게누르기 메뉴
+*/
+
+document.addEventListener(
+    "contextmenu",
+    function (event) {
+
+        if (
+            event.target.closest(
+                ".gallery-item,
+                 .modal-image-container,
+                 .invitation-middle-photo,
+                 .opening-image-wrap"
+            )
+        ) {
+
+            event.preventDefault();
+
+        }
+
+    }
+);
+
+
+/*
+   이미지 드래그 방지
+*/
+
+document.addEventListener(
+    "dragstart",
+    function (event) {
+
+        if (
+            event.target.tagName === "IMG"
+        ) {
+
+            event.preventDefault();
+
+        }
+
+    }
+);
