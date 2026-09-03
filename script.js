@@ -1735,6 +1735,53 @@ document.addEventListener(
 );
 
 
+/* =====================================================
+   IMAGE PROTECTION
+===================================================== */
+
+document.addEventListener(
+    "contextmenu",
+    function (event) {
+
+        const protectedTarget =
+            event.target.closest(
+                ".gallery-item, .modal-image-container, .invitation-middle-photo, .opening-image-wrap"
+            );
+
+        if (protectedTarget) {
+            event.preventDefault();
+        }
+
+    }
+);
+
+
+document.addEventListener(
+    "dragstart",
+    function (event) {
+
+        if (
+            event.target.tagName === "IMG"
+        ) {
+            event.preventDefault();
+        }
+
+    }
+);
+
+
+document.addEventListener(
+    "selectstart",
+    function (event) {
+
+        if (
+            event.target.tagName === "IMG"
+        ) {
+            event.preventDefault();
+        }
+
+    }
+);
 
 
 

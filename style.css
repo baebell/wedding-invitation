@@ -2921,46 +2921,6 @@ footer small {
 
 
 /* =====================================================
-   IMAGE LONG PRESS / SAVE MENU BLOCK
-===================================================== */
-
-.gallery-item img,
-.opening-image,
-.hero-photo img,
-.modal-image-container img {
-    /* iPhone / Safari 길게 누르기 메뉴 방지 */
-    -webkit-touch-callout: none;
-
-    /* 텍스트/이미지 선택 방지 */
-    -webkit-user-select: none;
-    user-select: none;
-
-    /* 이미지 드래그 방지 */
-    -webkit-user-drag: none;
-
-    /* 모바일 터치 강조 제거 */
-    -webkit-tap-highlight-color: transparent;
-}
-
-/* 얼굴이 사진 위쪽에 있는 경우 */
-.face-top {
-    object-position: center 25%;
-}
-
-
-/* 일반 중앙 */
-.face-center {
-    object-position: center center;
-}
-
-
-/* 얼굴이 조금 아래쪽에 있는 경우 */
-.face-low {
-    object-position: center 65%;
-}
-
-
-/* =====================================================
    OPENING TEXT ON PHOTO
 ===================================================== */
 
@@ -3821,4 +3781,69 @@ body.photo-modal-open {
 .rsvp-close {
     pointer-events: auto;
     cursor: pointer;
+}
+
+/* =====================================================
+   IMAGE SAVE / LONG PRESS PROTECTION
+===================================================== */
+
+/* 공통 이미지 보호 */
+
+.gallery-item img,
+.modal-image-container img,
+.opening-image,
+.hero-photo img {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* 갤러리 버튼은 정상 클릭 유지 */
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* 썸네일 이미지는 직접 터치 대상이 아니게 */
+.gallery-item img {
+    pointer-events: none;
+}
+
+
+/* 모달도 동일 */
+.modal-image-container {
+    position: relative;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.modal-image-container img {
+    pointer-events: none;
+}
+
+/* =====================================================
+   IMAGE GUARD LAYER
+===================================================== */
+
+.image-guard {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+
+    background: transparent;
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+
+    -webkit-tap-highlight-color: transparent;
+
+    pointer-events: auto;
 }
