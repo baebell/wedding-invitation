@@ -3783,7 +3783,10 @@ body.photo-modal-open {
    IMAGE SAVE / LONG PRESS PROTECTION
 ===================================================== */
 
-/* 모든 이미지 기본 보호 */
+
+/* =====================================================
+   ALL IMAGES
+===================================================== */
 
 img {
     -webkit-touch-callout: none !important;
@@ -3806,21 +3809,39 @@ img {
 
     overflow: hidden;
 
+    cursor: pointer;
+
+    /* 버튼 클릭/터치 유지 */
+    pointer-events: auto;
+
+    touch-action: manipulation;
+
     -webkit-touch-callout: none !important;
+
     -webkit-user-select: none !important;
     user-select: none !important;
+
+    -webkit-tap-highlight-color: transparent;
 }
 
 
 /*
-   실제 이미지는 터치 이벤트를 직접 받지 않음.
-   클릭은 부모 .gallery-item이 받음.
+   실제 이미지는 직접 터치하지 않고
+   부모 .gallery-item이 클릭을 받음
 */
 
 .gallery-item img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
     pointer-events: none;
 
     -webkit-touch-callout: none !important;
+
     -webkit-user-select: none !important;
     user-select: none !important;
 
@@ -3828,24 +3849,18 @@ img {
 }
 
 
-/*
-   이미지 위 투명 보호막
-*/
+/* =====================================================
+   GALLERY MORE BUTTON
+===================================================== */
 
-.gallery-item::after {
-    content: "";
+.gallery-more-button {
+    pointer-events: auto;
 
-    position: absolute;
+    touch-action: manipulation;
 
-    inset: 0;
+    cursor: pointer;
 
-    z-index: 2;
-
-    background: transparent;
-
-    -webkit-touch-callout: none !important;
-
-    pointer-events: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 
@@ -3862,6 +3877,7 @@ img {
 
     -webkit-tap-highlight-color: transparent;
 
+    /* 세로 스크롤 가능 */
     touch-action: pan-y;
 }
 
@@ -3880,6 +3896,11 @@ img {
 }
 
 
+/*
+   모달 사진 자체는 터치 이벤트를 받지 않음.
+   swipe는 photoModal 부모에서 받음.
+*/
+
 .modal-image-container img {
     pointer-events: none;
 
@@ -3894,22 +3915,35 @@ img {
 }
 
 
-/*
-   모달 사진 위에도 투명 보호막
-*/
+/* =====================================================
+   PHOTO MODAL BUTTONS
+===================================================== */
 
-.modal-image-container::after {
-    content: "";
+.photo-nav,
+.close-modal {
+    pointer-events: auto;
 
-    position: absolute;
+    touch-action: manipulation;
 
-    inset: 0;
+    cursor: pointer;
 
-    z-index: 2;
+    -webkit-tap-highlight-color: transparent;
+}
 
-    background: transparent;
 
-    -webkit-touch-callout: none !important;
+/* =====================================================
+   RSVP BUTTONS
+===================================================== */
 
-    pointer-events: none;
+.open-rsvp-button,
+.rsvp-submit,
+.rsvp-later,
+.rsvp-close {
+    pointer-events: auto;
+
+    touch-action: manipulation;
+
+    cursor: pointer;
+
+    -webkit-tap-highlight-color: transparent;
 }

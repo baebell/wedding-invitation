@@ -1673,29 +1673,42 @@ if (galleryMoreButton) {
 
 }
 
-
 /* =====================================================
-   IMAGE CONTEXT MENU BLOCK
+   BLOCK IMAGE CONTEXT MENU
 ===================================================== */
 
 document.addEventListener(
     "contextmenu",
     function (event) {
 
-        /*
-           이미지에서만 우클릭 / 길게누르기 메뉴 차단
-        */
+        const protectedArea =
+            event.target.closest(
+                ".gallery-item, .modal-image-container, .invitation-middle-photo, .opening-image-wrap"
+            );
 
-        if (
-            event.target.tagName === "IMG"
-        ) {
-
+        if (protectedArea) {
             event.preventDefault();
-
         }
 
     }
 );
+
+
+document.addEventListener(
+    "dragstart",
+    function (event) {
+
+        if (
+            event.target.tagName === "IMG"
+        ) {
+            event.preventDefault();
+        }
+
+    }
+);
+
+
+
 
 /* =====================================================
    BLOCK LONG PRESS / CONTEXT MENU ON IMAGES
