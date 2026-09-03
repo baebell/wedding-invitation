@@ -1677,36 +1677,6 @@ if (galleryMoreButton) {
    BLOCK IMAGE CONTEXT MENU
 ===================================================== */
 
-document.addEventListener(
-    "contextmenu",
-    function (event) {
-
-        const protectedArea =
-            event.target.closest(
-                ".gallery-item, .modal-image-container, .invitation-middle-photo, .opening-image-wrap"
-            );
-
-        if (protectedArea) {
-            event.preventDefault();
-        }
-
-    }
-);
-
-
-document.addEventListener(
-    "dragstart",
-    function (event) {
-
-        if (
-            event.target.tagName === "IMG"
-        ) {
-            event.preventDefault();
-        }
-
-    }
-);
-
 
 
 

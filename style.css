@@ -3783,167 +3783,42 @@ body.photo-modal-open {
    IMAGE SAVE / LONG PRESS PROTECTION
 ===================================================== */
 
-
 /* =====================================================
-   ALL IMAGES
+   SAFE IMAGE PROTECTION
+   클릭/스크롤 기능을 방해하지 않는 최소 설정
 ===================================================== */
 
-img {
-    -webkit-touch-callout: none !important;
-
-    -webkit-user-select: none !important;
-    user-select: none !important;
-
-    -webkit-user-drag: none !important;
-
-    -webkit-tap-highlight-color: transparent;
+.gallery-item img,
+.modal-image-container img {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
 }
 
 
-/* =====================================================
-   GALLERY
-===================================================== */
+/* 갤러리 버튼은 정상 클릭 가능 */
 
 .gallery-item {
-    position: relative;
-
-    overflow: hidden;
-
-    cursor: pointer;
-
-    /* 버튼 클릭/터치 유지 */
     pointer-events: auto;
-
-    touch-action: manipulation;
-
-    -webkit-touch-callout: none !important;
-
-    -webkit-user-select: none !important;
-    user-select: none !important;
-
-    -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
 }
 
 
-/*
-   실제 이미지는 직접 터치하지 않고
-   부모 .gallery-item이 클릭을 받음
-*/
-
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-
-    display: block;
-
-    pointer-events: none;
-
-    -webkit-touch-callout: none !important;
-
-    -webkit-user-select: none !important;
-    user-select: none !important;
-
-    -webkit-user-drag: none !important;
-}
-
-
-/* =====================================================
-   GALLERY MORE BUTTON
-===================================================== */
+/* 더보기 버튼 */
 
 .gallery-more-button {
     pointer-events: auto;
-
-    touch-action: manipulation;
-
     cursor: pointer;
-
-    -webkit-tap-highlight-color: transparent;
 }
 
 
-/* =====================================================
-   INVITATION MIDDLE PHOTO
-===================================================== */
-
-.invitation-middle-photo,
-.invitation-middle-background {
-    -webkit-touch-callout: none !important;
-
-    -webkit-user-select: none !important;
-    user-select: none !important;
-
-    -webkit-tap-highlight-color: transparent;
-
-    /* 세로 스크롤 가능 */
-    touch-action: pan-y;
-}
-
-
-/* =====================================================
-   PHOTO MODAL
-===================================================== */
-
-.modal-image-container {
-    position: relative;
-
-    -webkit-touch-callout: none !important;
-
-    -webkit-user-select: none !important;
-    user-select: none !important;
-}
-
-
-/*
-   모달 사진 자체는 터치 이벤트를 받지 않음.
-   swipe는 photoModal 부모에서 받음.
-*/
-
-.modal-image-container img {
-    pointer-events: none;
-
-    -webkit-touch-callout: none !important;
-
-    -webkit-user-select: none !important;
-    user-select: none !important;
-
-    -webkit-user-drag: none !important;
-
-    touch-action: none;
-}
-
-
-/* =====================================================
-   PHOTO MODAL BUTTONS
-===================================================== */
-
-.photo-nav,
-.close-modal {
-    pointer-events: auto;
-
-    touch-action: manipulation;
-
-    cursor: pointer;
-
-    -webkit-tap-highlight-color: transparent;
-}
-
-
-/* =====================================================
-   RSVP BUTTONS
-===================================================== */
+/* RSVP */
 
 .open-rsvp-button,
 .rsvp-submit,
 .rsvp-later,
 .rsvp-close {
     pointer-events: auto;
-
-    touch-action: manipulation;
-
     cursor: pointer;
-
-    -webkit-tap-highlight-color: transparent;
 }
