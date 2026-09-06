@@ -3828,22 +3828,120 @@ body.photo-modal-open {
     pointer-events: none;
 }
 
+
 /* =====================================================
-   IMAGE GUARD LAYER
+   IMAGE PROTECTION - SAFE VERSION
 ===================================================== */
 
-.image-guard {
-    position: absolute;
-    inset: 0;
-    z-index: 2;
 
-    background: transparent;
+/* 갤러리 영역 */
+
+.gallery-item {
+    position: relative;
+
+    pointer-events: auto;
 
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     user-select: none;
 
-    -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
+}
 
-    pointer-events: auto;
+
+/*
+   실제 IMG는 터치 대상에서 제외
+   부모 .gallery-item이 클릭을 받음
+*/
+
+.gallery-item img {
+    pointer-events: none;
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* 본문 사진 */
+
+.invitation-middle-photo {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+
+.invitation-middle-photo img {
+    pointer-events: none;
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+
+/* HERO 사진이 있다면 */
+
+.hero-photo {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+
+.hero-photo img {
+    pointer-events: none;
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+
+/* 모달 */
+
+.modal-image-container {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+
+.modal-image-container img {
+    pointer-events: none;
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+
+/* =====================================================
+   BUTTONS - 반드시 터치 가능
+===================================================== */
+
+.gallery-more-button,
+.account-toggle,
+.copy-button,
+.open-rsvp-button,
+.rsvp-submit,
+.rsvp-later,
+.rsvp-close,
+.kakao-share-button,
+.map-app-button,
+.music-button,
+.photo-nav,
+.close-modal {
+    pointer-events: auto !important;
+
+    touch-action: manipulation;
+
+    cursor: pointer;
 }
