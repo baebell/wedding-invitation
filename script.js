@@ -1734,27 +1734,30 @@ document.addEventListener(
     }
 );
 
-
 /* =====================================================
-   IMAGE PROTECTION
+   IMAGE LONG PRESS / CONTEXT MENU BLOCK
 ===================================================== */
 
 document.addEventListener(
     "contextmenu",
     function (event) {
 
-        const protectedTarget =
+        const protectedArea =
             event.target.closest(
-                ".gallery-item, .modal-image-container, .invitation-middle-photo, .opening-image-wrap"
+                ".gallery-item, .invitation-middle-photo, .hero-photo, .modal-image-container, .opening-image-wrap"
             );
 
-        if (protectedTarget) {
+        if (protectedArea) {
+
             event.preventDefault();
+
         }
 
     }
 );
 
+
+/* 이미지 드래그 방지 */
 
 document.addEventListener(
     "dragstart",
@@ -1763,26 +1766,13 @@ document.addEventListener(
         if (
             event.target.tagName === "IMG"
         ) {
+
             event.preventDefault();
+
         }
 
     }
 );
-
-
-document.addEventListener(
-    "selectstart",
-    function (event) {
-
-        if (
-            event.target.tagName === "IMG"
-        ) {
-            event.preventDefault();
-        }
-
-    }
-);
-
 
 
 /* =====================================================
