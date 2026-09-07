@@ -4071,22 +4071,12 @@ body.photo-modal-open {
 ===================================================== */
 
 .handwriting-opening {
-    position: absolute;
-
-    top: 50%;
-    left: 50%;
-
-    transform: translate(-50%, -50%);
-
-    z-index: 5;
-
     width: 100%;
 
     text-align: center;
 
     pointer-events: none;
 }
-
 
 /* 한 줄 */
 
@@ -4108,7 +4098,7 @@ body.photo-modal-open {
 
     line-height: 1;
 
-    color: #c98691;
+    color: #98c29e;
 }
 
 
@@ -4203,3 +4193,52 @@ body.photo-modal-open {
 .handwriting-line:nth-child(3) span:nth-child(5) { animation-delay: 2.53s; }
 .handwriting-line:nth-child(3) span:nth-child(6) { animation-delay: 2.65s; }
 .handwriting-line:nth-child(3) span:nth-child(7) { animation-delay: 2.77s; }
+
+
+/* =====================================================
+   OPENING INTRO DARK SCREEN
+===================================================== */
+
+.opening-intro {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 20;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /*
+       완전히 검정보다는
+       웨딩 분위기의 짙은 브라운 그레이
+    */
+    background: #2c2927;
+
+    pointer-events: none;
+
+    animation:
+        introScreenOut
+        0.9s
+        ease
+        3.8s
+        forwards;
+}
+
+
+/* 어두운 화면 사라짐 */
+
+@keyframes introScreenOut {
+
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+}
