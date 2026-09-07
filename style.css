@@ -3945,3 +3945,28 @@ body.photo-modal-open {
 
     cursor: pointer;
 }
+
+
+/* =====================================================
+   GALLERY PHOTO POSITION
+===================================================== */
+
+/* 얼굴이 위쪽에 있는 사진 */
+.gallery-item img.face-top {
+    object-fit: cover !important;
+    object-position: center 15% !important;
+}
+
+
+/* 일반 사진 */
+.gallery-item img.face-center {
+    object-fit: cover !important;
+    object-position: center center !important;
+}
+
+
+/* 얼굴이 아래쪽에 있는 사진 */
+.gallery-item img.face-low {
+    object-fit: cover !important;
+    object-position: center 70% !important;
+}
