@@ -4265,11 +4265,14 @@ body.photo-modal-open {
 
     .opening-image-wrap {
         width: 100%;
-        max-width: 620px;
+        max-width: 720px;
 
-        height: 90vh;
+        height: min(88vh, 850px);
 
         margin: 0 auto;
+
+        position: relative;
+        overflow: hidden;
     }
 
     .opening-background {
