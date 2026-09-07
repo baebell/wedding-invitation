@@ -4079,28 +4079,36 @@ body.photo-modal-open {
 }
 
 /* 한 줄 */
-
 .handwriting-line {
     display: flex;
-
     justify-content: center;
     align-items: center;
 
-    height: 62px;
+    font-family: "Qwitcher Grypen", cursive;
 
-    font-family:
-        "Allura",
-        cursive;
+    font-size: 88px;
+    font-weight: 700;
 
-    font-size: 55px;
-
-    font-weight: 400;
-
-    line-height: 1;
+    line-height: 0.88;
 
     color: #98c29e;
+
+    letter-spacing: 0;
+
+    text-align: center;
+
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
 }
 
+.handwriting-opening {
+    width: 100%;
+    text-align: center;
+    pointer-events: none;
+}
+
+.handwriting-line + .handwriting-line {
+    margin-top: -10px;
+}
 
 /* 각각의 글자 */
 
