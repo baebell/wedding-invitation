@@ -4244,3 +4244,40 @@ body.photo-modal-open {
     }
 
 }
+
+
+
+/* =====================================================
+   DESKTOP VERSION
+===================================================== */
+
+@media (min-width: 769px) {
+
+    .invitation {
+        width: 100%;
+        max-width: 720px;
+        margin: 0 auto;
+    }
+
+    .opening-hero {
+        width: 100%;
+    }
+
+    .opening-image-wrap {
+        width: 100%;
+        max-width: 720px;
+
+        height: min(88vh, 850px);
+
+        margin: 0 auto;
+
+        position: relative;
+        overflow: hidden;
+    }
+
+    .opening-background {
+        background-size: cover;
+        background-position: center center;
+    }
+
+}
