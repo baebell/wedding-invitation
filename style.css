@@ -4064,53 +4064,50 @@ body.photo-modal-open {
 }
 
 
-
-
 /* =====================================================
-   HANDWRITING OPENING
+   SIMPLE OPENING TEXT
 ===================================================== */
 
 .handwriting-opening {
     width: 100%;
-
     text-align: center;
-
     pointer-events: none;
 }
 
+
 /* 한 줄 */
+
 .handwriting-line {
     display: flex;
     justify-content: center;
     align-items: center;
 
-    font-family: "Qwitcher Grypen", cursive;
+    font-family:
+        "Cormorant Garamond",
+        serif;
 
-    font-size: 88px;
-    font-weight: 700;
+    font-size: 52px;
 
-    line-height: 0.88;
+    font-weight: 400;
+
+    line-height: 1.05;
 
     color: #98c29e;
 
-    letter-spacing: 0;
+    letter-spacing: 0.04em;
 
     text-align: center;
-
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
 }
 
-.handwriting-opening {
-    width: 100%;
-    text-align: center;
-    pointer-events: none;
-}
+
+/* 줄 간격 */
 
 .handwriting-line + .handwriting-line {
-    margin-top: -10px;
+    margin-top: 4px;
 }
 
-/* 각각의 글자 */
+
+/* 각 글자 */
 
 .handwriting-line span {
     display: inline-block;
@@ -4118,16 +4115,12 @@ body.photo-modal-open {
     opacity: 0;
 
     transform:
-        translateY(8px)
-        rotate(-3deg)
-        scale(0.92);
-
-    filter: blur(2px);
+        translateY(4px);
 
     animation:
-        handwritingLetter
-        0.45s
-        cubic-bezier(0.22, 1, 0.36, 1)
+        simpleLetterFade
+        0.28s
+        ease-out
         forwards;
 }
 
@@ -4135,72 +4128,67 @@ body.photo-modal-open {
 /* 공백 */
 
 .handwriting-line .space {
-    width: 13px;
+    width: 12px;
 }
 
 
-/* 글씨가 나타나는 효과 */
+/* 간단한 글자 등장 */
 
-@keyframes handwritingLetter {
+@keyframes simpleLetterFade {
 
-    0% {
+    from {
         opacity: 0;
 
         transform:
-            translateY(8px)
-            rotate(-4deg)
-            scale(0.88);
-
-        filter: blur(3px);
+            translateY(4px);
     }
 
-    55% {
-        opacity: 0.8;
-    }
-
-    100% {
+    to {
         opacity: 1;
 
         transform:
-            translateY(0)
-            rotate(0)
-            scale(1);
-
-        filter: blur(0);
+            translateY(0);
     }
+
 }
 
 
-/* 첫 번째 줄 */
+/* =====================================================
+   FIRST LINE
+===================================================== */
 
-.handwriting-line:nth-child(1) span:nth-child(1) { animation-delay: 0.2s; }
-.handwriting-line:nth-child(1) span:nth-child(2) { animation-delay: 0.32s; }
-.handwriting-line:nth-child(1) span:nth-child(3) { animation-delay: 0.44s; }
-.handwriting-line:nth-child(1) span:nth-child(4) { animation-delay: 0.56s; }
-.handwriting-line:nth-child(1) span:nth-child(5) { animation-delay: 0.68s; }
-.handwriting-line:nth-child(1) span:nth-child(6) { animation-delay: 0.80s; }
-
-
-/* 두 번째 줄 */
-
-.handwriting-line:nth-child(2) span:nth-child(1) { animation-delay: 1.05s; }
-.handwriting-line:nth-child(2) span:nth-child(2) { animation-delay: 1.17s; }
-.handwriting-line:nth-child(2) span:nth-child(3) { animation-delay: 1.29s; }
-.handwriting-line:nth-child(2) span:nth-child(4) { animation-delay: 1.41s; }
-.handwriting-line:nth-child(2) span:nth-child(5) { animation-delay: 1.53s; }
-.handwriting-line:nth-child(2) span:nth-child(6) { animation-delay: 1.65s; }
-.handwriting-line:nth-child(2) span:nth-child(7) { animation-delay: 1.77s; }
+.handwriting-line:nth-child(1) span:nth-child(1) { animation-delay: 0.20s; }
+.handwriting-line:nth-child(1) span:nth-child(2) { animation-delay: 0.30s; }
+.handwriting-line:nth-child(1) span:nth-child(3) { animation-delay: 0.40s; }
+.handwriting-line:nth-child(1) span:nth-child(4) { animation-delay: 0.50s; }
+.handwriting-line:nth-child(1) span:nth-child(5) { animation-delay: 0.60s; }
+.handwriting-line:nth-child(1) span:nth-child(6) { animation-delay: 0.70s; }
 
 
-/* 세 번째 줄 */
+/* =====================================================
+   SECOND LINE
+===================================================== */
 
-.handwriting-line:nth-child(3) span:nth-child(1) { animation-delay: 2.05s; }
-.handwriting-line:nth-child(3) span:nth-child(2) { animation-delay: 2.17s; }
-.handwriting-line:nth-child(3) span:nth-child(3) { animation-delay: 2.29s; }
-.handwriting-line:nth-child(3) span:nth-child(4) { animation-delay: 2.41s; }
-.handwriting-line:nth-child(3) span:nth-child(5) { animation-delay: 2.53s; }
-.handwriting-line:nth-child(3) span:nth-child(6) { animation-delay: 2.65s; }
-.handwriting-line:nth-child(3) span:nth-child(7) { animation-delay: 2.77s; }
+.handwriting-line:nth-child(2) span:nth-child(1) { animation-delay: 0.90s; }
+.handwriting-line:nth-child(2) span:nth-child(2) { animation-delay: 1.00s; }
+.handwriting-line:nth-child(2) span:nth-child(3) { animation-delay: 1.10s; }
+.handwriting-line:nth-child(2) span:nth-child(4) { animation-delay: 1.20s; }
+.handwriting-line:nth-child(2) span:nth-child(5) { animation-delay: 1.30s; }
+.handwriting-line:nth-child(2) span:nth-child(6) { animation-delay: 1.40s; }
+.handwriting-line:nth-child(2) span:nth-child(7) { animation-delay: 1.50s; }
+
+
+/* =====================================================
+   THIRD LINE
+===================================================== */
+
+.handwriting-line:nth-child(3) span:nth-child(1) { animation-delay: 1.70s; }
+.handwriting-line:nth-child(3) span:nth-child(2) { animation-delay: 1.80s; }
+.handwriting-line:nth-child(3) span:nth-child(3) { animation-delay: 1.90s; }
+.handwriting-line:nth-child(3) span:nth-child(4) { animation-delay: 2.00s; }
+.handwriting-line:nth-child(3) span:nth-child(5) { animation-delay: 2.10s; }
+.handwriting-line:nth-child(3) span:nth-child(6) { animation-delay: 2.20s; }
+.handwriting-line:nth-child(3) span:nth-child(7) { animation-delay: 2.30s; }
 
 
 /* =====================================================
@@ -4218,19 +4206,16 @@ body.photo-modal-open {
     align-items: center;
     justify-content: center;
 
-    /*
-       완전히 검정보다는
-       웨딩 분위기의 짙은 브라운 그레이
-    */
-    background: #2c2927;
+    background:
+        #2c2927;
 
     pointer-events: none;
 
     animation:
         introScreenOut
-        0.9s
+        0.8s
         ease
-        3.8s
+        3.2s
         forwards;
 }
 
