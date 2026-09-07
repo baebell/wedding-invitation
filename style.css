@@ -4281,3 +4281,84 @@ body.photo-modal-open {
     }
 
 }
+
+/* =====================================================
+   INVITATION POEM
+===================================================== */
+
+.invitation-poem {
+    margin: 10px auto 0;
+
+    padding: 0 8px;
+
+    text-align: center;
+}
+
+
+/* 시 본문 */
+
+.poem-text {
+    margin: 0;
+
+    font-family:
+        "Gowun Batang",
+        "Noto Serif KR",
+        serif;
+
+    font-size: 15px;
+
+    font-weight: 400;
+
+    line-height: 2.05;
+
+    letter-spacing: -0.025em;
+
+    color: #625b55;
+
+    word-break: keep-all;
+}
+
+
+/* 시 출처 */
+
+.poem-source {
+    margin-top: 15px;
+
+    font-family:
+        "Noto Serif KR",
+        serif;
+
+    font-size: 10px;
+
+    font-weight: 300;
+
+    letter-spacing: 0.04em;
+
+    color: #9b9189;
+}
+
+
+/* =====================================================
+   VERTICAL DIVIDER
+===================================================== */
+
+.invitation-divider {
+    width: 1px;
+    height: 34px;
+
+    margin:
+        30px auto
+        30px;
+
+    background:
+        #c8b8ad;
+}
+
+
+/* =====================================================
+   INVITATION DESCRIPTION
+===================================================== */
+
+.invitation-description {
+    margin-top: 0;
+}
