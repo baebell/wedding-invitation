@@ -3244,6 +3244,8 @@ body.photo-modal-open {
 }
 
 
+
+
 /* 날짜 */
 
 .opening-date-text {
@@ -3258,7 +3260,14 @@ body.photo-modal-open {
 
     letter-spacing: 0.14em;
 
-    color: #5e6555;
+    -webkit-text-stroke:
+        0.4px rgba(0, 0, 0, 0.5);
+        
+    text-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.75),
+        0 0 10px rgba(0, 0, 0, 0.45);    
+    color: #ffffff;
+    
 }
 
 
