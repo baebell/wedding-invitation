@@ -4062,3 +4062,144 @@ body.photo-modal-open {
     object-fit: cover !important;
     object-position: center 70% !important;
 }
+
+
+
+
+/* =====================================================
+   HANDWRITING OPENING
+===================================================== */
+
+.handwriting-opening {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    z-index: 10;
+
+    width: 100%;
+
+    text-align: center;
+
+    pointer-events: none;
+}
+
+
+/* 한 줄 */
+
+.handwriting-line {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    height: 62px;
+
+    font-family:
+        "Allura",
+        cursive;
+
+    font-size: 55px;
+
+    font-weight: 400;
+
+    line-height: 1;
+
+    color: #c98691;
+}
+
+
+/* 각각의 글자 */
+
+.handwriting-line span {
+    display: inline-block;
+
+    opacity: 0;
+
+    transform:
+        translateY(8px)
+        rotate(-3deg)
+        scale(0.92);
+
+    filter: blur(2px);
+
+    animation:
+        handwritingLetter
+        0.45s
+        cubic-bezier(0.22, 1, 0.36, 1)
+        forwards;
+}
+
+
+/* 공백 */
+
+.handwriting-line .space {
+    width: 13px;
+}
+
+
+/* 글씨가 나타나는 효과 */
+
+@keyframes handwritingLetter {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translateY(8px)
+            rotate(-4deg)
+            scale(0.88);
+
+        filter: blur(3px);
+    }
+
+    55% {
+        opacity: 0.8;
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            rotate(0)
+            scale(1);
+
+        filter: blur(0);
+    }
+}
+
+
+/* 첫 번째 줄 */
+
+.handwriting-line:nth-child(1) span:nth-child(1) { animation-delay: 0.2s; }
+.handwriting-line:nth-child(1) span:nth-child(2) { animation-delay: 0.32s; }
+.handwriting-line:nth-child(1) span:nth-child(3) { animation-delay: 0.44s; }
+.handwriting-line:nth-child(1) span:nth-child(4) { animation-delay: 0.56s; }
+.handwriting-line:nth-child(1) span:nth-child(5) { animation-delay: 0.68s; }
+.handwriting-line:nth-child(1) span:nth-child(6) { animation-delay: 0.80s; }
+
+
+/* 두 번째 줄 */
+
+.handwriting-line:nth-child(2) span:nth-child(1) { animation-delay: 1.05s; }
+.handwriting-line:nth-child(2) span:nth-child(2) { animation-delay: 1.17s; }
+.handwriting-line:nth-child(2) span:nth-child(3) { animation-delay: 1.29s; }
+.handwriting-line:nth-child(2) span:nth-child(4) { animation-delay: 1.41s; }
+.handwriting-line:nth-child(2) span:nth-child(5) { animation-delay: 1.53s; }
+.handwriting-line:nth-child(2) span:nth-child(6) { animation-delay: 1.65s; }
+.handwriting-line:nth-child(2) span:nth-child(7) { animation-delay: 1.77s; }
+
+
+/* 세 번째 줄 */
+
+.handwriting-line:nth-child(3) span:nth-child(1) { animation-delay: 2.05s; }
+.handwriting-line:nth-child(3) span:nth-child(2) { animation-delay: 2.17s; }
+.handwriting-line:nth-child(3) span:nth-child(3) { animation-delay: 2.29s; }
+.handwriting-line:nth-child(3) span:nth-child(4) { animation-delay: 2.41s; }
+.handwriting-line:nth-child(3) span:nth-child(5) { animation-delay: 2.53s; }
+.handwriting-line:nth-child(3) span:nth-child(6) { animation-delay: 2.65s; }
+.handwriting-line:nth-child(3) span:nth-child(7) { animation-delay: 2.77s; }
