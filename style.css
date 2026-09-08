@@ -4504,8 +4504,8 @@ body.photo-modal-open {
     margin-top: 8px;
 
     font-family: "NanumBarunPen";
-    font-size: 16px;
-    font-weight: 400;
+    font-size: 18px;
+    font-weight: 600;
 
     letter-spacing: 0.08em;
 
@@ -4521,7 +4521,7 @@ body.photo-modal-open {
     margin-top: 3px;
 
     font-family: "NanumBarunPen";
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 400;
 
     letter-spacing: 0;
