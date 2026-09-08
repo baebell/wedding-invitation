@@ -4451,7 +4451,7 @@ body.photo-modal-open {
 .opening-top-text {
     position: absolute;
 
-    top: 45px;
+    top: 42px;
     left: 20px;
     right: 20px;
 
@@ -4489,10 +4489,9 @@ body.photo-modal-open {
 .opening-bottom-text {
     position: absolute;
 
+    top: 82px;
     left: 20px;
     right: 20px;
-
-    bottom: 75px;
 
     z-index: 3;
 
@@ -4507,7 +4506,7 @@ body.photo-modal-open {
 
     color: #ffffff;
 
-    font-size: 18px;
+    font-size: 15px;
 
     letter-spacing: 0.10em;
 
@@ -4515,13 +4514,12 @@ body.photo-modal-open {
         0 2px 8px rgba(0, 0, 0, 0.38);
 }
 
-
 .opening-place-text {
-    margin-top: 5px;
+    margin-top: 3px;
 
     color: #ffffff;
 
-    font-size: 17px;
+    font-size: 14px;
 
     text-shadow:
         0 2px 8px rgba(0, 0, 0, 0.38);
