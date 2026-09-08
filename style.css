@@ -91,6 +91,7 @@ a {
 }
 
 
+
 .opening-image {
     display: block;
 
@@ -4361,4 +4362,180 @@ body.photo-modal-open {
 
 .invitation-description {
     margin-top: 0;
+}
+
+
+/* =====================================================
+   OPENING WRAP
+===================================================== */
+
+.opening-image-wrap {
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+
+    overflow: hidden;
+
+    /* 세로 스크롤은 허용 */
+    touch-action: pan-y;
+
+    -webkit-user-select: none;
+    user-select: none;
+
+    -webkit-touch-callout: none;
+}
+
+
+/* =====================================================
+   OPENING BACKGROUND PHOTO
+===================================================== */
+
+.opening-background {
+    position: absolute;
+    inset: 0;
+
+    z-index: 1;
+
+    width: 100%;
+    height: 100%;
+
+    background-image:
+        url("images/opening.jpg");
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    /* 이미지 선택/저장 관련 동작 억제 */
+    -webkit-user-select: none;
+    user-select: none;
+
+    -webkit-touch-callout: none;
+
+    /* 사진 자체는 터치 안 받음 */
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   DARK OVERLAY
+   사진은 보이면서 살짝 어둡게
+===================================================== */
+
+.opening-image-wrap::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    z-index: 2;
+
+    /*
+       0.20~0.28 사이 추천
+       숫자가 커질수록 더 어두워짐
+    */
+    background:
+        rgba(0, 0, 0, 0.22);
+
+    /* 터치/스크롤 방해하지 않음 */
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   TOP TEXT
+===================================================== */
+
+.opening-top-text {
+    position: absolute;
+
+    top: 45px;
+    left: 20px;
+    right: 20px;
+
+    z-index: 3;
+
+    text-align: center;
+
+    pointer-events: none;
+}
+
+
+.opening-couple-name {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 25px;
+    font-weight: 500;
+
+    letter-spacing: 0.20em;
+
+    text-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.38);
+}
+
+
+/* =====================================================
+   BOTTOM TEXT
+===================================================== */
+
+.opening-bottom-text {
+    position: absolute;
+
+    left: 20px;
+    right: 20px;
+
+    bottom: 75px;
+
+    z-index: 3;
+
+    text-align: center;
+
+    pointer-events: none;
+}
+
+
+.opening-date-text {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 18px;
+
+    letter-spacing: 0.10em;
+
+    text-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.38);
+}
+
+
+.opening-place-text {
+    margin-top: 5px;
+
+    color: #ffffff;
+
+    font-size: 17px;
+
+    text-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.38);
+}
+
+
+/* =====================================================
+   SCROLL GUIDE
+===================================================== */
+
+.scroll-guide {
+    position: absolute;
+
+    z-index: 3;
+
+    pointer-events: none;
 }
