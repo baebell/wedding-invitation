@@ -4505,14 +4505,14 @@ body.photo-modal-open {
 
     font-family: "NanumBarunPen";
     font-size: 18px;
-    font-weight: 800;
+    font-weight: 1000;
 
     letter-spacing: 0.08em;
 
     color: #ffffff;
 
     text-shadow:
-        0 2px 8px rgba(0, 0, 0, 0.55);
+        0 2px 8px rgba(0, 0, 0, 0.38);
 }
 
 
