@@ -4512,7 +4512,7 @@ body.photo-modal-open {
     color: #ffffff;
 
     /* 숫자/영문을 실제로 조금 더 두껍게 */
-    -webkit-text-stroke: 0.25px #ffffff;
+    -webkit-text-stroke: 0.10px #ffffff;
 
     text-shadow:
         0 2px 7px rgba(0, 0, 0, 0.38);
