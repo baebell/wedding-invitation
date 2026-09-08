@@ -4468,16 +4468,13 @@ body.photo-modal-open {
 .opening-couple-name {
     margin: 0;
 
-    color: #ffffff;
-
-    font-family:
-        "Cormorant Garamond",
-        serif;
-
-    font-size: 25px;
+    font-family: "NanumBarunPen";
+    font-size: 30px;
     font-weight: 500;
 
-    letter-spacing: 0.20em;
+    letter-spacing: 0.16em;
+
+    color: #ffffff;
 
     text-shadow:
         0 2px 8px rgba(0, 0, 0, 0.38);
@@ -4504,29 +4501,36 @@ body.photo-modal-open {
 
 
 .opening-date-text {
-    margin: 0;
+    margin-top: 8px;
+
+    font-family: "NanumBarunPen";
+    font-size: 16px;
+    font-weight: 400;
+
+    letter-spacing: 0.08em;
 
     color: #ffffff;
-
-    font-size: 18px;
-
-    letter-spacing: 0.10em;
 
     text-shadow:
         0 2px 8px rgba(0, 0, 0, 0.38);
 }
 
+
+/* 장소 */
 .opening-place-text {
     margin-top: 3px;
 
-    color: #ffffff;
+    font-family: "NanumBarunPen";
+    font-size: 16px;
+    font-weight: 400;
 
-    font-size: 18px;
+    letter-spacing: 0;
+
+    color: #ffffff;
 
     text-shadow:
         0 2px 8px rgba(0, 0, 0, 0.38);
 }
-
 
 /* =====================================================
    SCROLL GUIDE
