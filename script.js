@@ -1895,6 +1895,7 @@ const revealObserver =
 
 revealElements.forEach(
     function (element) {
+        
 
         revealObserver.observe(
             element
@@ -1902,3 +1903,27 @@ revealElements.forEach(
 
     }
 );
+
+
+/* =====================================================
+   MAP UNLOCK
+===================================================== */
+
+const mapUnlockButton =
+    document.getElementById(
+        "mapUnlockButton"
+    );
+
+if (mapUnlockButton) {
+
+    mapUnlockButton.addEventListener(
+        "click",
+        function () {
+
+            mapUnlockButton.style.display =
+                "none";
+
+        }
+    );
+
+}
