@@ -351,33 +351,30 @@ if (rsvpLaterButton) {
    RSVP AUTO OPEN ON SCROLL
 ===================================================== */
 
+/* =====================================================
+   RSVP AUTO OPEN AFTER INVITATION
+===================================================== */
+
 let rsvpAutoOpened = false;
+
+const invitationSection =
+    document.querySelector(
+        ".invitation-message"
+    );
 
 
 window.addEventListener(
     "scroll",
     function () {
 
-        /*
-           이번 방문에서 이미 한 번
-           자동으로 띄웠으면 다시 안 띄움
-        */
-
         if (rsvpAutoOpened) {
             return;
         }
-
-
-        /*
-           이미 참석 여부를 제출한 사람은
-           자동 팝업을 다시 띄우지 않음
-        */
 
         const alreadySubmitted =
             localStorage.getItem(
                 "weddingRsvpSubmitted"
             );
-
 
         if (
             alreadySubmitted === "true"
@@ -385,25 +382,34 @@ window.addEventListener(
             return;
         }
 
+        if (!invitationSection) {
+            return;
+        }
+
+
+        const invitationBottom =
+            invitationSection
+                .getBoundingClientRect()
+                .bottom;
+
 
         /*
-           페이지를 250px 이상 스크롤하면
-           RSVP 팝업 표시
+           invitation 섹션의 아래쪽이
+           화면 위로 지나가면 팝업 표시
         */
 
         if (
-            window.scrollY > 350
-        ) {
+        invitationBottom <
+        window.innerHeight * 0.35
+            ) {
 
             rsvpAutoOpened = true;
 
             openRsvpModal();
-
         }
 
     }
 );
-
 
 
 /* =====================================================
