@@ -34,7 +34,7 @@ const supabaseClient =
 
 
 /* =====================================================
-   BASIC ELEMENTS
+   BGM - iPhone / Android / Kakao In-App
 ===================================================== */
 
 const bgm =
@@ -46,9 +46,6 @@ const musicButton =
 const musicIcon =
     document.getElementById("musicIcon");
 
-const invitation =
-    document.getElementById("invitation");
-
 
 let firstBgmStarted = false;
 
@@ -59,29 +56,64 @@ let firstBgmStarted = false;
 
 async function playBgm() {
 
+    if (!bgm) {
+        return false;
+    }
+
     try {
 
         await bgm.play();
 
-        musicButton.classList.remove("off");
+        if (musicButton) {
+            musicButton.classList.remove("off");
+        }
 
-        musicIcon.textContent = "♪";
+        if (musicIcon) {
+            musicIcon.textContent = "♪";
+        }
+
+        return true;
 
     } catch (error) {
 
-        musicButton.classList.add("off");
+        console.log(
+            "BGM play blocked:",
+            error
+        );
 
+        if (musicButton) {
+            musicButton.classList.add("off");
+        }
+
+        if (musicIcon) {
+            musicIcon.textContent = "♩";
+        }
+
+        return false;
     }
+
 }
 
 
+/* =====================================================
+   PAUSE
+===================================================== */
+
 function pauseBgm() {
+
+    if (!bgm) {
+        return;
+    }
 
     bgm.pause();
 
-    musicButton.classList.add("off");
+    if (musicButton) {
+        musicButton.classList.add("off");
+    }
 
-    musicIcon.textContent = "♩";
+    if (musicIcon) {
+        musicIcon.textContent = "♩";
+    }
 
 }
 
@@ -90,42 +122,47 @@ function pauseBgm() {
    MUSIC BUTTON
 ===================================================== */
 
-musicButton.addEventListener(
-    "click",
-    function (event) {
+if (musicButton) {
 
-        event.preventDefault();
-        event.stopPropagation();
+    musicButton.addEventListener(
+        "click",
+        async function (event) {
+
+            event.preventDefault();
+            event.stopPropagation();
 
 
-        /*
-           실제 오디오 상태 기준으로 판단
-        */
+            /*
+               실제 audio 상태 기준
+            */
 
-        if (
-            bgm.paused
-        ) {
+            if (bgm.paused) {
 
-            playBgm();
+                firstBgmStarted = true;
 
-        } else {
+                await playBgm();
 
-            pauseBgm();
+            } else {
+
+                pauseBgm();
+
+            }
 
         }
+    );
 
-    }
-);
+}
 
 
 /* =====================================================
    FIRST USER INTERACTION
 ===================================================== */
 
-function startBgmOnFirstInteraction(event) {
+async function startBgmOnFirstInteraction(event) {
 
     /*
-       음악 버튼 터치는 제외
+       음악 버튼을 직접 누른 경우에는
+       버튼 click 이벤트가 처리하도록 둠
     */
 
     if (
@@ -137,9 +174,12 @@ function startBgmOnFirstInteraction(event) {
     }
 
 
-    if (
-        firstBgmStarted
-    ) {
+    /*
+       이미 첫 재생을 시도했으면
+       다시 자동으로 켜지 않음
+    */
+
+    if (firstBgmStarted) {
         return;
     }
 
@@ -148,20 +188,30 @@ function startBgmOnFirstInteraction(event) {
 
 
     /*
-       현재 정지 상태일 때만 재생
+       현재 정지 상태일 때만
+       재생 시도
     */
 
-    if (
-        bgm.paused
-    ) {
+    if (bgm && bgm.paused) {
 
-        playBgm();
+        await playBgm();
 
     }
 
 
+    removeFirstInteractionListeners();
+
+}
+
+
+/* =====================================================
+   REMOVE FIRST INTERACTION
+===================================================== */
+
+function removeFirstInteractionListeners() {
+
     document.removeEventListener(
-        "touchstart",
+        "pointerdown",
         startBgmOnFirstInteraction
     );
 
@@ -173,18 +223,25 @@ function startBgmOnFirstInteraction(event) {
 }
 
 
-/* 모바일 첫 터치 */
+/* =====================================================
+   FIRST TOUCH / CLICK
+===================================================== */
+
+/*
+   pointerdown:
+   iPhone / Android / PC를
+   한 번에 대응
+*/
 
 document.addEventListener(
-    "touchstart",
-    startBgmOnFirstInteraction,
-    {
-        passive: true
-    }
+    "pointerdown",
+    startBgmOnFirstInteraction
 );
 
 
-/* PC 첫 클릭 */
+/*
+   일부 WebView fallback
+*/
 
 document.addEventListener(
     "click",
