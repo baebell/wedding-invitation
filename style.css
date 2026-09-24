@@ -5076,3 +5076,27 @@ body.photo-modal-open {
     pointer-events: none !important;
 }
 
+
+
+/* =====================================================
+   OPENING SCROLL LOCK - FINAL
+   인트로 터치 전에는 절대 아래로 스크롤되지 않음
+===================================================== */
+
+html.intro-locked,
+body.intro-locked {
+    width: 100% !important;
+    height: 100% !important;
+    overflow: hidden !important;
+    overscroll-behavior: none !important;
+}
+
+body.intro-locked {
+    position: fixed !important;
+    inset: 0 !important;
+}
+
+/* 인트로 화면에서 위/아래 스와이프 자체를 차단 */
+.opening-intro {
+    touch-action: none !important;
+}

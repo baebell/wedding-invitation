@@ -169,6 +169,35 @@ function pauseBgm() {
 
 let openingStarted = false;
 
+/*
+   인트로가 떠 있는 동안에는 페이지 스크롤을 완전히 잠근다.
+   반드시 인트로를 터치한 뒤에만 스크롤 가능.
+*/
+function lockOpeningScroll() {
+    document.documentElement.classList.add(
+        "intro-locked"
+    );
+
+    document.body.classList.add(
+        "intro-locked"
+    );
+
+    /* 새로고침/뒤로가기로 중간 위치가 복원되는 경우도 첫 화면으로 */
+    window.scrollTo(0, 0);
+}
+
+function unlockOpeningScroll() {
+    document.documentElement.classList.remove(
+        "intro-locked"
+    );
+
+    document.body.classList.remove(
+        "intro-locked"
+    );
+}
+
+lockOpeningScroll();
+
 function startOpening() {
 
     /*
@@ -199,6 +228,11 @@ function startOpening() {
             "is-hidden"
         );
     }
+
+    /*
+       메인 화면이 등장한 뒤에만 스크롤 잠금 해제
+    */
+    unlockOpeningScroll();
 
 
     /*
