@@ -164,57 +164,94 @@ function pauseBgm() {
 
 /* =====================================================
    OPENING INTRO TAP
+   Mobile / Kakao In-App safe version
 ===================================================== */
+
+let openingStarted = false;
+
+function startOpening() {
+
+    /*
+       pointerup + click가 연속으로 들어와도
+       오프닝은 한 번만 실행
+    */
+    if (openingStarted) {
+        return;
+    }
+
+    openingStarted = true;
+
+
+    /*
+       핵심:
+       음악 재생을 기다리지 않고 화면부터 즉시 전환한다.
+       카카오톡 인앱브라우저에서 bgm.play()가 지연되어도
+       오프닝이 멈춰 보이지 않게 한다.
+    */
+    if (openingImageWrap) {
+        openingImageWrap.classList.add(
+            "is-open"
+        );
+    }
+
+    if (openingIntro) {
+        openingIntro.classList.add(
+            "is-hidden"
+        );
+    }
+
+
+    /*
+       음악은 같은 사용자 제스처 안에서 바로 재생 시도.
+       Promise 완료를 기다리지는 않는다.
+    */
+    if (
+        bgm
+        &&
+        bgm.paused
+    ) {
+        playBgm();
+    }
+}
+
 
 if (openingIntro) {
 
+    /*
+       모바일: pointerup을 우선 사용
+    */
     openingIntro.addEventListener(
-        "click",
-        async function () {
-
-            /*
-               Android에서 중요한 부분:
-               실제 사용자 터치 안에서 음악 재생
-            */
-
-            if (
-                bgm
-                &&
-                bgm.paused
-            ) {
-
-                await playBgm();
-
-            }
-
-
-            /*
-               메인 사진 등장
-            */
-
-            if (openingImageWrap) {
-
-                openingImageWrap.classList.add(
-                    "is-open"
-                );
-
-            }
-
-
-            /*
-               어두운 인트로 화면 제거
-            */
-
-            openingIntro.classList.add(
-                "is-hidden"
-            );
-
-        },
-        {
-            once: true
-        }
+        "pointerup",
+        startOpening
     );
 
+
+    /*
+       일부 브라우저 / PC fallback
+    */
+    openingIntro.addEventListener(
+        "click",
+        startOpening
+    );
+
+
+    /*
+       키보드 접근성
+    */
+    openingIntro.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (
+                event.key === "Enter"
+                ||
+                event.key === " "
+            ) {
+                event.preventDefault();
+                startOpening();
+            }
+        }
+    );
 }
 
 
