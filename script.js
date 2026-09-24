@@ -33,21 +33,43 @@ const supabaseClient =
     );
 
 
+
+
+
+
 /* =====================================================
    BGM - iPhone / Android / Kakao In-App
 ===================================================== */
 
+/* =====================================================
+   BGM + OPENING INTRO
+   iPhone / Android / Kakao In-App
+===================================================== */
+
 const bgm =
-    document.getElementById("bgm");
+    document.getElementById(
+        "bgm"
+    );
 
 const musicButton =
-    document.getElementById("musicButton");
+    document.getElementById(
+        "musicButton"
+    );
 
 const musicIcon =
-    document.getElementById("musicIcon");
+    document.getElementById(
+        "musicIcon"
+    );
 
+const openingIntro =
+    document.getElementById(
+        "openingIntro"
+    );
 
-let firstBgmStarted = false;
+const openingImageWrap =
+    document.getElementById(
+        "openingImageWrap"
+    );
 
 
 /* =====================================================
@@ -65,11 +87,18 @@ async function playBgm() {
         await bgm.play();
 
         if (musicButton) {
-            musicButton.classList.remove("off");
+
+            musicButton.classList.remove(
+                "off"
+            );
+
         }
 
         if (musicIcon) {
-            musicIcon.textContent = "♪";
+
+            musicIcon.textContent =
+                "♪";
+
         }
 
         return true;
@@ -77,19 +106,27 @@ async function playBgm() {
     } catch (error) {
 
         console.log(
-            "BGM play blocked:",
+            "BGM 재생 차단:",
             error
         );
 
         if (musicButton) {
-            musicButton.classList.add("off");
+
+            musicButton.classList.add(
+                "off"
+            );
+
         }
 
         if (musicIcon) {
-            musicIcon.textContent = "♩";
+
+            musicIcon.textContent =
+                "♩";
+
         }
 
         return false;
+
     }
 
 }
@@ -108,12 +145,75 @@ function pauseBgm() {
     bgm.pause();
 
     if (musicButton) {
-        musicButton.classList.add("off");
+
+        musicButton.classList.add(
+            "off"
+        );
+
     }
 
     if (musicIcon) {
-        musicIcon.textContent = "♩";
+
+        musicIcon.textContent =
+            "♩";
+
     }
+
+}
+
+
+/* =====================================================
+   OPENING INTRO TAP
+===================================================== */
+
+if (openingIntro) {
+
+    openingIntro.addEventListener(
+        "click",
+        async function () {
+
+            /*
+               Android에서 중요한 부분:
+               실제 사용자 터치 안에서 음악 재생
+            */
+
+            if (
+                bgm
+                &&
+                bgm.paused
+            ) {
+
+                await playBgm();
+
+            }
+
+
+            /*
+               메인 사진 등장
+            */
+
+            if (openingImageWrap) {
+
+                openingImageWrap.classList.add(
+                    "is-open"
+                );
+
+            }
+
+
+            /*
+               어두운 인트로 화면 제거
+            */
+
+            openingIntro.classList.add(
+                "is-hidden"
+            );
+
+        },
+        {
+            once: true
+        }
+    );
 
 }
 
@@ -122,7 +222,11 @@ function pauseBgm() {
    MUSIC BUTTON
 ===================================================== */
 
-if (musicButton) {
+if (
+    musicButton
+    &&
+    bgm
+) {
 
     musicButton.addEventListener(
         "click",
@@ -133,16 +237,18 @@ if (musicButton) {
 
 
             /*
-               실제 audio 상태 기준
+               실제 음악 상태로 ON/OFF 판단
             */
 
-            if (bgm.paused) {
-
-                firstBgmStarted = true;
+            if (
+                bgm.paused
+            ) {
 
                 await playBgm();
 
-            } else {
+            }
+
+            else {
 
                 pauseBgm();
 
@@ -152,102 +258,6 @@ if (musicButton) {
     );
 
 }
-
-
-/* =====================================================
-   FIRST USER INTERACTION
-===================================================== */
-
-async function startBgmOnFirstInteraction(event) {
-
-    /*
-       음악 버튼을 직접 누른 경우에는
-       버튼 click 이벤트가 처리하도록 둠
-    */
-
-    if (
-        event.target.closest(
-            "#musicButton"
-        )
-    ) {
-        return;
-    }
-
-
-    /*
-       이미 첫 재생을 시도했으면
-       다시 자동으로 켜지 않음
-    */
-
-    if (firstBgmStarted) {
-        return;
-    }
-
-
-    firstBgmStarted = true;
-
-
-    /*
-       현재 정지 상태일 때만
-       재생 시도
-    */
-
-    if (bgm && bgm.paused) {
-
-        await playBgm();
-
-    }
-
-
-    removeFirstInteractionListeners();
-
-}
-
-
-/* =====================================================
-   REMOVE FIRST INTERACTION
-===================================================== */
-
-function removeFirstInteractionListeners() {
-
-    document.removeEventListener(
-        "pointerdown",
-        startBgmOnFirstInteraction
-    );
-
-    document.removeEventListener(
-        "click",
-        startBgmOnFirstInteraction
-    );
-
-}
-
-
-/* =====================================================
-   FIRST TOUCH / CLICK
-===================================================== */
-
-/*
-   pointerdown:
-   iPhone / Android / PC를
-   한 번에 대응
-*/
-
-document.addEventListener(
-    "pointerdown",
-    startBgmOnFirstInteraction
-);
-
-
-/*
-   일부 WebView fallback
-*/
-
-document.addEventListener(
-    "click",
-    startBgmOnFirstInteraction
-);
-
 /* =====================================================
    RSVP
 ===================================================== */

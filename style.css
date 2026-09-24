@@ -4221,12 +4221,7 @@ body.photo-modal-open {
 
     pointer-events: none;
 
-    animation:
-        introScreenOut
-        0.8s
-        ease
-        3.2s
-        forwards;
+    
 }
 
 
@@ -4666,3 +4661,102 @@ body.photo-modal-open {
 
     opacity: 0.85;
 }
+
+
+
+<section class="opening-hero">
+
+    <div
+        class="opening-image-wrap"
+        id="openingImageWrap"
+    >
+
+        <!-- 메인 웨딩사진 -->
+        <div class="opening-background"></div>
+
+
+        <!-- 처음 나타나는 인트로 -->
+        <div
+            class="opening-intro"
+            id="openingIntro"
+        >
+
+            <div class="handwriting-opening">
+
+                <div class="handwriting-line">
+                    <span>W</span>
+                    <span>e</span>
+                    <span class="space">&nbsp;</span>
+                    <span>a</span>
+                    <span>r</span>
+                    <span>e</span>
+                </div>
+
+                <div class="handwriting-line">
+                    <span>g</span>
+                    <span>e</span>
+                    <span>t</span>
+                    <span>t</span>
+                    <span>i</span>
+                    <span>n</span>
+                    <span>g</span>
+                </div>
+
+                <div class="handwriting-line">
+                    <span>m</span>
+                    <span>a</span>
+                    <span>r</span>
+                    <span>r</span>
+                    <span>i</span>
+                    <span>e</span>
+                    <span>d</span>
+                </div>
+
+            </div>
+
+
+            <!-- 글씨가 다 나온 뒤 등장 -->
+            <p class="intro-touch-guide">
+                화면을 터치해주세요
+            </p>
+
+        </div>
+
+
+        <!-- 메인사진 위 이름 -->
+        <div class="opening-top-text">
+
+            <p class="opening-couple-name">
+                YOONJONG & YEJIN
+            </p>
+
+        </div>
+
+
+        <!-- 이름 밑 날짜 / 장소 -->
+        <div class="opening-bottom-text">
+
+            <p class="opening-date-text">
+                2026.12.05. SAT
+            </p>
+
+            <p class="opening-place-text">
+                엘타워 6F 그레이스홀
+            </p>
+
+        </div>
+
+
+        <div class="scroll-guide">
+
+            <span class="scroll-line"></span>
+
+            <p>
+                SCROLL
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
