@@ -13,8 +13,7 @@
 html {
     scroll-behavior: smooth;
 
-    -webkit-text-size-adjust: none;
-    text-size-adjust: none;
+    
 }
 
 body {
@@ -4442,95 +4441,6 @@ body.photo-modal-open {
     pointer-events: none;
 }
 
-
-/* =====================================================
-   TOP TEXT
-===================================================== */
-
-.opening-top-text {
-    position: absolute;
-
-    top: 42px;
-    left: 20px;
-    right: 20px;
-
-    z-index: 3;
-
-    text-align: center;
-
-    pointer-events: none;
-}
-
-
-.opening-couple-name {
-    margin: 0;
-
-    font-family: "NanumBarunPen";
-    font-size: 30px;
-    font-weight: 500;
-
-    letter-spacing: 0.16em;
-
-    color: #ffffff;
-
-    text-shadow:
-        0 2px 8px rgba(0, 0, 0, 0.38);
-}
-
-
-/* =====================================================
-   BOTTOM TEXT
-===================================================== */
-
-.opening-bottom-text {
-    position: absolute;
-
-    top: 82px;
-    left: 20px;
-    right: 20px;
-
-    z-index: 3;
-
-    text-align: center;
-
-    pointer-events: none;
-}
-
-
-.opening-date-text {
-    margin-top: 8px;
-
-    font-family: "NanumBarunPen";
-    font-size: 16px;
-    font-weight: 700;
-
-    letter-spacing: 0.08em;
-
-    color: #ffffff;
-
-    /* 숫자/영문을 실제로 조금 더 두껍게 */
-    -webkit-text-stroke: 0.10px #ffffff;
-
-    text-shadow:
-        0 2px 7px rgba(0, 0, 0, 0.38);
-}
-
-
-/* 장소 */
-.opening-place-text {
-    margin-top: 3px;
-
-    font-family: "NanumBarunPen";
-    font-size: 18px;
-    font-weight: 400;
-
-    letter-spacing: 0;
-
-    color: #ffffff;
-
-    text-shadow:
-        0 2px 8px rgba(0, 0, 0, 0.38);
-}
 
 /* =====================================================
    SCROLL GUIDE
