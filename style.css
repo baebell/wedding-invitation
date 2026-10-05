@@ -5100,3 +5100,22 @@ body.intro-locked {
 .opening-intro {
     touch-action: none !important;
 }
+
+
+
+/* =====================================================
+   FAMILY NAME - 한 줄 고정
+===================================================== */
+
+.family-parent {
+    white-space: nowrap;      /* 무조건 한 줄 */
+    word-break: keep-all;     /* 한글 단어 중간 줄바꿈 방지 */
+    overflow-wrap: normal;
+
+    /* 작은 핸드폰에서는 글씨만 살짝 작아짐 */
+    font-size: clamp(14px, 4vw, 18px);
+}
+
+.family-intro {
+    gap: 6px;
+}
