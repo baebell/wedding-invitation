@@ -12,19 +12,21 @@
 
 html {
     scroll-behavior: smooth;
-}
 
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+}
 
 body {
     margin: 0;
 
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+
     background: #e9e5df;
     color: #403b36;
 
-    font-family:
-        "Noto Serif KR",
-        serif;
-
+    font-family: "Noto Serif KR", serif;
     font-weight: 300;
 
     overflow-x: hidden;
@@ -5104,14 +5106,10 @@ body.intro-locked {
 
 
 /* 부모님 + 장남/장녀 문구만 한 줄 고정 */
-.invitation-message .family-intro .family-side .family-parent {
+/* 부모님 문구만 한 줄 유지 */
+.family-parent {
     white-space: nowrap !important;
     word-break: keep-all !important;
     overflow-wrap: normal !important;
 }
 
-@media (max-width: 380px) {
-    .invitation-message .family-intro .family-side .family-parent {
-        font-size: 16px !important;
-    }
-}
