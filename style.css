@@ -5104,11 +5104,35 @@ body.intro-locked {
 
 
 
-/* 부모님 + 장남/장녀 문구만 한 줄 고정 */
-/* 부모님 문구만 한 줄 유지 */
+
+
+
+/* =====================================================
+   FINAL MOBILE TEXT FIX
+===================================================== */
+
+
+/* 메인 화면 이름 */
+.opening-couple-name {
+    white-space: nowrap !important;
+
+    font-size: clamp(23px, 7vw, 30px) !important;
+
+    letter-spacing: 0.13em !important;
+}
+
+
+/* 메인 화면 날짜 */
+.opening-date-text {
+    white-space: nowrap !important;
+}
+
+
+/* 부모님 + 장남/장녀 */
 .family-parent {
     white-space: nowrap !important;
     word-break: keep-all !important;
     overflow-wrap: normal !important;
-}
 
+    font-size: clamp(14px, 4vw, 18px) !important;
+}
