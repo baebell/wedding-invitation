@@ -13,14 +13,15 @@
 html {
     scroll-behavior: smooth;
 
-    
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
 }
 
 body {
     margin: 0;
 
-    -webkit-text-size-adjust: none;
-    text-size-adjust: none;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
 
     background: #e9e5df;
     color: #403b36;
@@ -5135,4 +5136,37 @@ body.intro-locked {
     overflow-wrap: normal !important;
 
     font-size: clamp(14px, 4vw, 18px) !important;
+}
+
+
+
+
+/* =====================================================
+   TRANSPORT TEXT - DEVICE CONSISTENCY FIX
+===================================================== */
+
+.transport-info,
+.transport-heading,
+.transport-text {
+    -webkit-text-size-adjust: 100% !important;
+    text-size-adjust: 100% !important;
+}
+
+
+/* 기차 / 지하철 / 자차 / 버스 제목 */
+.transport-heading {
+    font-size: 18px !important;
+    line-height: 1.4 !important;
+
+    word-break: keep-all !important;
+}
+
+
+/* 교통 안내 본문 */
+.transport-text {
+    font-size: clamp(15px, 4.2vw, 17px) !important;
+    line-height: 1.9 !important;
+
+    word-break: keep-all !important;
+    overflow-wrap: normal !important;
 }
