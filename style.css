@@ -5103,19 +5103,15 @@ body.intro-locked {
 
 
 
-/* =====================================================
-   FAMILY NAME - 한 줄 고정
-===================================================== */
-
-.family-parent {
-    white-space: nowrap;      /* 무조건 한 줄 */
-    word-break: keep-all;     /* 한글 단어 중간 줄바꿈 방지 */
-    overflow-wrap: normal;
-
-    /* 작은 핸드폰에서는 글씨만 살짝 작아짐 */
-    font-size: clamp(14px, 4vw, 18px);
+/* 부모님 + 장남/장녀 문구만 한 줄 고정 */
+.invitation-message .family-intro .family-side .family-parent {
+    white-space: nowrap !important;
+    word-break: keep-all !important;
+    overflow-wrap: normal !important;
 }
 
-.family-intro {
-    gap: 6px;
+@media (max-width: 380px) {
+    .invitation-message .family-intro .family-side .family-parent {
+        font-size: 16px !important;
+    }
 }
